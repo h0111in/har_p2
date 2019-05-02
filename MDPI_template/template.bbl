@@ -1,0 +1,68 @@
+\begin{thebibliography}{-------}
+\providecommand{\natexlab}[1]{#1}
+
+\bibitem[Schilit \em{et~al.}(1994)Schilit, Adams, Want,
+  et~al.]{schilit1994context}
+Schilit, B.N.; Adams, N.; Want, R.; others.
+\newblock {\em Context-aware computing applications}; Xerox Corporation, Palo
+  Alto Research Center,  1994.
+
+\bibitem[Rosati \em{et~al.}(2018)Rosati, Balestra, and
+  Knaflitz]{rosati2018comparison}
+Rosati, S.; Balestra, G.; Knaflitz, M.
+\newblock Comparison of Different Sets of Features for Human Activity
+  Recognition by Wearable Sensors.
+\newblock {\em Sensors} {\bf 2018}, {\em 18},~4189.
+
+\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
+  Gebert, and Sawicki]{kolodziej2019registration}
+Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
+  D.
+\newblock Registration and Analysis of Acceleration Data to Recognize Physical
+  Activity.
+\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
+
+\bibitem[Jordao \em{et~al.}(2018)Jordao, Nazare~Jr, Sena, and
+  Schwartz]{jordao2018human}
+Jordao, A.; Nazare~Jr, A.C.; Sena, J.; Schwartz, W.R.
+\newblock Human activity recognition based on wearable sensor data: A
+  standardization of the state-of-the-art.
+\newblock {\em arXiv preprint arXiv:1806.05226} {\bf 2018}.
+
+\bibitem[Nourani \em{et~al.}(2019)Nourani, Shihab, and
+  Sarbishe]{Nourani_CoMoRea2019}
+Nourani, H.; Shihab, E.; Sarbishe, O.
+\newblock The Impact of Data Reduction on Wearable-Based Human Activity
+  Recognition.
+\newblock  Proceedings of the 15th Workshop on Context Modeling and
+  Recognition. IEEE,  2019, CoMoRea '19, pp. 89--94.
+
+\bibitem[de~Faria and Vieira(2018)]{de2018comparative}
+de~Faria, I.L.; Vieira, V.
+\newblock A Comparative Study on Fitness Activity Recognition.
+\newblock  Proceedings of the 24th Brazilian Symposium on Multimedia and the
+  Web. ACM,  2018, pp. 327--330.
+
+\bibitem[Morris \em{et~al.}(2014)Morris, Saponas, Guillory, and
+  Kelner]{morris2014recofit}
+Morris, D.; Saponas, T.S.; Guillory, A.; Kelner, I.
+\newblock RecoFit: using a wearable sensor to find, recognize, and count
+  repetitive exercises.
+\newblock  Proceedings of the SIGCHI Conference on Human Factors in Computing
+  Systems. ACM,  2014, pp. 3225--3234.
+
+\bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
+  Wattenhofer]{soro2019recognition}
+Soro, A.; Brunner, G.; Tanner, S.; Wattenhofer, R.
+\newblock Recognition and Repetition Counting for Complex Physical Exercises
+  with Deep Learning.
+\newblock {\em Sensors} {\bf 2019}, {\em 19},~714.
+
+\bibitem[Bulling \em{et~al.}(2014)Bulling, Blanke, and
+  Schiele]{bulling2014tutorial}
+Bulling, A.; Blanke, U.; Schiele, B.
+\newblock A tutorial on human activity recognition using body-worn inertial
+  sensors.
+\newblock {\em ACM Computing Surveys (CSUR)} {\bf 2014}, {\em 46},~33.
+
+\end{thebibliography}
