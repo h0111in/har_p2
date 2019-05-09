@@ -105,7 +105,8 @@ $^{2}$ \quad Dept. of Computer Science and Software Engineering; e$.$shihab@conc
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Human Activity Recognition (HAR) refers to an emerging area of interest for medical, military, and security applications. However, the identification of the features to be used for activity classification and recognition is still an open point. In this work we have compared several state-of-the-art featuresets on HAR. To compare the featuresets, we have conducted an extensive set of experiments to indicate the vulnerable points in using featuresets. Aiming this goal, we implement several state-of-the-art machine learning models, ranging from traditional classifiers like SVM and GLM to convolutional neural networks; the models get evaluated by the performance gained using two challenging evaluation methods including cross-trials evaluation and cross-subjects evaluation, in addition to the convention method of 10-fold validation. The data from 55 gym exercises performing by thirteen subject have been recorded. To keep the realistic condition, they were asked to perform based on their own practice program. To capture the movements, two IMUs have been attached to the right wrist and right foot of the subjects. In total, 1300 features were extracted from the data. Our results showed that FNN acheived the highest performances using different featuresets. Against the prevailing wisdom, the statistical features gets outperformed by histogram feature set to deliver the best performance under all evaluation methods. 
+\abstract{Human Activity Recognition (HAR) refers to an emerging area of interest for medical, military, and security applications. However, the identification of the features to be used for activity classification and recognition is still an open point. In this work we have compared several state-of-the-art featuresets on HAR. To compare the featuresets, we have conducted an extensive set of experiments to indicate the vulnerable points in using featuresets. Aiming this goal, we implement several state-of-the-art machine learning models, ranging from traditional classifiers like SVM and GLM to convolutional neural networks; the models get evaluated by the performance gained using two challenging evaluation methods including cross-trials evaluation and cross-subjects evaluation, in addition to the convention method of 10-fold validation. The data from 55 gym exercises performing by thirteen subject have been recorded. To keep the realistic condition, they were asked to perform based on their own practice program. To capture the movements, two IMUs have been attached to the right wrist and right foot of the subjects. In total, 1300 features were extracted from the data. Our results showed that FNN acheived the highest performances using different featuresets. Against the prevailing wisdom, the statistical features gets outperformed by histogram feature set to deliver the best performance under all evaluation methods.
+\hosein{After all, this work provides the intuitions behind 100 hand-crafted features for beginner and researcher in HAR }
 	%(1) Background: Place the question addressed in a broad context and highlight the purpose of the study; (2) Methods: Describe briefly the main methods or treatments applied; (3) Results: Summarize the article's main findings; and (4) Conclusion: Indicate the main conclusions or interpretations. The abstract should be an objective representation of the article, it must not contain results which are not presented and substantiated in the main text and should not exaggerate the main conclusions.
 }
 
@@ -185,11 +186,16 @@ Placing more sensors on multiple body parts is intuitively beneficial for improv
 Sztyler et al., 2017 develop a position-aware HAR system by placing seven accelerometers in different body positions
 \section{Data}
 
-\subsection{Signal Acquisition}
-Real-world data is the first material and crucial for the recognition tasks after determining sensor types and
-sensor deployment
-In this work, we have employed a SoC device which called \textit{Neblina}.
-\subsubsection{Neblina}  Neblina is a miniature-sized box containing three tri-axial motion sensors (accelerometer, gyroscope, magnetometer) along with a processor, a flash memory, battery, and a bluetooth port. Using blue-tooth port, it can transmit the result to a host (e.g., cellphone or desktop computer).  In fact, Neblina is equipped with all requirements for a real-time HAR system. Comparing with a smartphone, Neblina is much smaller (Figure \ref{neblina_setup}) that lets us to attach it to different part of the subject's body without making any interrupt in his/her actions\cite{de2018comparative}. Having access directly to different resources like sensors or memory without OS interferences is another advantage of using Neblina that let us improve the efficiency of the model.
+The most crucial requirement to start an activity recognition process is having the real-world data of human activities. Although there are couple of datasets publicly available for HAR\cite{wang2019survey}, to the best of our knowledge, non of them provide the data of different sessions (neither at same day or different days) of same subject. In addition, they mostly focused on daily routine activities rather transition activities (e.g., gym exercises) which are repetitive and more complicated in terms of pattern recognition\cite{wang2019survey}. Therefore, in this study we collect a dataset providing the following features:
+\begin{itemize}[leftmargin=*,labelsep=5.8mm]
+	\item Specifically targeted on regular gym activities (including 55 exercises)
+	\item The data tracks activities of a set of subjects over two to six weeks
+	\item Data is recorded by four sensors (two wrists and two foots)
+	\item Subjects performed the practices only based on their own experiences (there is no instruction) 
+\end{itemize}
+To aim this goal, the first step is to determine the sensor type and how to deploy a system to collect the data. In this work, we have employed a SoC device which called \textit{Neblina}.
+\subsubsection{Neblina}
+Neblina is a miniature-sized box containing three tri-axial motion sensors (accelerometer, gyroscope, magnetometer) along with a processor, a flash memory, battery, and a bluetooth port. Using blue-tooth port, it can transmit the result to a host (e.g., cellphone or desktop computer).  In fact, Neblina is equipped with all requirements for a real-time HAR system. Comparing with a smartphone, Neblina is much smaller (Figure \ref{neblina_setup}) that lets us to attach it to different part of the subject's body without making any interrupt in his/her actions\cite{de2018comparative}. Having access directly to different resources like sensors or memory without OS interferences is another advantage of using Neblina that let us improve the efficiency of the model.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10 cm]{Definitions/images/neblina_setup.jpg}
@@ -254,12 +260,79 @@ Table \ref{dataset_statistics} shows the statistics of the dataset. Since subjec
 \section{Method}
 \hosein{high-level overview - pipeline}
 \subsection{Pre-processing}
+\hosein{all we did was including a scale normalization between 0 and 1}
 \subsection{Feature Extraction}
-In literature, in order to gain more information from the sensory data, the authors came up with hundreds of features among different domains like statistical features in time domain, frequency features, autocorrelation features, heuristic features and so on. In general, how informative a feature varies over a) different activities (e.g., being repetitive/non-repetitive of an activity), b) different sensor types, and c) how they are placed on body (e.g., tightly attached or put it on the packet). Based on this, the Conventional models in HAR extract features as much as they can.
-However, using all extracted features to train a model does not guarantee the model to deliver best performance in recognition. There are two major objectives in feature selection phase that need to be achieved: 
-a.	finding a set of minimum redundant features
-b.	finding a set of maximum relevant features
-Feature selection methods have also other responsibilities like preventing model from being over fitted, suffering from course of dimensionality, and delivering a visual presentation of the feature space to data analyst to let him/her to figure out the level of complexity of the project in hand. 
+In literature, in order to gain more information from the sensory data, the authors came up with hundreds of hand-crafted features among time domains, frequency domain or a combination of them. While each feature represents the signal in a certain point of view, it does not mean that this feature is informative enough for a model to recognize an activity based on that. One decisive factor to build a new feature is respecting the type of activity. Wang et. al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases) of an activity into three main groups: (1) The \textbf{basic activities} which happen in comparatively longer duration e.g., walking and running. (2)  The complex activities that are in the form of a sequence of several phases. Each phase might be a complex or basic activity e.g., coffee time, smoking. (3) Transition activities which having a certain but temporal pattern happening between two different postures or two basic activities. e.g., stand-to-sit, push-ups and so on. From this point of view, previous works introduced  different feature sets that each one may be more appropriate for recognizing certain type of activities. Consequently, targeting more than one type of activity brings more challenges for researcher to create a suitable set of features. Since exercises in gym composed of an orchestration of different type activities (basic, transition, complex) presenting a feature set feeding a model to recognize effectively will be so much challenging. To aim this goal, in this work, we extract features from the most state-of-the-arts feature sets in the literature. It is important to mention that we selected the ones that provide enough information to reproducibility (e.g., the definition of the features)
+
+
+
+%explaining different features and how they become calculated.
+%mentioning previous works: frame-work, recofit, direction independent features
+%showing a table of features in literature.
+\hosein{explaining heuristic feature creating concept }
+\subsubsection{Featureset A: Statistical Features}
+Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures. They have been intensively investigated in different applications and proved to be effective and useful for HAR. These features are based on a comprehensive and intuitive understanding of how a specific activity or posture will produce a set of discriminative features from measured sensor signals. Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them. Set A composed of 20 features based on applying 10 statistical functions on 12 input time-domain signal including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of those axes). Table \ref{statistical_set} shows the functions and a short description about each of them.
+\begin{table}[H]
+	\caption{Statical Functions along with the definitions and abbreviations }
+	\centering
+	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
+	\begin{tabular}{p{3.4cm}p{6cm}p{1.3cm}}
+		\toprule
+		\textbf{Function} & \textbf{Description} & \textbf{{\scriptsize abbreviation}} \\
+		\midrule
+		Minimum & {\scriptsize The value of the least sample of the stream}& MIN\\
+		Maximum & {\scriptsize The value of the greatest sample of the stream}& MAX\\
+		Mean&  {\scriptsize The average of all samples of the stream}& MEA\\
+		Median&  {\scriptsize The middle value of samples of the stream}& MEA\\
+		{\footnotesize Mean Absolute Deviation}& {\scriptsize The average distance between each sample and the mean of the stream}& MAD\\
+		{\footnotesize Median Absolute Deviation}& {\scriptsize The average distance between each sample and the median of the stream}& MAA\\
+		Inner Quartile Range  & {\scriptsize The amount of spread in the middle part \%50 of the stream}& IQR\\
+		Mean Crossing Rate& {\scriptsize The rate of passing the mean along the stream}& MCR\\
+		Standard Deviation& {\scriptsize how far the samples are from the mean of the stream}& SD\\
+		Variance& {\scriptsize the average degree of distance between samples and mean of the stream}& VAR\\
+		Root Mean Square& {\scriptsize The square root of the arithmetic mean of the squares of samples of the stream}& RMS\\
+		&{\scriptsize } & \\
+		Number of autocorrelation peaks& {\scriptsize The greater number of peaks refers to non-periodic activity and vice versa. }& NAcP\\
+		Prominent autocorrelation peaks&{\scriptsize NAcP with an extra condition that the peaks should be greater than neighbours with at least a certain distance} & NAcPP \\
+		Weak autocorrelation peaks&{\scriptsize NAcP with an extra condition that the distance between the peaks and neighbours should be less than a certain distance} & NAcWP \\
+		Maximum autocorrelation value&{\scriptsize Value of the greatest peak (except for the initial peak at zero lag)} & MAXAc \\
+		Height of the first autocorrelation peak (after zero-crossing)&{\scriptsize less height refers to more fluctuations within the stream  } & FAcP \\
+		&{\scriptsize } & \\
+		&{\scriptsize } & \\
+		&{\scriptsize } & \\
+		&{\scriptsize } & \\
+		\bottomrule
+	\end{tabular}
+	\label{statistical_set}
+\end{table}
+\begin{table}[H]
+	\caption{Statical Functions used in feature sets}
+	\centering
+	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
+	\begin{tabular}{cccccc}
+		\toprule
+		\textbf{Function} & \textbf{Set A} & \textbf{Set B}& \textbf{Set B}& \textbf{Set B}& \textbf{Set B}\\
+		\midrule
+		MIN & 7& 7& 7& 7& 7\\
+		MAX& 7& 7& 7& 7& 7\\
+		MEA& 7& 7& 7& 7& 7\\
+		MAD& 7& 7& 7& 7& 7\\
+		MAA& 7& 7& 7& 7& 7\\
+		IQR  & 7& 7& 7& 7& 7 \\
+		MCR& 7& 7& 7& 7& 7\\
+		SD& 7& 7& 7& 7& 7\\
+		VAR& 7& 7& 7& 7& 7\\
+		RMS& 7& 7& 7& 7& 7\\
+		\bottomrule
+	\end{tabular}
+	\label{statistical_set}
+\end{table}
+\subsubsection{Featureset B: Self-Similar Features}
+Set B is designed based on the idea that exercise is inherently repetitive rather than non-exercise activities that are more stochastic in a short period of time. This pattern of human activity can be extracted by calculating the convolution of a signal with shifted version of itself (autocorrelation). addition to this, different components of signal at frequency domain also show the periodicity of the activity. Authors in \cite{morris2014recofit} leveraged both the autocorrelation and frequency functions to make a featureset (self-similar features) to recognize gym exercises. They prepared 8 input signals including: (1) The magnitude of the accelerometer and gyroscope. (2) The first principal component of all axes of each sensor. (3) the first principal component of y and z axes of each sensors. (4) The x axis of each sensor. Table \ref{selft_similar_set} shows 
+\subsubsection{Featureset C: Histogram bins Features}
+\subsubsection{Featureset D: Physical Features}
+\subsubsection{Featureset E: Orientation Independent Features}
+\subsubsection{Featureset F: Automatic feature learning}
 
 The extraction of hand-crafted features depends on domain knowledge. However, hand-crafted features are
 easy to understand and implement
@@ -267,17 +340,13 @@ easy to understand and implement
 The key advantage of using hand-crafted features is that the features are computationally lightweight to implement especially in ubiquitous devices (Morales et al., 2017).
 The strengths of the automatically learned features by the deep networks are that the learning can be very deep, and the learning process does not rely on domain knowledge
 
-%explaining different features and how they become calculated.
-%mentioning previous works: frame-work, recofit, direction independent features
-%showing a table of features in literature.
-\hosein{explaining heuristic feature creating concept }
-\subsubsection{Featureset A: Statistical Features}
-Time-domain features are those features obtained directly from a window of sensor data and are typically
-statistical measures. They have been intensively investigated in different applications and proved to be effective and useful for HAR. These features are based on a comprehensive and intuitive understanding of how a specific activity or posture will produce a set of discriminative features from measured sensor signals
-\subsubsection{Featureset B: Self-Similar Features}
-\subsubsection{Featureset C: Histogram bins Features}
-\subsubsection{Featureset D: Physical Features}
-\subsubsection{Featureset E: Orientation Independent Features}
+\subsection{Feature Selection}
+\hosein{we may not want to delete this section}
+However, using all extracted features to train a model does not guarantee the model to deliver best performance in recognition. There are two major objectives in feature selection phase that need to be achieved: 
+a.	finding a set of minimum redundant features
+b.	finding a set of maximum relevant features
+Feature selection methods have also other responsibilities like preventing model from being over fitted, suffering from course of dimensionality, and delivering a visual presentation of the feature space to data analyst to let him/her to figure out the level of complexity of the project in hand. 
+
 \subsection{Activity Recognition}
 \hosein{high-level Description => Based on Activity Recognition Chain (ARC) in \cite{bulling2014tutorial}}
 \hosein{Comparing the process between classical models VS Neural Network model}
