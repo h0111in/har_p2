@@ -265,45 +265,57 @@ Table \ref{dataset_statistics} shows the statistics of the dataset. Since subjec
 In literature, in order to gain more information from the sensory data, the authors came up with hundreds of hand-crafted features among time domains, frequency domain or a combination of them. While each feature represents the signal in a certain point of view, it does not mean that this feature is informative enough for a model to recognize an activity based on that. One decisive factor to build a new feature is respecting the type of activity. Wang et. al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases) of an activity into three main groups: (1) The \textbf{basic activities} which happen in comparatively longer duration e.g., walking and running. (2)  The complex activities that are in the form of a sequence of several phases. Each phase might be a complex or basic activity e.g., coffee time, smoking. (3) Transition activities which having a certain but temporal pattern happening between two different postures or two basic activities. e.g., stand-to-sit, push-ups and so on. From this point of view, previous works introduced  different feature sets that each one may be more appropriate for recognizing certain type of activities. Consequently, targeting more than one type of activity brings more challenges for researcher to create a suitable set of features. Since exercises in gym composed of an orchestration of different type activities (basic, transition, complex) presenting a feature set feeding a model to recognize effectively will be so much challenging. To aim this goal, in this work, we extract features from the most state-of-the-arts feature sets in the literature. It is important to mention that we selected the ones that provide enough information to reproducibility (e.g., the definition of the features)
 
 
-
+Some of them have been intensively investigated in previous studies and proved to be useful for activity recognition [3] [7] [9]
 %explaining different features and how they become calculated.
 %mentioning previous works: frame-work, recofit, direction independent features
 %showing a table of features in literature.
 \hosein{explaining heuristic feature creating concept }
 \subsubsection{Featureset A: Statistical Features}
-Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures. They have been intensively investigated in different applications and proved to be effective and useful for HAR. These features are based on a comprehensive and intuitive understanding of how a specific activity or posture will produce a set of discriminative features from measured sensor signals. Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them. Set A composed of 20 features based on applying 10 statistical functions on 12 input time-domain signal including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of those axes). Table \ref{statistical_set} shows the functions and a short description about each of them.
+Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures. They have been intensively investigated in different applications and proved to be effective and useful for HAR. These features are based on a comprehensive and intuitive understanding of how a specific activity or posture will produce a set of discriminative features from measured sensor signals. Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them. Set A composed of 20 features based on applying 10 statistical functions on 12 input time-domain signal including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of those axes). Table \ref{features_table} shows the functions and a short description about each of them.
 \begin{table}[H]
 	\caption{Statical Functions along with the definitions and abbreviations }
 	\centering
 	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-	\begin{tabular}{p{3.4cm}p{6cm}p{1.3cm}}
+	\begin{tabular}{p{0.9cm}p{5cm}p{7cm}p{1.3cm}}
 		\toprule
-		\textbf{Function} & \textbf{Description} & \textbf{{\scriptsize abbreviation}} \\
+		\textbf{Code} & \textbf{Function} & \textbf{Description/Intuition} & \textbf{{\scriptsize abbreviation}} \\
 		\midrule
-		Minimum & {\scriptsize The value of the least sample of the stream}& MIN\\
-		Maximum & {\scriptsize The value of the greatest sample of the stream}& MAX\\
-		Mean&  {\scriptsize The average of all samples of the stream}& MEA\\
-		Median&  {\scriptsize The middle value of samples of the stream}& MEA\\
-		{\footnotesize Mean Absolute Deviation}& {\scriptsize The average distance between each sample and the mean of the stream}& MAD\\
-		{\footnotesize Median Absolute Deviation}& {\scriptsize The average distance between each sample and the median of the stream}& MAA\\
-		Inner Quartile Range  & {\scriptsize The amount of spread in the middle part \%50 of the stream}& IQR\\
-		Mean Crossing Rate& {\scriptsize The rate of passing the mean along the stream}& MCR\\
-		Standard Deviation& {\scriptsize how far the samples are from the mean of the stream}& SD\\
-		Variance& {\scriptsize the average degree of distance between samples and mean of the stream}& VAR\\
-		Root Mean Square& {\scriptsize The square root of the arithmetic mean of the squares of samples of the stream}& RMS\\
-		&{\scriptsize } & \\
-		Number of autocorrelation peaks& {\scriptsize The greater number of peaks refers to non-periodic activity and vice versa. }& NAcP\\
-		Prominent autocorrelation peaks&{\scriptsize NAcP with an extra condition that the peaks should be greater than neighbours with at least a certain distance} & NAcPP \\
-		Weak autocorrelation peaks&{\scriptsize NAcP with an extra condition that the distance between the peaks and neighbours should be less than a certain distance} & NAcWP \\
-		Maximum autocorrelation value&{\scriptsize Value of the greatest peak (except for the initial peak at zero lag)} & MAXAc \\
-		Height of the first autocorrelation peak (after zero-crossing)&{\scriptsize less height refers to more fluctuations within the stream  } & FAcP \\
-		&{\scriptsize } & \\
-		&{\scriptsize } & \\
-		&{\scriptsize } & \\
-		&{\scriptsize } & \\
+		{\footnotesize S1}&Minimum & {\scriptsize The value of the least sample of the stream}& MIN\\
+		S2&Maximum & {\scriptsize The value of the greatest sample of the stream}& MAX\\
+		{\footnotesize S3, SS8}&Mean&  {\scriptsize The average of all samples of the stream}& MEA\\
+		{\footnotesize S4}&Median&  {\scriptsize The middle value of samples of the stream}& MEA\\
+		{\footnotesize S5}&{\footnotesize Mean Absolute Deviation}& {\scriptsize The average distance between each sample and the mean of the stream}& MAD\\
+		{\footnotesize S6}&{\footnotesize Median Absolute Deviation}& {\scriptsize The average distance between each sample and the median of the stream}& MAA\\
+		{\footnotesize S7}&Inner Quartile Range  & {\scriptsize The amount of spread in the middle part \%50 of the stream}& IQR\\
+		{\footnotesize S8}&Mean Crossing Rate& {\scriptsize The rate of passing the mean along the stream}& MCR\\
+		{\footnotesize S9, SS9}&Standard Deviation& {\scriptsize how far the samples are from the mean of the stream}& SD\\
+		{\footnotesize S10, SS10}&Variance& {\scriptsize the average degree of distance between samples and mean of the stream}& VAR\\
+		{\footnotesize S11, SS11}&Root Mean Square& {\scriptsize The square root of the arithmetic mean of the squares of samples of the stream}& RMS\\
+		{\footnotesize SS1}&Number of autocorrelation peaks& {\scriptsize The greater number of peaks refers to non-periodic activity and vice versa. }& NAcP\\
+		{\footnotesize SS2}&Prominent autocorrelation peaks&{\scriptsize NAcP with an extra condition that the peaks should be greater than neighbours with at least a certain distance} & NAcPP \\
+		{\footnotesize SS3}&Weak autocorrelation peaks&{\scriptsize NAcP with an extra condition that the distance between the peaks and neighbours should be less than a certain distance} & NAcWP \\
+		{\footnotesize SS4}&Maximum autocorrelation value&{\scriptsize Value of the greatest peak (except for the initial peak at zero lag)} & MAXAc \\
+		{\footnotesize SS5}&Height of the first autocorrelation peak (after zero-crossing)&{\scriptsize less height refers to more fluctuations within the stream  } & FAcP \\
+		{\footnotesize SS6}&Power bins (10 bins)&{\scriptsize A 10 bins distribution of amplitudes of frequencies from 0.2-25Hz    } & Pbin(1-10) \\
+		{\footnotesize SS7}&Integrated RMS&{\scriptsize The root-mean-square amplitude of the signal after cumulative summation } & IRMS \\
+		Ph1&Movement Intensity&{\scriptsize the Euclidean norm of the total acceleration vector after removing the static gravitational acceleration } & MI\\
+		Ph2&Normalized Signal Magnitude Area&{\scriptsize the acceleration magnitude summed over three axes within each window normalized by the window length } & SMA \\
+		Ph3&Eigenvalues of Dominant Directions&{\scriptsize The eigenvectors of the covariance matrix of the acceleration data correspond to the dominant directions along which intensive human motion occurs.} & \\
+		Ph4&Correlation between Acceleration along Gravity and Heading Directions&{\scriptsize It shows the human movement is either vertically or horizontally. } &CAGH \\
+		Ph5&Averaged Velocity along Heading Direction&{\scriptsize The Euclidean norm of the averaged velocities along y and z axes over the window.} &AVH \\
+		Ph6&Averaged Velocity along Gravity Direction&{\scriptsize averaging the instantaneous velocity along the gravity direction at each time t over the window } & AVG \\
+		Ph7&Averaged Rotation Angles related to Gravity Direction&{\scriptsize The cumulative rotation angles around gravity direction} & ARATG \\
+		Ph8&Dominant Frequency&{\scriptsize The frequency corresponding to the maximum of the squared discrete FFT component magnitudes of the signal from each sensor axis} & DF \\
+		Ph9&Energy&{\scriptsize The sum of the squared discrete FFT component magnitudes of the signal from each sensor axis} & ENERGY \\
+		Ph10&Averaged Acceleration Energy&{\scriptsize The mean value of the energy over three acceleration axes} & AAE \\
+		Ph11&Averaged Rotation Energy&{\scriptsize The mean value of the energy over three gyroscope axes. } & ARE \\
+		&&{\scriptsize } & \\
+		&&{\scriptsize } & \\
+		&&{\scriptsize } & \\
+		&&{\scriptsize } & \\
 		\bottomrule
 	\end{tabular}
-	\label{statistical_set}
+	\label{features_table}
 \end{table}
 \begin{table}[H]
 	\caption{Statical Functions used in feature sets}
@@ -325,13 +337,30 @@ Time-domain features are those features obtained directly from a window of senso
 		RMS& 7& 7& 7& 7& 7\\
 		\bottomrule
 	\end{tabular}
-	\label{statistical_set}
+	\label{features_table}
 \end{table}
 \subsubsection{Featureset B: Self-Similar Features}
-Set B is designed based on the idea that exercise is inherently repetitive rather than non-exercise activities that are more stochastic in a short period of time. This pattern of human activity can be extracted by calculating the convolution of a signal with shifted version of itself (autocorrelation). addition to this, different components of signal at frequency domain also show the periodicity of the activity. Authors in \cite{morris2014recofit} leveraged both the autocorrelation and frequency functions to make a featureset (self-similar features) to recognize gym exercises. They prepared 8 input signals including: (1) The magnitude of the accelerometer and gyroscope. (2) The first principal component of all axes of each sensor. (3) the first principal component of y and z axes of each sensors. (4) The x axis of each sensor. Table \ref{selft_similar_set} shows 
+Set B is designed based on the idea that an exercise activity is inherently repetitive rather than a non-exercise activity. In other word, the signal from non-exercise activities looks more stochastic in a short period of time. This attribute of human activity can be extracted by calculating the convolution of a signal with shifted version of itself (autocorrelation) as well as by extracting the components of signal at frequency domain. Authors in \cite{morris2014recofit} leveraged both methods (the autocorrelation and frequency functions) to make a featureset (self-similar features) to recognize gym exercises. This feature-set contains 160 features. They prepared 8 input signals including: 
+\begin{itemize}
+	\item The x axis of each sensor\\
+	\item The magnitude of the accelerometer and gyroscope. \\
+	\item The first principal component of all axes of each sensor.\\
+	\item The first principal component of y and z axes of each sensors.\\
+\end{itemize}
+Table \ref{selft_similar_set} shows the list of all features that are employed in this feature set (SS1-SS11) along with the intuition behind of each of them.
+\hosein{they use the convention that the X axis of our sensor corresponds to the vector along the user’s arm which is different from our sensor orientation;}
 \subsubsection{Featureset C: Histogram bins Features}
+The histogram doesn't display the individual times, nor are the times exact. However, it is a nice way to look at the trend of the data.
 \subsubsection{Featureset D: Physical Features}
+The second set of features are called physical features,
+which are derived based on our physical interpretations of human motion.
+\hosein{in their work, the sensor is placed at the subject’s front right hip, oriented so the x axis points to the ground and is perpendicular to the plane formed by y and z axes. We assume that the sensor location and orientation are known apriori.\\
+Although this assumption limits the generalization of our physical features to be applied to other locations and orientations to some extent, it simplifies the problem and allows us to focus on designing features with strong physical meanings so as to better describe human motion1.}
+\hosein{regarding feature movement Intensity, the author did not mention that how they remove gravity from acceleration. I found a formula that uses gyroscope information to remove gravity. However this method can not be very accurate since at some situations like freely dropping, the linear acceleration is zero while the formula says something rather zero. generally speaking, it is not very accurate for detecting shake (fast movements) }
+Similar to set B, in this feature-set the sensor fusion is performed at pre-processing level.
+
 \subsubsection{Featureset E: Orientation Independent Features}
+
 \subsubsection{Featureset F: Automatic feature learning}
 
 The extraction of hand-crafted features depends on domain knowledge. However, hand-crafted features are
