@@ -64,11 +64,62 @@ Soro, A.; Brunner, G.; Tanner, S.; Wattenhofer, R.
   with Deep Learning.
 \newblock {\em Sensors} {\bf 2019}, {\em 19},~714.
 
+\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
+Sarbishei, O.
+\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
+  Recognition on Low-Power Smart Devices.
+\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
+  257--260.
+
+\bibitem[Zhang and Sawchuk(2011)]{zhang2011feature}
+Zhang, M.; Sawchuk, A.A.
+\newblock A feature selection-based framework for human activity recognition
+  using wearable multimodal sensors.
+\newblock  Proceedings of the 6th International Conference on Body Area
+  Networks. ICST (Institute for Computer Sciences, Social-Informatics and
+  Telecommunications Engineering),  2011, pp. 92--98.
+
+\bibitem[Acc()]{Accelero5:online}
+Accelerometer.
+\newblock \url{https://www.w3.org/TR/accelerometer/}.
+\newblock (Accessed on 07/03/2019).
+
+\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
+Yurtman, A.; Barshan, B.
+\newblock Activity recognition invariant to sensor orientation with wearable
+  motion sensors.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
+
+\bibitem[Moon and Stirling(2000)]{moon2000mathematical}
+Moon, T.K.; Stirling, W.C.
+\newblock {\em Mathematical methods and algorithms for signal processing};
+  Vol.~1, Prentice hall Upper Saddle River, NJ,  2000.
+
 \bibitem[Bulling \em{et~al.}(2014)Bulling, Blanke, and
   Schiele]{bulling2014tutorial}
 Bulling, A.; Blanke, U.; Schiele, B.
 \newblock A tutorial on human activity recognition using body-worn inertial
   sensors.
 \newblock {\em ACM Computing Surveys (CSUR)} {\bf 2014}, {\em 46},~33.
+
+\bibitem[Brownlee(2018)]{brownlee2018gentle}
+Brownlee, J.
+\newblock A gentle introduction to k-fold cross-validation.
+\newblock {\em Accessed October} {\bf 2018}, {\em 7},~2018.
+
+\bibitem[Shakya \em{et~al.}(2018)Shakya, Zhang, and
+  Zhou]{shakya2018comparative}
+Shakya, S.R.; Zhang, C.; Zhou, Z.
+\newblock Comparative Study of Machine Learning and Deep Learning Architecture
+  for Human Activity Recognition Using Accelerometer Data.
+\newblock {\em Int. J. Mach. Learn. Comput} {\bf 2018}, {\em 8},~577--582.
+
+\bibitem[Mehrang \em{et~al.}(2017)Mehrang, Pietila, Tolonen, Helander, Jimison,
+  Pavel, and Korhonen]{mehrang2017human}
+Mehrang, S.; Pietila, J.; Tolonen, J.; Helander, E.; Jimison, H.; Pavel, M.;
+  Korhonen, I.
+\newblock Human activity recognition using a single optical heart rate
+  monitoring wristband equipped with triaxial accelerometer. In {\em EMBEC \&
+  NBC 2017}; Springer,  2017; pp. 587--590.
 
 \end{thebibliography}
