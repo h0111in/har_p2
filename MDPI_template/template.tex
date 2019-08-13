@@ -4,10 +4,12 @@
 %=================================================================
 \documentclass[journal,article,submit,moreauthors,pdftex]{Definitions/mdpi} 
 
+\usepackage{tabularx,colortbl}
 \usepackage{booktabs} % For formal tables
 \usepackage{array}
 \usepackage{multirow}
 \usepackage{subcaption}
+
 \newcommand{\emad}[1]{\textcolor{red}{{\it [Emad: #1]}}}
 \newcommand{\hosein}[1]{\textcolor{orange}{{\it [Hosein: #1]}}}
 \newcommand{\todo}[1]{\colorbox{yellow}{\textbf{[#1]}}}
@@ -208,7 +210,7 @@ Depending on how much an activity is complicated (e.g., how many part of body ar
 We asked 15 members of a gym (4 female), ages 21-35, to participate in this study. Participants varied in level of expertise (from 1 month to 6 consecutive years of experience). For more realistic scenarios, we did not constrain participants to certain exercises, instead we asked them to follow up their own plan. Comparing with previous works' dataset, considering this level of freedom for subjects returns following advantages: (1) Since each session is about 1 to 2 hours, we can observe the impact of fatigue on performing an activity. (2) The unknown period or null-class activities are not artificially performed, since subjects were free to do whatever they normally do in gym (3) impact of background experience can be measured. It is because the gym programs are cyclic over week or month. By repeating an activity over cycles, Subjects will be more consistent over different sets ( a consecutive sequence of doing one activity). (4) there is no instruction of how doing exercises for subjects. Although this can let subjects to perform an activity in non-identical way, it is considered as an advantage for our study since it replicates the real-world condition. In \cite{morris2014recofit}, the authors showed that by changing the environment from space-constrained laboratory to a real gym the segmentation performance for recognizing gym exercises has dropped by 50\%. Therefore, another advantage of keeping the experiment under real-world condition is the performance of the model is more reliable.\\
 \subsection{Activities}
 Our dataset ended up with 55 common exercises in gym. During electing participants, we picked mostly those persons who do more common exercises involved in either upper body or lower body. Thus, activities like Wall ball, jumping jacks and so on or advanced exercise in body-building are not in our dataset. In \cite{soro2019recognition} (the second dataset in this work), authors have targeted CrossFit activities which are involved in upper and lower body together. They have shown that only one sensor on wrist is enough to recognize such activities. Therefore, in this study we focused on those exercises in which either lower or upper body keeps stable during the activity. Thereby, existing the second sensor is necessary for recognizing the activity. As listed in Table \ref{activity_list}, only two activities are involved in both upper and lower body. Running on treadmill (A1) make lower body involved. While In previous works this activity was recognized by sensor on wrist. Since a user can put her/his hands on device handler, using sensor on wrist is not effective always. \\
-
+\hosein{Recognition accuracy is assessed in the context of a circuit, and inevitably the choice of circuit affects accuracy. A larger number of activities or high similarity among activities will reduce accuracy. Comprehensive analysis of all possible circuits is prohibitive, so we present results from the two circuits used in our study, along with leave-one-out cross-validation results from our training data for two reasonable circuits of different sizes, to demonstrate the effect of circuit size on accuracy.}
 \begin{table}[H]
 	\caption{List of exercises along with target body part involved in each exercise.}
 	\centering
@@ -217,15 +219,14 @@ Our dataset ended up with 55 common exercises in gym. During electing participan
 		\toprule
 		\textbf{Exercise}	& \textbf{Body Involved}	& \textbf{Code}\\
 		\midrule
-		Treadmill		& lower 			& A1\\
-		Ab crunch machine		& lower \& upper & A2\\
-		Lying leg curl		& lower			& A3\\
-		Barbbell bicep curl		& upper			& A6\\
-		Standing calf raise		& upper			& A7 \\
-		Seated calf raise		& upper			& A11 \\
-		Overhead dumbbell press		& upper			& A12 \\
-		Machine shoulder Press		& upper			& A13 \\
-		Overhead barbell press		& upper			& A14 \\
+		Lat Pull Down		& upper 		& A1\\
+		Bench Press		& upper 			& A2\\
+		Biceps curl		& upper			& A3\\
+		Push-ups & upper			& A4\\
+		Treadmill		& lower 			& A5\\
+		Ab crunch machine		& lower \& upper & A6\\
+		Reverse Crunch & lower			& A7 \\
+		Russian Twist & lower			& A8 \\
 		\bottomrule
 	\end{tabular}
 \label{activity_list}
@@ -240,20 +241,18 @@ Table \ref{dataset_statistics} shows the statistics of the dataset. Since subjec
 	\caption{Statistics of the dataset divided by type of exercise along with the experiments that involve them in.}
 	\centering
 	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-	\begin{tabular}{ccccccccc}
+	\begin{tabular}{cccccccc}
 		\toprule
-		\textbf{Exercise} & \textbf{Subjects} & \textbf{Sessions}	& \textbf{Trials} & \textbf{Reps} & \textbf{Samples} & \textbf{10-fold} & \textbf{LOSO} & \textbf{LOTO} \\
-		\midrule
-		Treadmill& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Ab crunch machine& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Lying leg curl& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Barbbell biceps curl& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Standing calf raise& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Seated calf raise& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Overhead dumbbell press& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Machine shoulder Press& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Overhead barbell press& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
-		Non-activity& 7& 17& 17& 17& 1M& Yes& Yes& Yes\\
+		\textbf{Exercise} & \textbf{Subjects} & \textbf{Sessions}	 & \textbf{Reps} & \textbf{Samples} & \textbf{10-fold} & \textbf{LOSO} & \textbf{LOTO} \\
+		\midrule		
+		Lat Pull Down& 6& 22& 218& 14700& Yes& Yes& Yes\\
+		Bench Press	& 6& 26& 273& 23230& Yes& Yes& Yes\\
+		Biceps curl	& 4& 13& 115& 16095&Yes& Yes& No\\
+		Push-ups & 5& 16& 181& 9200& Yes& Yes& Yes\\
+		Treadmill& 4& 5& +1200 & 68780& Yes& Yes& Yes\\
+		Ab crunch machine& 3& 12& 108 & 10580& Yes& No& Yes\\
+		Crunch Twist &  3& 12& 98& 8760& Yes& No& Yes\\
+		Russian Twist & 3& 8& 67& 8520& Yes& No& Yes\\
 		\bottomrule
 	\end{tabular}
 	\label{dataset_statistics}
@@ -310,14 +309,14 @@ In literature, in order to gain more information from the sensory data, the auth
 	\end{tabular}
 	\label{features_table}
 \end{table}
-\subsubsection{Set\_A: Statistical Features}
+\subsubsection{Set\_A: Statistical Features (ST\_Set)}
 Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures. They have been intensively investigated in different applications and proved to be effective and useful for HAR. These features are based on a comprehensive and intuitive understanding of how a specific activity or posture will produce a set of discriminative features from measured sensor signals. Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them. Set A composed of 20 features based on applying 10 statistical functions on 12 input time-domain signal including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of those axes). Table \ref{features_table} shows the functions and a short description about each of them.
 
 
-\subsubsection{Set\_B: Histogram bins Features}
+\subsubsection{Set\_B: Histogram bins Features (HB\_Set)}
 The histogram representation of a time series signal is equal to the probability distribution of that signal over a period of time (window size). In HAR, considering the fact that each activity contains a set of small movements (as small as one sample) with certain acceleration and rotation, histogram can indicate the difference between activities by showing the different distributions of those small movements. Comparing with other statistical features, extracting histogram bins is low cost in terms of required processing time and memory usage\cite{Sarbishei2019platform}. In this work we consider 20 bins to distribute the data among them (HB in Table \ref{features_table})
 
-\subsubsection{Set\_C: Self-Similar Features}
+\subsubsection{Set\_C: Self-Similar Features (SS\_Set)}
 Although by having enough number of bins, histogram can show the trend of data, they can not display the individual times, nor the iterations within the data. In addition, an exercise activity is inherently repetitive rather than a non-exercise activity. In other word, the signal from non-exercise activities looks more stochastic in a short period of time. Set C is designed based on the idea of extracting repetitions from the signal. This attribute of human activity can be extracted by calculating the convolution of a signal with shifted version of itself (autocorrelation) as well as by extracting the components of signal at frequency domain. Authors in \cite{morris2014recofit} leveraged both methods (the autocorrelation and frequency functions) to make a featureset (self-similar features) to recognize gym exercises. This feature-set contains 160 features. They prepared 8 input signals including: 
 \begin{itemize}
 	\item The x axis of each sensor\\
@@ -327,14 +326,14 @@ Although by having enough number of bins, histogram can show the trend of data, 
 \end{itemize}
 Table \ref{features_table} shows the list of all features that are employed in this feature set (SS1-SS11) along with the intuition behind each of them.
 %\hosein{from implementation point of view: in their experiments: the X axis of the sensor corresponds to the vector along the user’s arm however in our case y axis is toward arm's direction}
-\subsubsection{Set\_D: Physical Features}
+\subsubsection{Set\_D: Physical Features (PH\_Set)}
 One idea to design more informative features from sensory data is to bring the principles of human movements into consideration. Specifically this type of features are derived based on the physical interpretations of human motion which called physical features. In \cite{zhang2011feature}, the authors introduced a set of features based on physical parameters of human motion. To have an strong physical meaning of motion data (e.g., moving forward, backward), they assumed that the sensor position and direction are known during the experiment. Comparing with previous featuresets, these features made up from a fusion of multiple inputs rather just applying a function on one input. As a part of pre-processing operation for some of their features, they mentioned that they remove gravity from acceleration but they did not reveal any formula for that. In this paper, we remove the gravity using gyroscope data by applying the method described in \cite{Accelero5:online}.
 %\hosein{Although this assumption limits the generalization of our physical features to be applied to other locations and orientations to some extent, it simplifies the problem and allows us to focus on designing features with strong physical meanings so as to better describe human motion1.}
 %
 %\hosein{regarding feature movement Intensity, the author did not mention that how they remove gravity from acceleration. I found a formula that uses gyroscope information to remove gravity. However this method can not be very accurate since at some situations like freely dropping, the linear acceleration is zero while the formula says something rather zero. generally speaking, it is not very accurate for detecting shake (fast movements) }
 %Similar to set B, in this feature-set the sensor fusion is performed at pre-processing level.
 
-\subsubsection{Set\_E: Orientation Independent Features}
+\subsubsection{Set\_E: Orientation Independent Features (OI\_Set)}
 In contrast to physical features which is dependant to the position and orientation of the sensors, in \cite{yurtman2017activity}, Yurtman et. al. targeted on a HAR model that does not rely on the variation of sensor orientation. In fact, in their model, they introduced an Orientation-invariant transformations (OITs). They compared their model with the ordinary model - pre-defined sensor orientation, on five different datasets. Although their featureset did not have a significant impact on performance, it brought an extra added value to the model that lets the model to be more robust against orientation. The OIT that they have introduced in their work is inspired by the idea of \textit{single value decomposition}\cite{moon2000mathematical}. First, they project every data point from original x/y/z space to a new space with same number of dimensions but with largest distance between data points. The intuition here is that the direction of the axes are defined by value of the data points not by x, y or z direction. Next, they apply PCA on transformed data and take first 30 most informative features. In Table\ref{features_table}, these type of features  are indicated by "OI" prefix.
 
 %\subsection{Feature Selection}
@@ -368,6 +367,7 @@ information according to the McCulloch and Pitts model:
 \end{equation}
 where y is the output of the neuron, wi are weights of the incoming connections, xi are inputs to the neuron, and f is called transfer function and should be selected according to the classification problem.\\
 Neurons in a FNN are organized in layers: in the input layer, one neuron for each input variable is required; the number of neurons in the output layer is decided according to the number of classes to be recognized and the selected transfer function; between input and output layers a certain number of hidden layers can be inserted, whose dimensions are usually decided testing different configurations. \\
+An ANN consists of neurons, each of which produces an output that is a nonlinear function (called the activation function) of a weighted linear combination of multiple inputs and a constant.
 In this study we fixed a basic network structure with input layer and first hidden layer both including one neuron for each feature selected according to the first substring of the GA solution, and an output layer made up of one neuron returning the recognized activity. Then, the number of hidden layers was increased according to the second substring of each solution: three bits were used for adding from one to eight further hidden layers to the basic structure. Each new hidden layer included 1/2 of the previous layer neurons. The sigmoid transfer function was used for all hidden layers and the linear transfer function was set for the output neuron. Since the output neuron retuned a real value for each classified element, the round operator was applied to the FNN output and used to assign the final class.
 
 
@@ -414,47 +414,98 @@ The Leave-One-Trial-Out (LOTO) cross validation process is exactly same as LOSO.
 \section{Results}
 
 \subsubsection{RQ1: Which featureset delivers higher performance over classifiers?}
-In this section we compare the performance of four different classifiers on all five featuresets. Table \ref{accuracy_classifier_featureset} and \ref{f1_classifier_featureset} show the results respectively in Accuracy and F-score. We used 10-fold cross validation to measure the performance. A total of 150,000 data points were included in the validation set. Table \ref{dataset_statistics} shows total number of samples for each activity separately. It can be seen how classifiers performance varies over featuresets. All classifiers on \textit{set\_B} and \textit{set\_A} deliver their best performance. On the other hand,  the performance achieved on a given featureset has been affected by changing classifiers. FNN and SVM gained the best results comparing with two other classifiers. Also, it seems clear that the \textit{set\_E} (Orientation Invariant features) provide insufficient information for successfully tackling activity recognition, since the accuracy never exceeds 62\%, whereas other featuresets achieve accuracies over 75\%. Interestingly, the \textit{set\_B} (Histogram Features) with having the least complexity in computation gained the best performance among other featuresets. In fact, accuracy achieved by the top-performing models (FNN and SVM) are significantly better when they use histogram features. This could happen due to choosing best bin width based on length of activity and windows size.
-
+In this section we compare the performance of four different classifiers on all five featuresets. Table \ref{accuracy_classifier_featureset} and \ref{f1_classifier_featureset} show the results respectively in Accuracy and F-score. We used 10-fold cross validation to measure the performance. A total of 150,000 data points were included in the validation set. Table \ref{dataset_statistics} shows total number of samples for each activity separately. It can be seen how classifiers performance varies over different featuresets. Almost all classifiers on \textit{set\_B} and \textit{set\_A} deliver their higher performance which means statistical features and Histogram bins bring the most informative feature across all. It seems clear that the \textit{set\_E} (Orientation Invariant features) provides insufficient information for successfully tackling activity recognition, since the accuracy never exceeds 77\%, whereas other featuresets achieve accuracies over 80\%. Interestingly, the \textit{set\_B} (Histogram Features) with having the least complexity in computation gained the best performance among other featuresets. In fact, accuracy achieved by the top-performing models (FNN and SVM) are significantly better when they use histogram features. This might happen due to choosing an appropriate bin width based on length of activity and windows size.\\
+We naturally expect the accuracy achieved with the Orientation Invariant featureset (\textit{OI\_Set}) to be lower	compared to the other featureset since other featuresets (especially physical features) know about the directions of moving and gravity. However, the goal in creating this featureset was to provide the user the flexibility to place the sensor units at any orientation while this ability is not available on other featuresets.
 \begin{table}[H]
 	\caption{Accuracy for each classifier and for all each feature-set using 10-fold cross validation }
 	\centering
-	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-	%a = statistical - b=histogram - c=self-similar d=physical feature e=orientation independent
-	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
 		\toprule
-		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
+		\textbf{Classifier} & \textbf{ST\_Set} & \textbf{HB\_Set} & \textbf{SS\_Set} & \textbf{PH\_Set} & \textbf{OI\_Set} & Average \\
 		\midrule	
-		SVM & 78.45\% & 83.11\% & 74.16\% &70.02\% & 59.38\% \\
-		KNN & 62.35\% & 81.11\% & 76.52\% &59.72\% & 52.38\% \\
-		FNN & 86.45\% & 89.00\% & 72.51\% &69.31\% & 61.88\% \\
-		DT & 69.94\% & 72.28\% & 73.76\% &69.72\% & 61.38\% \\
+		SVM &  \cellcolor{gray!35}{91.41\%} & 89.11\% & 86.16\% &82.02\% & 75.21\% &84.78\%\\
+		KNN & 84.79\% & 81.95\% & 84.52\% &81.72\% & 69.37\%& 80.47\% \\
+		FNN & 89.62\% & \cellcolor{gray!35}{95.89\%} & 88.51\% &\cellcolor{gray!35}{83.31\%} & \cellcolor{gray!35}{77.88\%} & 87.04\%\\
+		DT & 82.94\% & 84.28\% &  \cellcolor{gray!35}{86.76\%} &80.72\% & 73.42\% &81.62\%\\
+		\bottomrule
+		\textbf{Median} & \cellcolor{gray!35}{87.20‬\%} & 86.70\% &  86.46‬\% & 81.87‬\% & 74.31\%& 83.33\% \\
+		\bottomrule
+		\textbf{Average} & 87.19‬\% & \cellcolor{gray!35}{87.80\%} &  86.49\% & 81.94\% & 73.97\%& 83.44‬\% \\
 		\bottomrule
 	\end{tabular}
 	\label{accuracy_classifier_featureset}
 \end{table}
+%\begin{table}[H]
+%\caption{F1 for each classifier and for all each feature-set using 10-fold cross validation }
+%\centering
+%%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
+%%a = statistical - b=histogram - c=self-similar d=physical feature e=orientation independent
+%\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+%	\toprule
+%	\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
+%	\midrule	
+%	SVM & 72.33\% & 79.08\% & 67.14\% &66.45\% & 60.89\% \\
+%	KNN & 60.17\% & 76.00\% & 73.23\% &57.12\% & 53.98\% \\
+%	FNN & 80.71\% & 84.38\% & 66.10\% &66.13\% & 60.02\% \\
+%	DT & 63.15\% & 67.99\% & 71.18\% &63.61\% & 60.33\% \\
+%	\bottomrule
+%\end{tabular}
+%\label{f1_classifier_featureset}
+%\end{table}
+
+\hosein{if we use the feature selection method to evaluate featuresets, so, One interesting question to ask is whether the features selected by feature selection methods are truly important for our activity recognition problem. To answer this question, we can first remove the top 50 features selected by feature selection methods. Then perform the same procedure to classify the activities. if the classification errors decrease significantly, This indicates that the top 50 features selected contain more important information than the remaining feature set.}
+\subsubsection{RQ2: Which classifier performs better on gym exercise recognition?}
+Aiming to achieve the highest performance, in one hand, in previous section, we saw that some featuresets like statistical features or histogram features convey more informative data to feed the classifiers. On the other hand, from Table \ref{accuracy_classifier_featureset}, on a given featureset the performance has been affected by changing classifiers. In this research question we investigate the performance of different classifiers on our featuresets. Table \ref{accuracy_classifier_featureset} summarizes the classification results for each classifier over all featuresets. From analysing the behaviour of classifiers, it emerges that the FNN and SVM gained the best results on all featuresets, allowing to correctly recognize activities on average 86\% and 84\% of data points, respectively for FNN and SVM, comparing with two other classifiers with 80\% and 81\% of accuracy for KNN and DT respectively. Comparing the five feature subsets, several noticeable differences in performance were observed when using FNN, while in SVM these fluctuations was less than 5\%. Overall, the highest accuracy achieved by the FNN is 95.89\% for Histogram features \textit{set\_B}, while the worst accuracy was ??\% obtained by KNN. The same behaviour can be observed for the F1-score Table \ref{f1_classifier_featureset}: the FNN had a score equal to 0.961 for \textit{set\_B}, meaning that very high values of recall and precision were reached in this case.
+
+Figure \ref{fig:fnn_hbins_confusion_matrix} shows the normalized confusion matrix for FNN model on \textit{set\_B}. One can see that activities such as Lat Pull Down and Bench Press (A1 and A2) are classified more accurately than activities such as Crunch Twist (A7) which is misclassified as Russian Twist (A8). In other words, it can be said that activities of a similar nature are more willing to get misclassified. Especially when the subject is not experienced enough on performing the exercise, recognizing the activity get harder. Addition to this the class A0 which stands for non-exercise activity is misclassified 1 percent as almost all other classes. This could be a result of variation in the distribution of data for all classes. This can also be illustrated in Figure \ref{fig:fnn_hbins_confusion_matrix} where the accuracy at first row is distributed across all the classes. Because of the uniform nature of data distribution among all classes, and because of a balanced nature, similar activities could be classified more accurately.\\
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=7 cm]{Definitions/images/fnn_histogram_set.jpg}
+	\caption{Normalized confusion matrix for FNN classifier using histogram dataset(set\_B). A0 in this table stands for non-exercise data points.}
+	\label{fig:fnn_hbins_confusion_matrix}
+\end{figure} 
+
+\hosein{regarding We observe that when the standard activity recognition system is used with randomly oriented sensors (the random rotation case), the accuracy drops by 21.21\% on the average}
+\subsubsection{RQ3: How are different evaluation methods?}
+In this experiment, we asses the models by two (harder?) evaluation methods named Leave-One-Subject-Out cross validation and Leave-One-Trial-Out Cross validation. The goal here is to see how different ways of splitting data into train and test has impact on results. In K-fold since taking samples occurs on one unique dataset and each sample has overlap with two neighbour samples, there is always an overlap between train and test sets. therefore the model wasn't totally blind upon test set during training. Using LOTO and LOSO, we evaluate the model on a totally new dataset. Figure \ref{fig:evaluation_comparison} compares the performance of the models evaluating by 10-Fold, LOTO, and LOSO. For each classifier, results in the left columns have been obtained using 10-Fold evaluation, LOTO in the middle columns, and right columns are the results of LOSO cross validation. From the results, it is obvious that independent from featureset or classifier, evaluating by LOTO or LOSO gives a lower performance (~4\% and ~19\% respectively). This difference in results clearly shows that results of LOSO is also degraded due to performing differently an exercise by subjects. It is important to mention that this effect is surpassed in LOTO since subjects who have participated in training dataset, also participate in testing dataset. To compare classifiers, still FNN and SVM deliver the best result on all featuresets. The reason why we prefer to compare featuresets at first level is because they make more significant changes performance over different evaluation methods, as shown in Figure \ref{fig:evaluation_comparison}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14 cm]{Definitions/images/evaluation_comparison.jpg}
+	\caption{Comparison between evaluation methods (10-Fold, LOTO, LOSO)}
+	\label{fig:evaluation_comparison}
+\end{figure} 
+
 \begin{table}[H]
-\caption{F1 for each classifier and for all each feature-set using 10-fold cross validation }
-\centering
-%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-%a = statistical - b=histogram - c=self-similar d=physical feature e=orientation independent
-\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
-	\toprule
-	\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
-	\midrule	
-	SVM & 72.33\% & 79.08\% & 67.14\% &66.45\% & 60.89\% \\
-	KNN & 60.17\% & 76.00\% & 73.23\% &57.12\% & 53.98\% \\
-	FNN & 80.71\% & 84.38\% & 66.10\% &66.13\% & 60.02\% \\
-	DT & 63.15\% & 67.99\% & 71.18\% &63.61\% & 60.33\% \\
-	\bottomrule
-\end{tabular}
-\label{f1_classifier_featureset}
+	\caption{Accuracy for each classifier and for all each feature-set using Leave-One-Trial-Out cross validation }
+	\centering
+	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+		\toprule
+		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
+		\midrule	
+		SVM &  \cellcolor{gray!35}{76.73\%} & 73.11\% & \cellcolor{gray!35}{76.70}\% &69.19\% & 62.13\% \\
+		KNN & 72.91\% & 75.58\% & 74.24\% &70.36\% & 61.74\% \\
+		FNN & \cellcolor{gray!35}{77.07}\% & \cellcolor{gray!35}{79.87\%} &  \cellcolor{gray!35}{76.06\%} &\cellcolor{gray!35}{73.04\%} & 66.60\% \\
+		DT & 69.48\% & 71.70\% & 72.58\% &71.18\% & 65.34\% \\
+		\bottomrule
+	\end{tabular}
+	\label{Table:LOTO_results}
 \end{table}
-\subsubsection{RQ1: Which classifier performs better on gym exercise recognition?}
 
-\subsubsection{RQ1: How are different evaluation methods?}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{table}[H]
+	\caption{Accuracy for each classifier and for all each feature-set using Leave-One-Subject-Out cross validation }
+	\centering
+	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+		\toprule
+		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
+		\midrule	
+		SVM &  \cellcolor{gray!35}{68.83\%} & 69.11\% & \cellcolor{gray!35}{76.70}\% &69.19\% & 62.13\% \\
+		KNN & 72.91\% & 75.58\% & 74.24\% &70.36\% & 61.74\% \\
+		FNN & \cellcolor{gray!35}{77.07}\% & \cellcolor{gray!35}{79.87\%} & 76.06\% &\cellcolor{gray!35}{73.04\%} & 66.60\% \\
+		DT & 69.48\% & 71.70\% &  \cellcolor{gray!35}{72.58\%} &71.18\% & 65.34\% \\
+		\bottomrule
+	\end{tabular}
+	\label{Table:LOSO_results}
+\end{table}
 \section{Discussion}
 \subsection{K-fold Evaluation result is biased?}
 As we argued earlier, each process has a drawback that might cause a negative impact on the methods. For instance, SNOW can produce biased results and the FNOW generates few samples. To face these problems, we propose the Leave-One-Trial-Out (LOTO) sample generation process.
@@ -488,7 +539,7 @@ Another way of evaluating the featuresets is using a feature selection method an
 
 
 Using neural network in pattern recognition is one of the most promising topic in recent works, especially in activity recognition. It is because, the characteristics like flexibility of the model with more various activity sets or improving the performance by adding more data in training phase make NN an appealing choice to data analyst. Related works have presented successful approaches on customizing neural nets to solve certain problems in HAR. In most studies, the authors introduced a new design of layers and sort of new configuration of neurons in each layer. Their results show that NN works better rather traditional models like GLM or SVM on more complex activities, in practice.
-\subsection{FNN training speed over different feature sets }
+\subsection{Learning Speed }
 Histogram bins progress outperforms all other featuresets in delivering better accuracy in less training time.
 \begin{figure}[H]
 	\centering
@@ -507,30 +558,12 @@ Histogram bins progress outperforms all other featuresets in delivering better a
 	\caption{Comparing impact of featureset on FNN convergence speed}
 	\label{fig:imbalance_dataset}
 \end{figure} 
-\subsection{Impact of Imbalanced dataset}
-\begin{figure}[H]
-	\centering
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{Definitions/images/fnn_balanced.png}
-		\caption{Balanced dataset}
-		\label{fig:fnn_balanced}
-	\end{subfigure}%
-	\begin{subfigure}{.5\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{Definitions/images/fnn_imbalanced.png}
-		\caption{Imbalanced}
-		\label{fig:fnn_imbalanced}
-	\end{subfigure}%
-	\caption{Comparing impact of undersampling on FNN}
-	\label{fig:imbalance_dataset}
-\end{figure} 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions}
-
-This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
-
+In this paper, a human activity recognition framework
+based on feature selection techniques is presented. We examined three feature selection methods and found that the sequential forward selection (SFS) method achieved the best performance compared to Relief-F and single feature classification (SFC) methods. In addition, we have demonstrated that our self-designed physical features make significant contributions to the recognition system. Finally, we have shown that the feature selection framework with a hierarchical structure improves the recognition performance compared to the single-layer framework. However, the structure of the hierarchical framework, i.e. how the different classes are arranged in meta-classes, is designed manually, based on domain knowledge. Although this type of knowledge may generally be helpful when designing recognition systems, in our future work, we will explore methods to learn the structure automatically in a data-driven manner.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
 
