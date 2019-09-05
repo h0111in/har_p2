@@ -428,9 +428,12 @@ We naturally expect the accuracy achieved with the Orientation Invariant feature
 		FNN & 89.62\% & \cellcolor{gray!35}{95.89\%} & 88.51\% &\cellcolor{gray!35}{83.31\%} & \cellcolor{gray!35}{77.88\%} & 87.04\%\\
 		DT & 82.94\% & 84.28\% &  \cellcolor{gray!35}{86.76\%} &80.72\% & 73.42\% &81.62\%\\
 		\bottomrule
-		\textbf{Median} & \cellcolor{gray!35}{87.20‬\%} & 86.70\% &  86.46‬\% & 81.87‬\% & 74.31\%& 83.33\% \\
+		
+		%& \cellcolor{gray!35}{87.20‬\%} & 86.70\% &  86.46‬\% & 81.87‬\% & 74.31\% & 83.33\% \\
+		\textbf{Median} & 82.94\% & 84.28\% &  \cellcolor{gray!35}{86.76\%} &80.72\% & 73.42\% &83.33\%\\
 		\bottomrule
-		\textbf{Average} & 87.19‬\% & \cellcolor{gray!35}{87.80\%} &  86.49\% & 81.94\% & 73.97\%& 83.44‬\% \\
+		%\textbf{Average} & 87.19‬\% & \cellcolor{gray!35}{87.80\%} &  86.49\% & 81.94\% & 73.97\%& 83.44‬\% \\
+		\textbf{Average} & 82.94\% &  \cellcolor{gray!35}{87.80\%}  & 84.28\% &80.72\% & 73.42\% &83.44\%\\
 		\bottomrule
 	\end{tabular}
 	\label{accuracy_classifier_featureset}
@@ -467,7 +470,11 @@ Figure \ref{fig:fnn_hbins_confusion_matrix} shows the normalized confusion matri
 
 \hosein{regarding We observe that when the standard activity recognition system is used with randomly oriented sensors (the random rotation case), the accuracy drops by 21.21\% on the average}
 \subsubsection{RQ3: How are different evaluation methods?}
-In this experiment, we asses the models by two (harder?) evaluation methods named Leave-One-Subject-Out cross validation and Leave-One-Trial-Out Cross validation. The goal here is to see how different ways of splitting data into train and test has impact on results. In K-fold since taking samples occurs on one unique dataset and each sample has overlap with two neighbour samples, there is always an overlap between train and test sets. therefore the model wasn't totally blind upon test set during training. Using LOTO and LOSO, we evaluate the model on a totally new dataset. Figure \ref{fig:evaluation_comparison} compares the performance of the models evaluating by 10-Fold, LOTO, and LOSO. For each classifier, results in the left columns have been obtained using 10-Fold evaluation, LOTO in the middle columns, and right columns are the results of LOSO cross validation. From the results, it is obvious that independent from featureset or classifier, evaluating by LOTO or LOSO gives a lower performance (~4\% and ~19\% respectively). This difference in results clearly shows that results of LOSO is also degraded due to performing differently an exercise by subjects. It is important to mention that this effect is surpassed in LOTO since subjects who have participated in training dataset, also participate in testing dataset. To compare classifiers, still FNN and SVM deliver the best result on all featuresets. The reason why we prefer to compare featuresets at first level is because they make more significant changes performance over different evaluation methods, as shown in Figure \ref{fig:evaluation_comparison}.
+In this experiment, we asses the models by two state-of-the-art evaluation methods named Leave-One-Subject-Out cross validation and Leave-One-Trial-Out Cross validation. The goal here is to see how different ways of generating data points affect the robustness of the model. To compare with previous results, we employ K-fold validation as our baseline. Figure \ref{fig:evaluation_comparison} compares the performance of the models evaluating by 10-Fold, LOTO, and LOSO. For each classifier, results in the left columns have been obtained using 10-Fold evaluation, in middle columns using LOTO cross validation, and the right columns using LOSO cross validation. From the results, independent from featureset / classifier, it is obvious that the evaluating by LOTO or LOSO gives a lower performance (on average ~9\% and ~19\% respectively).
+We basically expect the performance achieved with k-fold to be higher than other methods because there is a significant correlation between train set and test set in this method. In other words, in K-fold, first, we generate data points from raw data (using sliding window), then, split them into test set and train set. Because of having an overlap between every consecutive data points due to using sliding window, a part of data which is used to generate a data point for train set will be used in data points for test set as well (96\% identical in the worst case scenario). However, in two other evaluation methods, training set and testing set are generated independently. So, the results are turned out from a less correlated test set thereby showing more realistic result, comparing with baseline. 
+It can be seen that there is a significant distance between results of LOTO and LOSO (~10\%). This can be due to differently performing an exercise by different subjects in LOSO. However, in LOTO, since the model is trained by the data of at least one session of each subject it returns a better result. To compare classifiers, still FNN and SVM deliver the best result on all featuresets. The reason why we prefer to compare featuresets at first level is because they make more significant changes performance over different evaluation methods, as shown in Figure \ref{fig:evaluation_comparison}.
+
+ 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=14 cm]{Definitions/images/evaluation_comparison.jpg}
@@ -514,32 +521,21 @@ From the literature, the most popular method to evaluate a HAR model is K-fold c
 
 \subsection{Hand-Crafted Features VS Automated Features}
 
- Automatic feature learning
+The extraction of hand-crafted features are computationally lightweight and efficient to implement especially in ubiquitous devices and also they are easy to understand due to the physical meanings of the features and finally, they Work well for many HAR problems. However, choosing the right feature may be challenging based on the type of the problem underhand and also extracting the appropriate set of features depends on domain knowledge.
 
-The extraction of hand-crafted features depends on domain knowledge. However, automatically learned features by the deep networks  features are
-easy to understand and implement
-
-The key advantage of using hand-crafted features is that the features are computationally lightweight to implement especially in ubiquitous devices (Morales et al., 2017).
-The strengths of the automatically learned features by the deep networks are that the learning can be very deep, and the learning process does not rely on domain knowledge.
+In recent years, with the advancement and achievements of deep learning in many fields such as speech recognition and natural language processing, Deep Learning (DL) approaches have been implemented in HAR. 
+While most conventional methods use hand-crafted feature extraction, DL performs automatic high-level feature extraction and this has made it a widely adopted approach in recent times. In fact, instead of extracting feature manually, we train a neural network with raw input data from sensor. The strengths of the automatically learned features by the deep networks are that the learning can be very deep, and the learning process does not rely on domain knowledge.
+We have implemented a CNN method that has already shown remarkable success in image classification [20] for the time-series data in HAR. The 1D sensor data are transformed to 2D data and reshaped to the 4D tensor format for 2D convolution, in which the height of the input data shape is pre-defined as 1.
 
 
-Feature type Advantages
-Hand-crafted Features
-Automatically learned features
-Table 5 Comparison of hand-crafted features and automatically learned features Disadvantages
-Easy to understand the physical meanings of the features; Extraction is efficient and easy to deploy; Work well for many HAR problems.
-No domain knowledge needed; Automatically learning features from raw data; Features are more robust and generalized.
-Domain knowledge needed; Sensor-type specific; Need further feature selection.
-Lots of computing resources; Parameters are difficult to adjust; The learned features are less interpretable
+\hosein{ in one Table have a Comparison of hand-crafted features and automatically learned features Disadvantages: 
+	No domain knowledge needed; Automatically learning features from raw data; Features are more robust and generalized.
+	Domain knowledge needed; Sensor-type specific; Need further feature selection.
+Lots of computing resources; Parameters are difficult to adjust; The learned features are less interpretable}
 
 
-Authors should discuss the results and how they can be interpreted in perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
-
-Another way of evaluating the featuresets is using a feature selection method and compare the percentage of contribution of each featureset within the featureset result.
-
-
-Using neural network in pattern recognition is one of the most promising topic in recent works, especially in activity recognition. It is because, the characteristics like flexibility of the model with more various activity sets or improving the performance by adding more data in training phase make NN an appealing choice to data analyst. Related works have presented successful approaches on customizing neural nets to solve certain problems in HAR. In most studies, the authors introduced a new design of layers and sort of new configuration of neurons in each layer. Their results show that NN works better rather traditional models like GLM or SVM on more complex activities, in practice.
 \subsection{Learning Speed }
+
 Histogram bins progress outperforms all other featuresets in delivering better accuracy in less training time.
 \begin{figure}[H]
 	\centering
