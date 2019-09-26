@@ -364,60 +364,90 @@ One intuitive idea to design a set of features from sensory data is to take the 
 In contrast to physical features, which depend on the position and orientation of sensors, Yurtman et. al~\cite{yurtman2017activity} proposed features that do not rely on variation of sensor orientation. In fact, in their model, they introduced an Orientation-invariant transformations (OITs). They compared their model with the ordinary model - pre-defined sensor orientation, on five different datasets. Although their featureset did not have a significant impact on performance, it brought an extra added value to the model that lets it to be more robust against orientation. The OIT that they have introduced in their work is inspired by the idea of \textit{single value decomposition}\cite{moon2000mathematical}. Therefore, to create this featureset, first, we project every data point from original x/y/z space to a new space with same number of dimensions but at the farthest distance between data points. The intuition here is that the direction of the axes are defined by value of the data points not by x, y or z direction. Next, we apply PCA on the transformed data and take the first 30 most informative features \todo{can we add a cite here?}. In Table~\ref{features_table}, these type of features  are indicated by "OI" prefix.
 
 \subsection{Activity Recognition}
-In this paper, we have used four representative classification techniques as explained below:
+To perform the HAR, we employed a number of classification techniques. In this subsection, we detail the classification techniques used.
 
 \subsubsection{Support Vector Machine}
-A multiclass Support Vector Machine (SVM) has been used to discriminate among the activities. SVM has been employed extensively in previous studies in HAR. Morris et. al. \cite{morris2014recofit}, \cite{rosati2018comparison} Showed that SVM provides better accuracy in HAR. 
-Assuming each data point is a co-ordinate (support vector) of feature space, the Support Vector Machine (SVM) is an algorithm to find an optimum hyperplane between support vectors between two classes. To create a more robust classification, SVM maximises the distance between the hyperplane and the closest support vectors of each class (margin) \cite{zhang2012physical};
+A multiclass Support Vector Machine (SVM) has been used to discriminate among the activities. Assuming each data point is a co-ordinate (support vector) of feature space, the Support Vector Machine (SVM) is an algorithm to find an optimum hyperplane between support vectors between two classes. To create a more robust classification, SVM maximizes the distance between the hyperplane and the closest support vectors of each class (margin) \cite{zhang2012physical}. We chose to use SVM since it has been employed extensively in previous studies in HAR. Moreover, Morris et. al.~\cite{morris2014recofit,rosati2018comparison} showed that SVM provides high accuracy in HAR.
 
 
 % More Details: This happens at the expense of increasing the tolerance(mis-classification) of the model (loss function). In a situation that finding a hyperplane between two classes is impossible, the SVM project the feature space to another space having more number of dimensions. This is the responsibility of a function called Kernel function.
 
 \subsubsection{Decision Tree}
-\cite{shakya2018comparative}
-As the second recognition algorithm, we built a classification decision tree. To predict type of activity, the class probabilities at leaf nodes of the trees are averaged and the highest average probability is chosen as the class label (activity type). To split nodes, we used Gini index error metric which is generally designed to evaluate inequality. Technically, Gini function return how "pure" a region is. "Purity" in this case means how much of training data in a branch belongs to a certain activity. Greater region dedicated to a single activity results smaller value of Gini coefficient. Following study in \cite{rosati2018comparison}, we used CART\cite{rutkowski2014cart} to construct the tree.
+
+We also use a decision tree classifier since it is one of the most commonly used classifiers in HAR \todo{add cite} and provides explainability for its classification. Decision trees predict the type of an activity using the average class probabilities at leaf nodesand the highest average probability is chosen as the class label (activity type). There are different techniques to split nodes, however we used the Gini index error metric, which is generally designed to evaluate inequality. We chose to use the Gini index error metrics since ...\todo{add reasons.}
+
+%Technically, Gini function return how "pure" a region is. "Purity" in this case means how much of training data in a branch belongs to a certain activity. Greater region dedicated to a single activity results smaller value of Gini coefficient. Following study in \cite{rosati2018comparison}, we used CART\cite{rutkowski2014cart} to construct the tree.
+
+\cite{shakya2018comparative} \emad{not sure what this citation is about?}
 
 \subsubsection{K-nearest neighbour}
-KNN algorithm is a simple classification algorithm based on the calculation of the distance
-(in our study the Euclidean distance) between the data point required to be classified and labelled data points in training set.  Firstly, the training set are sorted in descending order according to their distance from the new element. Then, the most frequent class of the first K elements (called neighbours) is associated to the new element. the majority of neighbours determine the class for new data point. In \cite{kose2012online}, the authors showed that by increasing the number of neighbours, they reached a better performance on HAR model. In this study we used k = 64.
+Another widely used classifier in HAR is the KNN algorithm \todo{add citation}, which is based on the calculation of the distance (in our study the Euclidean distance) between the data point required to be classified and labelled data points in training set.  Firstly, the training sets are sorted in descending order according to their distance from the new element. Then, the most frequent class of the first K elements (called neighbours) is associated to the new element. The majority of neighbours determine the class for a new data point. Prior work showed that by increasing the number of neighbours, they reached a better performance on HAR model. In this study we used k = 64~\\cite{kose2012online}.
 
 
 \subsubsection{Forward Neural Network}
-A FNN is made up of a set of neurons, connected by weighted arcs, that process the input
+\emad{we should add a sentance as to why we use FNN. For example...}
+
+Recently, a number of studies have shown that Forward (\emad{isn't it called Feed-forward}) Neural Networks achieve high performance in HAR \todo{add cite}. A FNN is made up of a set of neurons, connected by weighted arcs, that process the input
 information\cite{zhang1999geometrical}:
 \begin{equation}\label{fnn_formula}
  y = f(\sum_{i}^{}w_{i}.x_{i})
 \end{equation}
-where y is the output of the neuron, wi are weights of the incoming connections, xi are inputs to the neuron, and f is called transfer function and should be selected according to the classification problem.\\
-Neurons in a FNN are organized in layers: in the input layer, one neuron for each input variable is required; the number of neurons in the output layer is decided according to the number of classes to be recognized and the selected transfer function; between input and output layers a certain number of hidden layers can be inserted, whose dimensions are usually decided testing different configurations. \\
+where y is the output of the neuron, wi are weights of the incoming connections, xi are inputs to the neuron, and $f$ is called transfer function and should be selected according to the classification problem \emad{add citation where you got this description from}. Neurons in a FNN are organized in layers: in the input layer, one neuron for each input variable is required; the number of neurons in the output layer is decided according to the number of classes to be recognized and the selected transfer function; between input and output layers a certain number of hidden layers can be inserted, whose dimensions are usually decided testing different configurations. \emad{add citation where you got this description from}
 In the FNN model we used the multi-layers perceptron (MLP), commonly used as a universal function approximator. The first layer of the network (input layer) receives a vector of feature values of a data point. The secondary layers well known as hidden layers are responsible for summation operation of inputs and non-linearity behaviour of network. We considered 3 hidden layers including two dense layers and one dropout layer for out FNN. The activation functions for the first and third layer is "ReLu" \cite{nair2010rectified} with total 1000 and 400 units respectively. The dropout rate in second layer is 60\%. The output layer contains 9 units corresponding with total 8 activities plus 1 non-activity class. Same as similar study in \cite{baldominos2019comparison}, we used Adam optimizer setting a learning rate of 0.0001 and decay = 1e-10. In total, we trained the model by 100 epochs.
 
 
-\subsection{Evaluation}
-To evaluate the performance of the model, we need to split data into training and testing sets. For this purpose, in the context of HAR, there are traditional techniques such as k-fold cross-validation, leave-one-subject-out \cite{jordao2018human} as well as relatively less common techniques like hold-out and leave-one-trial-out \cite{sena2018multiscale} available in the literature. In this study, we pick three validation methods which almost cover main ideas in evaluation of a HAR model in recent works. The other methods like leave-one-sample-out or holdout can be considered as different forms of these three methods.
+\subsection{Validation Technique}
+To evaluate the performance of the model, we need to split data into training and testing sets. For this purpose, in the context of HAR, there are traditional techniques such as k-fold cross-validation, leave-one-subject-out~\cite{jordao2018human}, as well as, the relatively less common techniques like hold-out and leave-one-trial-out~\cite{sena2018multiscale}. In this study, we chose three validation methods that are commonly used in the evaluation of HAR models \todo{add cite}. 
+%The other methods like leave-one-sample-out or holdout can be considered as different forms of these three methods.
 
 \subsubsection{K-fold Cross validation}
-The most typical approach to evaluate the performance of HAR model is k-fold-cross validation. The idea is to use resampling procedure in a way that all the samples be used once during the testing period, mostly in the case of having limited dataset. The so called parameter k refers to the number of groups that the given dataset is to be split into. Each time one group becomes the test set and remaining k-1 groups become training set. During k turns, we evaluate the model k times on different test set and train set. Finally, the performance is summarized by averaging the performance of all k turns. In this work, we apply k-fold cross validation on all the models
+The most typical approach to evaluate the performance of HAR model is k-fold-cross validation. The idea is to use resampling procedure in a way that all the samples be used once during the testing period, mostly in the case of having limited dataset. The so called parameter k refers to the number of groups that the given dataset is to be split into. Each time one group becomes the test set and remaining $k-1$ groups become training set. During k turns, we evaluate the model k times on different test set and train set. Finally, the performance is summarized by averaging the performance of all k turns. In this work, we apply k-fold cross validation on all the models.
+
 \subsubsection{Leave-One-Subject-Out Cross validation}
-We highlight that the Leave-One-Subject-Out (LOSO) protocol can be comprehended as a special case of the cross-validation, where a subject can be seen as a fold, hence, the number of subjects determine the number of folds. Furthermore, the LOSO protocol reflects a realistic scenario, where a model is trained in an offline way, using the samples of some subjects, and is tested with samples of unseen subjects. However, by using this protocol, the methods present high variance in performance from a subject to another, since the same activity can be performed in different ways by the subjects. 
+Leave-One-Subject-Out (LOSO) validation is a special case of cross-validation, where a subject can be seen as a fold, hence, the number of subjects determine the number of folds. Furthermore, the LOSO validation technique reflects a realistic scenario, where a model is trained in an offline way, using the samples of some subjects, and is tested with samples of unseen subjects. It is important to note that using LOSO may present high variance in performance from one subject to another, since the same activity can be performed in different ways by the subjects. 
+
 \subsubsection{Leave-One-Trial-Out Cross validation}
-The Leave-One-Trial-Out (LOTO) cross validation process is exactly same as LOSO. However, instead of considering the subjects as folds, each trial (session) of doing the activity is considered as a fold. In other words, the recorded data from each session has an identifier to be distinguished from other sessions. So, during the evaluation, the dataset split into sessions instead of subjects. sessions can be for same subject or different subjects. In our dataset we also put an extra column showing the session id which is unique among all sessions of a given subject. The main advantage of using this process comparing with the previous one is that it needs less number subjects since each subject can have several sessions. And same as previous one, there is no overlap between train set and test set.\\
-To measure the performance of the model we used accuracy\cite{brownlee2018gentle}\cite{zhang2011feature},\cite{mehrang2017human} and F-measure\cite{rosati2018comparison}\cite{Nourani_CoMoRea2019}. While accuracy is a straight forward measure to show the performance of the model, F1 is also a suitable measure since it relies on both the precision and recall; knowing, it is less affected by unbalanced classes.
-Specifically, measurement units in this study determined as follows:\\
-\textbf{True Positive (FP):} These are cases in which we predict an activity, and user was doing that activity.\\
-\textbf{True Negative (TN):}In which we predict a non-activity period, and user was not doing a certain activity.\\
-\textbf{False Positive (FP):} In which we predict a certain activity for a segment of data, however, user is either doing another specific activity or generally doing something else (out of activity given list)\\
-\textbf{False Negative (FN):} In which we predict either a not-activity period or a certain activity, but, it is not the activity that user is really doing that.\\
+The Leave-One-Trial-Out (LOTO) cross validation is similar to LOSO, however, instead of considering the subjects as folds, each trial (session) of doing the activity is considered as a fold \emad{is it folds across subjects or within the same subject?}. In other words, the recorded data from each session has an identifier to be distinguished from other sessions. So, during the evaluation, the dataset is split into sessions instead of subjects. sessions can be for same subject or different subjects. In our dataset we also put an extra column showing the session $id$, which is unique among all sessions of a given subject. The main advantage of using this process comparing with the previous one is that it needs a smaller number of subjects since each subject can have several sessions. And same as to other validation techniques, there is no overlap between train set and test set.
+
+
+\subsection{Performance Measures}
+
+Some of the most commonly used performance measures to determine the performance of HAR models used in prior work are: accuracy\cite{brownlee2018gentle,zhang2011feature,mehrang2017human} and F-measure\cite{rosati2018comparison,Nourani_CoMoRea2019}. While accuracy is a straight forward measure to show the performance of the model, F1 is also a suitable measure since it relies on both the precision and recall; knowing, it is less affected by unbalanced classes. Specifically, measurement units in this study determined as follows:
+
+\begin{itemize}
+
+\item \textbf{True Positive (FP):} These are cases in which we predict an activity, and user was doing that activity.\\
+
+\item \textbf{True Negative (TN):} Is where we predict a non-activity period, and user was not doing a certain activity.\\
+
+\item \textbf{False Positive (FP):} Is where we predict a certain activity for a segment of data, however, user is either doing another specific activity or generally doing something else (out of activity given list)\\
+
+\item \textbf{False Negative (FN):} Is where we predict either a not-activity period or a certain activity, but, it is not the activity that user is really doing that.\\
+
+\end{itemize}
+
 The most popular metrics are the following:\\
-\noindent \textbf{Accuracy} measures how often the classifier is correct. Specifically, it is equal to (TN + TP) / total.\\
-\noindent \textbf{Miss-classification} measure how often the classifier is incorrect. Specifically, it is equal to (1 - Accuracy).
-\noindent \textbf{Precision} measures when the classifier detects an activity, how often it is  correct. Specifically, it is equal to TP / (TP + FP). \\
-\noindent \textbf{Recall} measures when user is doing a certain activity, how often the classifier can detect it correctly. Specifically, it is equal to TP / (TP + FN). This term is also known as \textit{Sensitivity} or \textit{True Positive Rate}.\\
-\noindent \textbf{F-Score} measures a weighted average of both Recall and Precision. Specifically, it is equal to (2 x Precision x Recall ) / (Precision + Recall). \\
-\noindent \textbf{Null Error Rate:} measures how often it is incorrect if we constantly return the major class in dataset as response of the classifier. To the best of our knowledge, in most HAR datasets, the major class is non-activity class.\\
+
+\begin{itemize}
+
+\item \noindent \textbf{Accuracy} measures how often the classifier is correct. Specifically, it is equal to (TN + TP) / total.\\
+
+\item \noindent \textbf{Miss-classification} measure how often the classifier is incorrect. Specifically, it is equal to (1 - Accuracy).
+
+\item \noindent \textbf{Precision} measures when the classifier detects an activity, how often it is  correct. Specifically, it is equal to TP / (TP + FP). \\
+
+\item \noindent \textbf{Recall} measures when user is doing a certain activity, how often the classifier can detect it correctly. Specifically, it is equal to TP / (TP + FN). This term is also known as \textit{Sensitivity} or \textit{True Positive Rate}.\\
+
+\item \noindent \textbf{F-Score} measures a weighted average of both Recall and Precision. Specifically, it is equal to (2 x Precision x Recall ) / (Precision + Recall). \\
+
+\item \noindent \textbf{Null Error Rate:} measures how often it is incorrect if we constantly return the major class in dataset as response of the classifier. To the best of our knowledge, in most HAR datasets, the major class is non-activity class.\\
+
+\end{itemize}
+
+
+
 
 \section{Results}
-
 \subsubsection{RQ1: Which featureset delivers higher performance over classifiers?}
 As motivated earlier, choosing an appropriate featureset significantly impact on performance. At the same time, different featuresets have been presented in previous works all improved the performance. The focus of this question is - To investigate the impact of each featureset on performance under same condition. To increase the generality of answer we train four classifiers including FNN, KNN, SVM, and DT on all five featuresets (20 model in total). We used 10-fold cross validation to measure the performance. A total of 150,000 data points were included in the validation set. Table \ref{dataset_statistics} shows total number of samples for each activity separately. Table \ref{accuracy_classifier_featureset} show results of all models in Accuracy. It can be seen that classifiers have almost similar behaviour over different featuresets. Almost all classifiers on \textit{statistical featureset} and \textit{Histogram bins} deliver their higher performance which means these two featuresets bring the most informative features rather others. While almost in all featuresets, models are exceeding 80\% accuracy, the orientation invariant features provides insufficient information for successfully tackling activity recognition, since the accuracy never exceeds 77\%. \textbf{Interestingly, the Histogram Features with having the least complexity in computation gained the best performance among other featuresets at 95.89\% when using FNN and 93.30\% on average among all classifier.} In fact, accuracy achieved by the top-performing models (FNN and SVM) are significantly better when they use histogram features. This might happen due to choosing an appropriate bin width based on length of activity and windows size.\\
 We naturally expect the accuracy achieved with the Orientation Invariant featureset to be lower compared to the other featureset since other featuresets (especially physical features) know about the directions of moving and gravity. However, the goal in creating this featureset was to provide the user the flexibility to place the sensor units at any orientation while this ability is not available on other featuresets. 
