@@ -1,10 +1,37 @@
 \begin{thebibliography}{-------}
 \providecommand{\natexlab}[1]{#1}
 
+\bibitem[Hong \em{et~al.}(2008)Hong, Kim, Ahn, and Kim]{hong2008activity}
+Hong, Y.J.; Kim, I.J.; Ahn, S.C.; Kim, H.G.
+\newblock Activity recognition using wearable sensors for elder care.
+\newblock  2008 Second International Conference on Future Generation
+  Communication and Networking. IEEE,  2008, Vol.~2, pp. 302--305.
+
+\bibitem[Wang \em{et~al.}(2019)Wang, Cang, and Yu]{wang2019survey}
+Wang, Y.; Cang, S.; Yu, H.
+\newblock A survey on wearable sensor modality centred human activity
+  recognition in health care.
+\newblock {\em Expert Systems with Applications} {\bf 2019}.
+
 \bibitem[Sow \em{et~al.}(2013)Sow, Turaga, and Schmidt]{sow2013mining}
 Sow, D.; Turaga, D.S.; Schmidt, M.
 \newblock Mining of sensor data in healthcare: A survey. In {\em Managing and
   mining sensor data}; Springer,  2013; pp. 459--504.
+
+\bibitem[Morris \em{et~al.}(2014)Morris, Saponas, Guillory, and
+  Kelner]{morris2014recofit}
+Morris, D.; Saponas, T.S.; Guillory, A.; Kelner, I.
+\newblock RecoFit: using a wearable sensor to find, recognize, and count
+  repetitive exercises.
+\newblock  Proceedings of the SIGCHI Conference on Human Factors in Computing
+  Systems. ACM,  2014, pp. 3225--3234.
+
+\bibitem[Gonz{\'a}lez \em{et~al.}(2015)Gonz{\'a}lez, Sedano, Villar, Corchado,
+  Herrero, and Baruque]{gonzalez2015features}
+Gonz{\'a}lez, S.; Sedano, J.; Villar, J.R.; Corchado, E.; Herrero, {\'A}.;
+  Baruque, B.
+\newblock Features and models for human activity recognition.
+\newblock {\em Neurocomputing} {\bf 2015}, {\em 167},~52--60.
 
 \bibitem[Schilit \em{et~al.}(1994)Schilit, Adams, Want,
   et~al.]{schilit1994context}
@@ -19,21 +46,6 @@ Rosati, S.; Balestra, G.; Knaflitz, M.
   Recognition by Wearable Sensors.
 \newblock {\em Sensors} {\bf 2018}, {\em 18},~4189.
 
-\bibitem[Jordao \em{et~al.}(2018)Jordao, Nazare~Jr, Sena, and
-  Schwartz]{jordao2018human}
-Jordao, A.; Nazare~Jr, A.C.; Sena, J.; Schwartz, W.R.
-\newblock Human activity recognition based on wearable sensor data: A
-  standardization of the state-of-the-art.
-\newblock {\em arXiv preprint arXiv:1806.05226} {\bf 2018}.
-
-\bibitem[Nourani \em{et~al.}(2019)Nourani, Shihab, and
-  Sarbishe]{Nourani_CoMoRea2019}
-Nourani, H.; Shihab, E.; Sarbishe, O.
-\newblock The Impact of Data Reduction on Wearable-Based Human Activity
-  Recognition.
-\newblock  Proceedings of the 15th Workshop on Context Modeling and
-  Recognition. IEEE,  2019, CoMoRea '19, pp. 89--94.
-
 \bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
   Gebert, and Sawicki]{kolodziej2019registration}
 Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
@@ -42,11 +54,34 @@ Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
   Activity.
 \newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
 
-\bibitem[Wang \em{et~al.}(2019)Wang, Cang, and Yu]{wang2019survey}
-Wang, Y.; Cang, S.; Yu, H.
-\newblock A survey on wearable sensor modality centred human activity
-  recognition in health care.
-\newblock {\em Expert Systems with Applications} {\bf 2019}.
+\bibitem[Hassan \em{et~al.}(2018)Hassan, Uddin, Mohamed, and
+  Almogren]{hassan2018robust}
+Hassan, M.M.; Uddin, M.Z.; Mohamed, A.; Almogren, A.
+\newblock A robust human activity recognition system using smartphone sensors
+  and deep learning.
+\newblock {\em Future Generation Computer Systems} {\bf 2018}, {\em
+  81},~307--313.
+
+\bibitem[Zhang and Sawchuk(2013)]{zhang2013human}
+Zhang, M.; Sawchuk, A.A.
+\newblock Human daily activity recognition with sparse representation using
+  wearable sensors.
+\newblock {\em IEEE journal of Biomedical and Health Informatics} {\bf 2013},
+  {\em 17},~553--560.
+
+\bibitem[Janidarmian \em{et~al.}(2017)Janidarmian, Roshan~Fekr, Radecka, and
+  Zilic]{janidarmian2017comprehensive}
+Janidarmian, M.; Roshan~Fekr, A.; Radecka, K.; Zilic, Z.
+\newblock A Comprehensive Analysis on Wearable Acceleration Sensors in Human
+  Activity Recognition.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~529.
+
+\bibitem[Jordao \em{et~al.}(2018)Jordao, Nazare~Jr, Sena, and
+  Schwartz]{jordao2018human}
+Jordao, A.; Nazare~Jr, A.C.; Sena, J.; Schwartz, W.R.
+\newblock Human activity recognition based on wearable sensor data: A
+  standardization of the state-of-the-art.
+\newblock {\em arXiv preprint arXiv:1806.05226} {\bf 2018}.
 
 \bibitem[Krishnan \em{et~al.}(2009)Krishnan, Juillard, Colbry, and
   Panchanathan]{krishnan2009recognition}
@@ -60,14 +95,6 @@ de~Faria, I.L.; Vieira, V.
 \newblock A Comparative Study on Fitness Activity Recognition.
 \newblock  Proceedings of the 24th Brazilian Symposium on Multimedia and the
   Web. ACM,  2018, pp. 327--330.
-
-\bibitem[Morris \em{et~al.}(2014)Morris, Saponas, Guillory, and
-  Kelner]{morris2014recofit}
-Morris, D.; Saponas, T.S.; Guillory, A.; Kelner, I.
-\newblock RecoFit: using a wearable sensor to find, recognize, and count
-  repetitive exercises.
-\newblock  Proceedings of the SIGCHI Conference on Human Factors in Computing
-  Systems. ACM,  2014, pp. 3225--3234.
 
 \bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
   Wattenhofer]{soro2019recognition}
@@ -142,18 +169,6 @@ Shakya, S.R.; Zhang, C.; Zhou, Z.
   for Human Activity Recognition Using Accelerometer Data.
 \newblock {\em Int. J. Mach. Learn. Comput} {\bf 2018}, {\em 8},~577--582.
 
-\bibitem[Rutkowski \em{et~al.}(2014)Rutkowski, Jaworski, Pietruczuk, and
-  Duda]{rutkowski2014cart}
-Rutkowski, L.; Jaworski, M.; Pietruczuk, L.; Duda, P.
-\newblock The CART decision tree for mining data streams.
-\newblock {\em Information Sciences} {\bf 2014}, {\em 266},~1--15.
-
-\bibitem[Kose \em{et~al.}(2012)Kose, Incel, and Ersoy]{kose2012online}
-Kose, M.; Incel, O.D.; Ersoy, C.
-\newblock Online human activity recognition on smart phones.
-\newblock  Workshop on Mobile Sensing: From Smartphones and Wearables to Big
-  Data,  2012, Vol.~16, pp. 11--15.
-
 \bibitem[Zhang and Zhang(1999)]{zhang1999geometrical}
 Zhang, L.; Zhang, B.
 \newblock A geometrical representation of McCulloch-Pitts neural model and its
@@ -193,5 +208,20 @@ Mehrang, S.; Pietila, J.; Tolonen, J.; Helander, E.; Jimison, H.; Pavel, M.;
 \newblock Human activity recognition using a single optical heart rate
   monitoring wristband equipped with triaxial accelerometer. In {\em EMBEC \&
   NBC 2017}; Springer,  2017; pp. 587--590.
+
+\bibitem[Nourani \em{et~al.}(2019)Nourani, Shihab, and
+  Sarbishe]{Nourani_CoMoRea2019}
+Nourani, H.; Shihab, E.; Sarbishe, O.
+\newblock The Impact of Data Reduction on Wearable-Based Human Activity
+  Recognition.
+\newblock  Proceedings of the 15th Workshop on Context Modeling and
+  Recognition. IEEE,  2019, CoMoRea '19, pp. 89--94.
+
+\bibitem[Liu \em{et~al.}(2011)Liu, Gao, John, Staudenmayer, and
+  Freedson]{liu2011multisensor}
+Liu, S.; Gao, R.X.; John, D.; Staudenmayer, J.W.; Freedson, P.S.
+\newblock Multisensor data fusion for physical activity assessment.
+\newblock {\em IEEE Transactions on Biomedical Engineering} {\bf 2011}, {\em
+  59},~687--696.
 
 \end{thebibliography}
