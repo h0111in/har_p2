@@ -103,6 +103,27 @@ Soro, A.; Brunner, G.; Tanner, S.; Wattenhofer, R.
   with Deep Learning.
 \newblock {\em Sensors} {\bf 2019}, {\em 19},~714.
 
+\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
+Yurtman, A.; Barshan, B.
+\newblock Activity recognition invariant to sensor orientation with wearable
+  motion sensors.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
+
+\bibitem[Zhang and Sawchuk(2011)]{zhang2011feature}
+Zhang, M.; Sawchuk, A.A.
+\newblock A feature selection-based framework for human activity recognition
+  using wearable multimodal sensors.
+\newblock  Proceedings of the 6th International Conference on Body Area
+  Networks. ICST (Institute for Computer Sciences, Social-Informatics and
+  Telecommunications Engineering),  2011, pp. 92--98.
+
+\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
+Sarbishei, O.
+\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
+  Recognition on Low-Power Smart Devices.
+\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
+  257--260.
+
 \bibitem[Zardoshti-Kermani \em{et~al.}(1995)Zardoshti-Kermani, Wheeler, Badie,
   and Hashemi]{zardoshti1995emg}
 Zardoshti-Kermani, M.; Wheeler, B.C.; Badie, K.; Hashemi, R.M.
@@ -118,37 +139,16 @@ Shirahama, K.; K{\"o}ping, L.; Grzegorzek, M.
 \newblock  Proceedings of the 2016 ACM International Joint Conference on
   Pervasive and Ubiquitous Computing: Adjunct. ACM,  2016, pp. 197--200.
 
-\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
-Sarbishei, O.
-\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
-  Recognition on Low-Power Smart Devices.
-\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
-  257--260.
-
 \bibitem[Xi \em{et~al.}(2017)Xi, Tang, Miran, and Luo]{xi2017evaluation}
 Xi, X.; Tang, M.; Miran, S.M.; Luo, Z.
 \newblock Evaluation of feature extraction and recognition for activity
   monitoring and fall detection based on wearable sEMG sensors.
 \newblock {\em Sensors} {\bf 2017}, {\em 17},~1229.
 
-\bibitem[Zhang and Sawchuk(2011)]{zhang2011feature}
-Zhang, M.; Sawchuk, A.A.
-\newblock A feature selection-based framework for human activity recognition
-  using wearable multimodal sensors.
-\newblock  Proceedings of the 6th International Conference on Body Area
-  Networks. ICST (Institute for Computer Sciences, Social-Informatics and
-  Telecommunications Engineering),  2011, pp. 92--98.
-
 \bibitem[Acc()]{Accelero5:online}
 Accelerometer.
 \newblock \url{https://www.w3.org/TR/accelerometer/}.
 \newblock (Accessed on 07/03/2019).
-
-\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
-Yurtman, A.; Barshan, B.
-\newblock Activity recognition invariant to sensor orientation with wearable
-  motion sensors.
-\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
 
 \bibitem[Moon and Stirling(2000)]{moon2000mathematical}
 Moon, T.K.; Stirling, W.C.
@@ -162,12 +162,49 @@ Zhang, S.; Rowlands, A.V.; Murray, P.; Hurst, T.L.; others.
   accelerometer.
 \newblock PhD thesis, Lippincott Williams and Wilkins,  2012.
 
+\bibitem[Mortazavi \em{et~al.}(2014)Mortazavi, Pourhomayoun, Alsheikh,
+  Alshurafa, Lee, and Sarrafzadeh]{mortazavi2014determining}
+Mortazavi, B.J.; Pourhomayoun, M.; Alsheikh, G.; Alshurafa, N.; Lee, S.I.;
+  Sarrafzadeh, M.
+\newblock Determining the single best axis for exercise repetition recognition
+  and counting on smartwatches.
+\newblock  2014 11th International Conference on Wearable and Implantable Body
+  Sensor Networks. IEEE,  2014, pp. 33--38.
+
+\bibitem[Baldominos \em{et~al.}(2019)Baldominos, Cervantes, Saez, and
+  Isasi]{baldominos2019comparison}
+Baldominos, A.; Cervantes, A.; Saez, Y.; Isasi, P.
+\newblock A Comparison of Machine Learning and Deep Learning Techniques for
+  Activity Recognition using Mobile Devices.
+\newblock {\em Sensors} {\bf 2019}, {\em 19},~521.
+
+\bibitem[Masum \em{et~al.}(2018)Masum, Barua, Bahadur, Alam, Chowdhury, and
+  Alam]{masum2018human}
+Masum, A.K.M.; Barua, A.; Bahadur, E.H.; Alam, M.R.; Chowdhury, M.A.U.Z.; Alam,
+  M.S.
+\newblock Human Activity Recognition Using Multiple Smartphone Sensors.
+\newblock  2018 International Conference on Innovations in Science, Engineering
+  and Technology (ICISET). IEEE,  2018, pp. 468--473.
+
 \bibitem[Shakya \em{et~al.}(2018)Shakya, Zhang, and
   Zhou]{shakya2018comparative}
 Shakya, S.R.; Zhang, C.; Zhou, Z.
 \newblock Comparative Study of Machine Learning and Deep Learning Architecture
   for Human Activity Recognition Using Accelerometer Data.
 \newblock {\em Int. J. Mach. Learn. Comput} {\bf 2018}, {\em 8},~577--582.
+
+\bibitem[Kose \em{et~al.}(2012)Kose, Incel, and Ersoy]{kose2012online}
+Kose, M.; Incel, O.D.; Ersoy, C.
+\newblock Online human activity recognition on smart phones.
+\newblock  Workshop on Mobile Sensing: From Smartphones and Wearables to Big
+  Data,  2012, Vol.~16, pp. 11--15.
+
+\bibitem[Chen \em{et~al.}(2018)Chen, Zhang, Cao, and Guo]{chen2018distilling}
+Chen, Z.; Zhang, L.; Cao, Z.; Guo, J.
+\newblock Distilling the knowledge from handcrafted features for human activity
+  recognition.
+\newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2018}, {\em
+  14},~4334--4342.
 
 \bibitem[Zhang and Zhang(1999)]{zhang1999geometrical}
 Zhang, L.; Zhang, B.
@@ -181,13 +218,6 @@ Nair, V.; Hinton, G.E.
 \newblock Rectified linear units improve restricted boltzmann machines.
 \newblock  Proceedings of the 27th international conference on machine learning
   (ICML-10),  2010, pp. 807--814.
-
-\bibitem[Baldominos \em{et~al.}(2019)Baldominos, Cervantes, Saez, and
-  Isasi]{baldominos2019comparison}
-Baldominos, A.; Cervantes, A.; Saez, Y.; Isasi, P.
-\newblock A Comparison of Machine Learning and Deep Learning Techniques for
-  Activity Recognition using Mobile Devices.
-\newblock {\em Sensors} {\bf 2019}, {\em 19},~521.
 
 \bibitem[Sena \em{et~al.}(2018)Sena, Santos, and Schwartz]{sena2018multiscale}
 Sena, J.; Santos, J.B.; Schwartz, W.R.
