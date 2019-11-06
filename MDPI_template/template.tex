@@ -269,18 +269,18 @@ Table \ref{dataset_statistics} shows the statistics of the dataset. Since subjec
 	\caption{Statistics of the dataset divided by type of exercise along with the experiments that involve them in.}
 	\centering
 	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-	\begin{tabular}{cccccccc}
+	\begin{tabular}{ccccc}
 		\toprule
-		\textbf{Exercise} & \textbf{Subjects} & \textbf{Sessions}	 & \textbf{Reps} & \textbf{Samples} & \textbf{10-fold} & \textbf{LOSO} & \textbf{LOTO} \\
+		\textbf{Exercise} & \textbf{Subjects} & \textbf{Sessions}	 & \textbf{Reps} & \textbf{Samples}  \\
 		\midrule		
-		Lat Pull Down& 6& 22& 218& 14700& Yes& Yes& Yes\\
-		Bench Press	& 6& 26& 273& 23230& Yes& Yes& Yes\\
-		Biceps curl	& 4& 13& 115& 16095&Yes& Yes& No\\
-		Push-ups & 5& 16& 181& 9200& Yes& Yes& Yes\\
-		Treadmill& 4& 5& +1200 & 68780& Yes& Yes& Yes\\
-		Ab crunch machine& 3& 12& 108 & 10580& Yes& No& Yes\\
-		Crunch Twist &  3& 12& 98& 8760& Yes& No& Yes\\
-		Russian Twist & 3& 8& 67& 8520& Yes& No& Yes\\
+		Lat Pull Down& 6& 22& 218& 14700\\
+		Bench Press	& 6& 26& 273& 23230\\
+		Biceps curl	& 4& 13& 115& 16095\\
+		Push-ups & 5& 16& 181& 9200\\
+		Treadmill& 4& 5& +1200 & 68780\\
+		Ab crunch machine& 3& 12& 108 & 10580\\
+		Crunch Twist &  3& 12& 98& 8760Yes\\
+		Russian Twist & 3& 8& 67& 8520\\
 		\bottomrule
 	\end{tabular}
 	\label{dataset_statistics}
@@ -505,6 +505,13 @@ It is worth mentioning here that when it comes to the complexity of computing th
 
 \emad{also, the results in Table 4 are the average of all the experiments or what activity are these numbers based on.} \hosein{calculated by total correct / total datapoints}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14 cm]{Definitions/images/boxplot_overall_accuracy_3.jpeg}
+	\caption{Comparison between classifiers in terms of accuracy}
+	\label{fig:classification_comparison}
+\end{figure}
+ Figure \ref{fig:classification_comparison} shows how results of each classifier are spread out over 10 rounds. FNN followed by SVM show a range between 85\% through 99\% of accuracy over 10 trials while DT and KNN are showing more divergence over trials respectively between (75\%-98\%) and (78\%-98\%) of performances. Obviously, The median for accuracy of all classifiers are closely around 95\% whereas only for FNN's result, the 3rd quartile is located above the 98\%. The 3rd quartile for other classifiers are equal to their median. This is to say that this result is also promising to achieve a better performance for more number of trials.
 A expected and confirmed by our results in RQ1, different classifiers perform differently. Hence, one question that we aim to answer is whether certain classifiers perform better than others. Therefore, in this research question we do an empirically compare the performance of different classifiers in HAR. We use four popular classifiers in HAR including SVM, KNN, FNN, and DT. It is important to mention that we evaluate the model using default configurations. We are not looking for optimal setup of each classifier \emad{so which configuration do we use? Default?}. \hosein{it is not different from what we said in the methodology/classification.}
 
 Table~\ref{accuracy_classifier_featureset} summarizes the classification results for each classifier over all featuresets.  From analysing the behaviour of classifiers, it emerges that \textbf{FNN and SVM provide the best results on all featuresets, allowing to correctly recognize activities on average 89.04\% and 87.82\% of data points, respectively}. On the other hand, the other classifiers achieve an accuracy of 85.50\% and 82.83\% of accuracy for KNN and DT, respectively. Overall, the highest accuracy achieved by the FNN is 95.89\% for Histogram features \textit{set\_B}, while the worst accuracy is 74.02\% obtained by DT. In the majority of the cases, the classifiers follow same accuracy performance patterns over different featuresets, i.e., ST\_Set and HB\_Set perform best, followed by SS\_Set, PH\_Set and OI\_Set. 
@@ -514,6 +521,20 @@ Table~\ref{accuracy_classifier_featureset} summarizes the classification results
 
 K-fold is one of the most popular methods to evaluate the performance of a HAR model~\cite{wang2019survey}. However, in an empirical study, Jordao et al.~\cite{jordao2018human} showed that the result of k-fold cross validation can be biased when using sliding windows, a technique that is commonly used in HAR. Therefore, the focus of this research question is to asses models by two state-of-the-art evaluation methods namely, Leave-One-Subject-Out (LOSO) cross validation~\cite{liu2011multisensor} and Leave-One-Trial-Out (LOTO) Cross validation~\cite{sena2018multiscale,jordao2018human}. 
 
+\begin{table}[H]
+	\caption{The distribution of activities, repetitions, and subjects among three evaluation methods}
+	\centering
+	\begin{tabular}{p{4cm}p{2.7cm}p{2.7cm}p{2.7cm}}
+		\toprule
+		\textbf{Evaluation Method} & \textbf{\# Activities} & \textbf{\# Repetitions} & \textbf{\# Subjects}\\
+		\midrule
+		K-Fold &  8 & 10 & 13 \\
+		LOTO & 7 & 4 & 6 \\
+		LOSO & 5 & 4 & 4 \\
+		\bottomrule
+	\end{tabular}
+	\label{accuracy_classifier_featureset}
+\end{table}
 Figure~\ref{fig:evaluation_comparison} compares the performance of models using 10-fold cross validation (in blue), LOTO (in orange), and LOSO (in grey). As we can see from the Figure, for all featuresets and all classifiers, the evaluation technique impacts the reported performance. In fact, we see that in general, k-fold cross validation always provides better results than LOTO and LOSO. As mentioned earlier, due to the use of sliding windows in HAR, LOTO or LOSO are more realistic evaluation techniques and than k-fold cross validation. It can be seen that there is a significant distance between results of LOTO and LOSO (~10\%). This can be due to differently performing an exercise by different subjects in LOSO. However, in LOTO, since the model is trained by the data of at least one session of each subject it returns a better result. 
 
 %For each classifier, results in the left columns have been obtained using 10-Fold evaluation, in middle columns using LOTO cross validation, and the right columns using LOSO cross validation. From the results, independent from featureset / classifier, it is obvious that the evaluating by LOTO or LOSO gives a lower performance (on average ~6\% and ~16\% respectively).
