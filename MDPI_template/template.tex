@@ -278,7 +278,7 @@ Table \ref{dataset_statistics} shows the statistics of the dataset. Since subjec
 		Biceps curl	& 4& 13& 115& 16095\\
 		Push-ups & 5& 16& 181& 9200\\
 		Treadmill& 4& 5& +1200 & 68780\\
-		Ab crunch machine& 3& 12& 108 & 10580\\
+		Ab crunch machine& 4& 12& 108 & 10580\\
 		Crunch Twist &  3& 12& 98& 8760Yes\\
 		Russian Twist & 3& 8& 67& 8520\\
 		\bottomrule
@@ -507,7 +507,7 @@ It is worth mentioning here that when it comes to the complexity of computing th
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=14 cm]{Definitions/images/boxplot_overall_accuracy_3.jpeg}
+	\includegraphics[width=14 cm]{Definitions/images/boxplot_overall_accuracy_4.jpeg}
 	\caption{Comparison between classifiers in terms of accuracy}
 	\label{fig:classification_comparison}
 \end{figure}
@@ -521,19 +521,21 @@ Table~\ref{accuracy_classifier_featureset} summarizes the classification results
 
 K-fold is one of the most popular methods to evaluate the performance of a HAR model~\cite{wang2019survey}. However, in an empirical study, Jordao et al.~\cite{jordao2018human} showed that the result of k-fold cross validation can be biased when using sliding windows, a technique that is commonly used in HAR. Therefore, the focus of this research question is to asses models by two state-of-the-art evaluation methods namely, Leave-One-Subject-Out (LOSO) cross validation~\cite{liu2011multisensor} and Leave-One-Trial-Out (LOTO) Cross validation~\cite{sena2018multiscale,jordao2018human}. 
 
+Table \ref{dataset_destribution} shows how the data is separated in each validation method based on number of activities and number of subjects. In K-fold, splitting the dataset is decided by researcher based on the size and distribution of dataset as well as type of classification problem\cite{jordao2018human}. However, in LOSO and LOTO it is up to number of participants and number of sets that they repeat same activities, respectively. In this experiment, for LOSO we used data of 5 activities coming from 4 subjects. For LOTO, we have employed the data of 7 activities from 4 subjects. It is important to mention that, in LOTO, finding a session of data from one subject including enough common exercises to be trained and test on is the main reason that does not let us to employ all recorded sessions of the dataset. Same limitation on finding data from one subject is applicable for LOSO.
+
 \begin{table}[H]
-	\caption{The distribution of activities, repetitions, and subjects among three evaluation methods}
+	\caption{The distribution of activities, repetitions, and subjects among three evaluation methods as well as how the data set splits in each one. }
 	\centering
-	\begin{tabular}{p{4cm}p{2.7cm}p{2.7cm}p{2.7cm}}
+	\begin{tabular}{p{4cm}p{2.2cm}p{2.2cm}p{2.2cm}p{2.2cm}}
 		\toprule
-		\textbf{Evaluation Method} & \textbf{\# Activities} & \textbf{\# Repetitions} & \textbf{\# Subjects}\\
+		\textbf{Evaluation Method} & \textbf{\# Activities} & \textbf{\# Repeats}  & \textbf{\# Subjects}& \textbf{\# splits}\\
 		\midrule
-		K-Fold &  8 & 10 & 13 \\
-		LOTO & 7 & 4 & 6 \\
-		LOSO & 5 & 4 & 4 \\
+		K-Fold &  8 & 26 & 13 & 10 \\
+		LOTO & 7 & 4& 6& 4  \\
+		LOSO & 5 & 4 & 4& 4  \\
 		\bottomrule
 	\end{tabular}
-	\label{accuracy_classifier_featureset}
+	\label{dataset_destribution}
 \end{table}
 Figure~\ref{fig:evaluation_comparison} compares the performance of models using 10-fold cross validation (in blue), LOTO (in orange), and LOSO (in grey). As we can see from the Figure, for all featuresets and all classifiers, the evaluation technique impacts the reported performance. In fact, we see that in general, k-fold cross validation always provides better results than LOTO and LOSO. As mentioned earlier, due to the use of sliding windows in HAR, LOTO or LOSO are more realistic evaluation techniques and than k-fold cross validation. It can be seen that there is a significant distance between results of LOTO and LOSO (~10\%). This can be due to differently performing an exercise by different subjects in LOSO. However, in LOTO, since the model is trained by the data of at least one session of each subject it returns a better result. 
 
