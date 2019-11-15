@@ -7,12 +7,6 @@ Hong, Y.J.; Kim, I.J.; Ahn, S.C.; Kim, H.G.
 \newblock  2008 Second International Conference on Future Generation
   Communication and Networking. IEEE,  2008, Vol.~2, pp. 302--305.
 
-\bibitem[Wang \em{et~al.}(2019)Wang, Cang, and Yu]{wang2019survey}
-Wang, Y.; Cang, S.; Yu, H.
-\newblock A survey on wearable sensor modality centred human activity
-  recognition in health care.
-\newblock {\em Expert Systems with Applications} {\bf 2019}.
-
 \bibitem[Sow \em{et~al.}(2013)Sow, Turaga, and Schmidt]{sow2013mining}
 Sow, D.; Turaga, D.S.; Schmidt, M.
 \newblock Mining of sensor data in healthcare: A survey. In {\em Managing and
@@ -39,6 +33,29 @@ Schilit, B.N.; Adams, N.; Want, R.; others.
 \newblock {\em Context-aware computing applications}; Xerox Corporation, Palo
   Alto Research Center,  1994.
 
+\bibitem[Wang \em{et~al.}(2019)Wang, Cang, and Yu]{wang2019survey}
+Wang, Y.; Cang, S.; Yu, H.
+\newblock A survey on wearable sensor modality centred human activity
+  recognition in health care.
+\newblock {\em Expert Systems with Applications} {\bf 2019}.
+
+\bibitem[Hassan \em{et~al.}(2018)Hassan, Uddin, Mohamed, and
+  Almogren]{hassan2018robust}
+Hassan, M.M.; Uddin, M.Z.; Mohamed, A.; Almogren, A.
+\newblock A robust human activity recognition system using smartphone sensors
+  and deep learning.
+\newblock {\em Future Generation Computer Systems} {\bf 2018}, {\em
+  81},~307--313.
+
+\bibitem[Shoaib \em{et~al.}(2014)Shoaib, Bosch, Incel, Scholten, and
+  Havinga]{s140610146}
+Shoaib, M.; Bosch, S.; Incel, O.D.; Scholten, H.; Havinga, P.J.M.
+\newblock Fusion of Smartphone Motion Sensors for Physical Activity
+  Recognition.
+\newblock {\em Sensors} {\bf 2014}, {\em 14},~10146--10176.
+\newblock
+  doi:{\changeurlcolor{black}\href{https://doi.org/10.3390/s140610146}{\detokenize{10.3390/s140610146}}}.
+
 \bibitem[Rosati \em{et~al.}(2018)Rosati, Balestra, and
   Knaflitz]{rosati2018comparison}
 Rosati, S.; Balestra, G.; Knaflitz, M.
@@ -53,14 +70,6 @@ Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
 \newblock Registration and Analysis of Acceleration Data to Recognize Physical
   Activity.
 \newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
-
-\bibitem[Hassan \em{et~al.}(2018)Hassan, Uddin, Mohamed, and
-  Almogren]{hassan2018robust}
-Hassan, M.M.; Uddin, M.Z.; Mohamed, A.; Almogren, A.
-\newblock A robust human activity recognition system using smartphone sensors
-  and deep learning.
-\newblock {\em Future Generation Computer Systems} {\bf 2018}, {\em
-  81},~307--313.
 
 \bibitem[Zhang and Sawchuk(2013)]{zhang2013human}
 Zhang, M.; Sawchuk, A.A.
