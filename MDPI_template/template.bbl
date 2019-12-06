@@ -114,11 +114,21 @@ Krishnan, N.C.; Juillard, C.; Colbry, D.; Panchanathan, S.
 \newblock {\em Journal of Ambient Intelligence and Smart Environments} {\bf
   2009}, {\em 1},~143--155.
 
-\bibitem[de~Faria and Vieira(2018)]{de2018comparative}
-de~Faria, I.L.; Vieira, V.
-\newblock A Comparative Study on Fitness Activity Recognition.
-\newblock  Proceedings of the 24th Brazilian Symposium on Multimedia and the
-  Web. ACM,  2018, pp. 327--330.
+\bibitem[Baldominos \em{et~al.}(2019)Baldominos, Cervantes, Saez, and
+  Isasi]{baldominos2019comparison}
+Baldominos, A.; Cervantes, A.; Saez, Y.; Isasi, P.
+\newblock A Comparison of Machine Learning and Deep Learning Techniques for
+  Activity Recognition using Mobile Devices.
+\newblock {\em Sensors} {\bf 2019}, {\em 19},~521.
+
+\bibitem[Mortazavi \em{et~al.}(2014)Mortazavi, Pourhomayoun, Alsheikh,
+  Alshurafa, Lee, and Sarrafzadeh]{mortazavi2014determining}
+Mortazavi, B.J.; Pourhomayoun, M.; Alsheikh, G.; Alshurafa, N.; Lee, S.I.;
+  Sarrafzadeh, M.
+\newblock Determining the single best axis for exercise repetition recognition
+  and counting on smartwatches.
+\newblock  2014 11th International Conference on Wearable and Implantable Body
+  Sensor Networks. IEEE,  2014, pp. 33--38.
 
 \bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
   Wattenhofer]{soro2019recognition}
@@ -126,6 +136,31 @@ Soro, A.; Brunner, G.; Tanner, S.; Wattenhofer, R.
 \newblock Recognition and Repetition Counting for Complex Physical Exercises
   with Deep Learning.
 \newblock {\em Sensors} {\bf 2019}, {\em 19},~714.
+
+\bibitem[Anguita \em{et~al.}(2013)Anguita, Ghio, Oneto, Parra, and
+  Reyes-Ortiz]{anguita2013public}
+Anguita, D.; Ghio, A.; Oneto, L.; Parra, X.; Reyes-Ortiz, J.L.
+\newblock A public domain dataset for human activity recognition using
+  smartphones.
+\newblock  Esann,  2013.
+
+\bibitem[de~Faria and Vieira(2018)]{de2018comparative}
+de~Faria, I.L.; Vieira, V.
+\newblock A Comparative Study on Fitness Activity Recognition.
+\newblock  Proceedings of the 24th Brazilian Symposium on Multimedia and the
+  Web. ACM,  2018, pp. 327--330.
+
+\bibitem[Anwary \em{et~al.}(2018)Anwary, Yu, and Vassallo]{anwary2018automatic}
+Anwary, A.; Yu, H.; Vassallo, M.
+\newblock An automatic gait feature extraction method for identifying gait
+  asymmetry using wearable sensors.
+\newblock {\em Sensors} {\bf 2018}, {\em 18},~676.
+
+\bibitem[Mazo(1975)]{mazo1975faster}
+Mazo, J.E.
+\newblock Faster-than-Nyquist signaling.
+\newblock {\em The Bell System Technical Journal} {\bf 1975}, {\em
+  54},~1451--1462.
 
 \bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
 Yurtman, A.; Barshan, B.
@@ -178,6 +213,12 @@ Janidarmian, M.; Roshan~Fekr, A.; Radecka, K.; Zilic, Z.
   Activity Recognition.
 \newblock {\em Sensors} {\bf 2017}, {\em 17},~529.
 
+\bibitem[Nair and Hinton(2010)]{nair2010rectified}
+Nair, V.; Hinton, G.E.
+\newblock Rectified linear units improve restricted boltzmann machines.
+\newblock  Proceedings of the 27th international conference on machine learning
+  (ICML-10),  2010, pp. 807--814.
+
 \bibitem[Zhang \em{et~al.}(2012)Zhang, Rowlands, Murray, Hurst,
   et~al.]{zhang2012physical}
 Zhang, S.; Rowlands, A.V.; Murray, P.; Hurst, T.L.; others.
@@ -185,21 +226,18 @@ Zhang, S.; Rowlands, A.V.; Murray, P.; Hurst, T.L.; others.
   accelerometer.
 \newblock PhD thesis, Lippincott Williams and Wilkins,  2012.
 
-\bibitem[Mortazavi \em{et~al.}(2014)Mortazavi, Pourhomayoun, Alsheikh,
-  Alshurafa, Lee, and Sarrafzadeh]{mortazavi2014determining}
-Mortazavi, B.J.; Pourhomayoun, M.; Alsheikh, G.; Alshurafa, N.; Lee, S.I.;
-  Sarrafzadeh, M.
-\newblock Determining the single best axis for exercise repetition recognition
-  and counting on smartwatches.
-\newblock  2014 11th International Conference on Wearable and Implantable Body
-  Sensor Networks. IEEE,  2014, pp. 33--38.
+\bibitem[Shoaib \em{et~al.}(2016)Shoaib, Bosch, Incel, Scholten, and
+  Havinga]{shoaib2016complex}
+Shoaib, M.; Bosch, S.; Incel, O.; Scholten, H.; Havinga, P.
+\newblock Complex human activity recognition using smartphone and wrist-worn
+  motion sensors.
+\newblock {\em Sensors} {\bf 2016}, {\em 16},~426.
 
-\bibitem[Baldominos \em{et~al.}(2019)Baldominos, Cervantes, Saez, and
-  Isasi]{baldominos2019comparison}
-Baldominos, A.; Cervantes, A.; Saez, Y.; Isasi, P.
-\newblock A Comparison of Machine Learning and Deep Learning Techniques for
-  Activity Recognition using Mobile Devices.
-\newblock {\em Sensors} {\bf 2019}, {\em 19},~521.
+\bibitem[Bishop(2006)]{bishop2006pattern}
+Bishop, C.M.
+\newblock Pattern recognition and machine learning (information science and
+  statistics) springer-verlag new york.
+\newblock {\em Inc. Secaucus, NJ, USA} {\bf 2006}.
 
 \bibitem[Masum \em{et~al.}(2018)Masum, Barua, Bahadur, Alam, Chowdhury, and
   Alam]{masum2018human}
@@ -242,12 +280,6 @@ Zhang, L.; Zhang, B.
   applications.
 \newblock {\em IEEE Transactions on Neural Networks} {\bf 1999}, {\em
   10},~925--929.
-
-\bibitem[Nair and Hinton(2010)]{nair2010rectified}
-Nair, V.; Hinton, G.E.
-\newblock Rectified linear units improve restricted boltzmann machines.
-\newblock  Proceedings of the 27th international conference on machine learning
-  (ICML-10),  2010, pp. 807--814.
 
 \bibitem[Sena \em{et~al.}(2018)Sena, Santos, and Schwartz]{sena2018multiscale}
 Sena, J.; Santos, J.B.; Schwartz, W.R.
