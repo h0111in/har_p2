@@ -10,8 +10,10 @@
 \usepackage{multirow}
 \usepackage{subcaption}
 
+
 \newcommand{\emad}[1]{\textcolor{red}{{\it [Emad: #1]}}}
 \newcommand{\hosein}[1]{\textcolor{orange}{{\it [Hosein: #1]}}}
+\newcommand{\diego}[1]{\textcolor{gray}{{\it [Diego: #1]}}}
 \newcommand{\todo}[1]{\colorbox{yellow}{\textbf{[#1]}}}
 
 % If you would like to post an early version of this manuscript as a preprint, you may use preprint as the journal and change 'submit' to 'accept'. The document class line would be, e.g., \documentclass[preprints,article,accept,moreauthors,pdftex]{mdpi}. This is especially recommended for submission to arXiv, where line numbers should be removed before posting. For preprints.org, the editorial staff will make this change immediately prior to posting.
@@ -107,7 +109,7 @@ $^{2}$ \quad Dept. of Computer Science and Software Engineering; e$.$shihab@conc
 %\conference{} % An extended version of a conference paper
 
 % Abstract (Do not insert blank lines, i.e. \\) 
-\abstract{Human Activity Recognition (HAR) using sensory data refers to an emerging area of interest for healthcare, military, and security applications. Several researches are conducted to capture a certain activity from an stream of data. Basically, the most popular methods extract some attributes (features) of a signal and apply a pattern recognition model on them. There are several studies that they have proposed different set of features that show the performance is significantly improved. However, since each result have been achieved under its own setup, comparing the impact of different featuresets can not be made in a distinct form. Therefore, in this work, we split a HAR setup into its three main characteristics including dataset (types of activities), classifiers, and evaluation methods; Then, we assess the impact of using different featuresets in each characteristic of setup, separately. Toward this end, we address three challenges: (1) choosing featureset, (2) choosing classifier, and (3) choosing evaluation method. We present cross-validation results on 20 different models using 5 featuresets and 4 classifiers. For experiments, We create a dataset of 8 complex gym exercises from 13 subjects over several sessions. Results showed that models on histogram-bin features deliver the best performance (on average 87.80\% of accuracy) relatively better than general statistical features. Among classifiers, the average classification accuracy of Forward Neural Network (FNN) model is reported the highest performance (95.89\%) using histogram bins in k-fold cross-validation. FNN in Leave-One-Trial-Out cross-validation and Leave-One-Subject-Out cross-validation achieved 89.66\% and 81.59\% respectively. This study provides significant experimental results on building a HAR model under realistic conditions.
+\abstract{Human Activity Recognition (HAR) using sensory data refers to an emerging area of interest for healthcare, military, and security applications. Several researches are conducted to capture a certain activity from an stream of data. Basically, the most popular methods extract some attributes (features) of a signal and apply a pattern recognition model on them. There are several studies that they have proposed different set of features that show the performance is significantly improved. However, since each result have been achieved under its own setup, comparing the impact of different featuresets can not be made in a distinct form. Therefore, in this work, we split a HAR setup into its three main characteristics including dataset (types of activities), classifiers, and evaluation methods; Then, we assess the impact of using different featuresets in each characteristic of setup, separately. Toward this end, we address three challenges: (1) choosing featureset, (2) choosing classifier, and (3) choosing evaluation method. We present cross-validation results on 20 different models using 5 featuresets and 4 classifiers. For experiments, We create a dataset of 8 complex gym exercises from 13 subjects over several sessions. Results showed that models on histogram-bin features deliver the best performance (on average 87.80\% of F1) relatively better than general statistical features. Among classifiers, the average classification performance of Forward Neural Network (FNN) model is reported the highest performance (95.89\% of F1) using histogram bins in k-fold cross-validation. FNN in Leave-One-Trial-Out cross-validation and Leave-One-Subject-Out cross-validation achieved 89.66\% and 81.59\% respectively. This study provides significant experimental results on building a HAR model under realistic conditions.
 }
 % Keywords
 \keyword{Feature Extraction; Featureset; Wearable; Motion Sensor; Neural Network, Histogram, Human Activity Recognition }
@@ -148,8 +150,8 @@ $^{2}$ \quad Dept. of Computer Science and Software Engineering; e$.$shihab@conc
 
 %The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \cite{ref-journal}. And now citing a book reference \cite{ref-book}. Please use the command \citep{ref-journal} for the following MDPI journals, which use author-date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, JRFM, Languages, Laws, Religions, Risks, Social Sciences.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-With the rise of life expectancy and ageing of population, the development of new technologies that focuses on elderly healthcare has become a challenge \cite{hong2008activity}. Fall risk assessment of elderly patients \cite{sow2013mining}, physical fitness monitoring\cite{morris2014recofit}, medical diagnosis \cite{gonzalez2015features} are to name a few. Simultaneously, using Wearables are increasingly pervasive. Wearables are small in size, relatively cheap and ubiquitously used, which has enabled enormous potential in human-centred applications. Therefore, implementation a system that uses the device resources aiming users in healthcare and improving the activity performance in the form of recognizing a certain activity or counting it \cite{schilit1994context} is vital. Human Activity Recognition (HAR) using Wearables is one of the most promising assistive technologies to support older people's daily life \cite{wang2019survey}.\\
-A Wearable device can be equipped by any type of sensors (e.g., microphone, camera, accelerometer). Motion-based sensors are the most popular in HAR, which are capable to measure a movement (e.g., acceleration, angular velocity, shake, magnetic fields and so on) \cite{hassan2018robust}. When these sensors are attached to human body, they can capture the motion of that part of the body as shown in Figure \ref{fig:main_approach} step 1. In literature\cite{morris2014recofit, s140610146,wang2019survey }, authors also used different positions like chest, wrist, pocket, and foot to attach the sensor.
+With the rise of life expectancy and aging of population, the development of new technologies that focuses on elderly healthcare has become a challenge \cite{hong2008activity}. Fall risk assessment of elderly patients \cite{sow2013mining}, physical fitness monitoring\cite{morris2014recofit}, medical diagnosis \cite{gonzalez2015features} are to name a few. Human Activity Recognition (HAR) using Wearables is one of the most promising assistive technologies to support older people's daily life \cite{wang2019survey}. Simultaneously, using Wearables are increasingly pervasive. Wearables are small in size, relatively cheap and ubiquitously used, which has enabled enormous potential in human-centred applications. Therefore, implementation a system that uses the device resources aiming users in healthcare and improving the activity performance in the form of recognizing a certain activity or counting it \cite{schilit1994context} is vital.\\
+Wearable sensor-based HAR systems basically share a similar approach, as shown in Figure \ref{fig:main_approach}. The procedure starts with recording an activity by single or multiple sensors\cite{s140610146}. Motion-based sensors are the most popular in HAR, which are capable to measure a movement by different metrics (e.g., acceleration, angular velocity, shake, magnetic field) \cite{hassan2018robust}. When a sensor is attached to the human body, it can capture the motion of that part of the body as shown in Figure \ref{fig:main_approach} step 1. In literature\cite{morris2014recofit, s140610146, wang2019survey}, authors have used different positions like chest, wrist, pocket, and foot to attach the sensor.
 
 \begin{figure}[H]
 	\centering
@@ -157,45 +159,90 @@ A Wearable device can be equipped by any type of sensors (e.g., microphone, came
 	\caption{Typical Work-flow on Human Activity Recognition}
 	\label{fig:main_approach}
 \end{figure} 
-The data collected by sensors as \textit{time series raw signal} will be segmented into smaller pieces (Figure \ref{fig:main_approach} step 2). Based on a comprehensive understanding of physically how an activity has been done, useful representative features for distinguishing activities are extracted from each segment (step 3)\cite{rosati2018comparison, wang2019survey}.
-So far, among different type of features, statistical features on time domain has been received the most attention in HAR studies. However, in recent years, other type of features, like frequency domain features and hybrid features have been combined with statistical features with the aim of improving activity recognition performance\cite{wang2019survey, morris2014recofit}. However, to the best of our knowledge, there is no study investigating the performance of each set of features in detail considering different classifiers and evaluation method but under same dataset and experimental setup. More over, using more features causes more energy consumption, which can be problematic for an energy-limited device, like a smartphone\cite{Nourani_CoMoRea2019}. Hence, such a detailed analysis can help in deciding when to best use each set of features. Therefore, there is a need to study the impact of these featureset in detail. In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art featuresets, best used for better recognition performance (RQ1)".
-%Some researcher have already investigated the impact of using various features in HAR\cite{,,}. For instance, ?? et.al. compare 
-
-%the input for Human Activity Recognition (HAR) model. A HAR model classifies certain activities from input signal which consists of three phases: First, there is a processing operation to \textit{extract features} from raw signal. Then, in \textit{classification }phase there is a classifier to discriminates activities. Finally, in the third phase, there is an \textit{evaluation} method to ensure that the classification provides required performance\cite{kolodziej2019registration}.  Figure \ref{fig:main_approach} shows a start-to-finish pipeline of HAR.\\
-
-
-To recognize an activity, selecting a proper set of features from raw data plays an important role in the HAR performance \cite{zhang2013human}. Basically, a feature might be acquired from a statistical function (e.g., mean, variance), or a transformation function (e.g., Discrete Wavelet Transform, Fourier Transformation), or a combination - hybrid of them \cite{wang2019survey}. Depends on the function that is in-use, features are coming at different levels of cost and complexity. Additionally, different features are not necessarily informative equally. Therefore, extracting the most valuable features at the expense of minimum cost of computation is the main goal in \textit{feature extraction} phase. Previous works have proposed a wide range of features for HAR models \cite{janidarmian2017comprehensive, wang2019survey}. Although the cost of extracting a feature can be measured by calculating the complexity order of the function, the impact of a feature on the performance of the model is something not achievable theoretically\cite{rosati2018comparison}. Therefore, we need an empirical study on hand-crafted features to assess their impacts on performance.\\
-The goal of this paper is to perform a comprehensive examination of the different featuresets, models and evaluation techniques used in wearable-based HAR systems. Specifically, we aim at examining five state-of-the-art featuresets (RQ1) and performance of classifiers on each featureset (RQ2) through a start-to-finish pipeline HAR system. Furthermore, we investigate the performance achieved by models under three evaluation methods (RQ3).
-
-
-%Study on validation protocols to choose a reliable method to assess an HAR model \cite{jordao2018human} (in the phase 3)
-
-%(3) impact of quality of dataset on performance since they vary from paper to paper\cite{jordao2018human}.\\
-%While the first two issues have impact on performance of a model in general, the third one influences directly on recognition result, independent from how much a model is well designed. Factors like size of dataset, frequency rate of sensors, complexity of target activities, sensor position and how it is attached to the body, and so on. In [], the authors, looking for impact of sensor alignments, in two different trials attached the sensor to the subjects. In first trial, an expert attached the sensor while in the second trial, subjects were asked to attached the sensors by themselves. Results show that the performance has a significant collapse during the second trials.
+%<<<<<<< HEAD
+%The data collected by sensors as \textit{time series raw signal} will be segmented into smaller pieces (Figure \ref{fig:main_approach} step 2). Based on a comprehensive understanding of physically how an activity has been done, useful representative features for distinguishing activities are extracted from each segment (step 3)\cite{rosati2018comparison, wang2019survey}.
+%So far, among different type of features, statistical features on time domain has been received the most attention in HAR studies. However, in recent years, other type of features, like frequency domain features and hybrid features have been combined with statistical features with the aim of improving activity recognition performance\cite{wang2019survey, morris2014recofit}. However, to the best of our knowledge, there is no study investigating the performance of each set of features in detail considering different classifiers and evaluation method but under same dataset and experimental setup. More over, using more features causes more energy consumption, which can be problematic for an energy-limited device, like a smartphone\cite{Nourani_CoMoRea2019}. Hence, such a detailed analysis can help in deciding when to best use each set of features. Therefore, there is a need to study the impact of these featureset in detail. In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art featuresets, best used for better recognition performance (RQ1)".
+%%Some researcher have already investigated the impact of using various features in HAR\cite{,,}. For instance, ?? et.al. compare 
 %
-%Regarding the first issue, previous works have employed a wide range of features for HAR models. Dealing with selecting appropriate features (feature extractions/selection) are usually aiming to improve the performance and/or decreasing the computational costs. Previous works have proposed a wide range of features to be extracted as well as feature selection methods to choose the most appropriate featuresets. Some studies also have presented some featuresets that are manually selected based on the context (e.g., type of the activity). In our previous work\cite{Nourani_CoMoRea2019}, we showed that by removing redundant features, we can keep the performance identical while shrink the dataset to 8\% of its initial size. This approach significantly decreases the processing cost and vulnerability of getting overfit. In this study, we will also focus on improving performance by choosing the right featureset rather just decreasing size of dataset in a feature-set.\\
-In addition to this, in \cite{rosati2018comparison} the authors also listed two extra issues which have been less considered in previous work:
-(1) the processing cost of producing a feature
-(2) the complexity of calculation of features makes a model difficult to understand.
-We also mention these aspects in our study.
+%%the input for Human Activity Recognition (HAR) model. A HAR model classifies certain activities from input signal which consists of three phases: First, there is a processing operation to \textit{extract features} from raw signal. Then, in \textit{classification }phase there is a classifier to discriminates activities. Finally, in the third phase, there is an \textit{evaluation} method to ensure that the classification provides required performance\cite{kolodziej2019registration}.  Figure \ref{fig:main_approach} shows a start-to-finish pipeline of HAR.\\
+%
+%
+%To recognize an activity, selecting a proper set of features from raw data plays an important role in the HAR performance \cite{zhang2013human}. Basically, a feature might be acquired from a statistical function (e.g., mean, variance), or a transformation function (e.g., Discrete Wavelet Transform, Fourier Transformation), or a combination - hybrid of them \cite{wang2019survey}. Depends on the function that is in-use, features are coming at different levels of cost and complexity. Additionally, different features are not necessarily informative equally. Therefore, extracting the most valuable features at the expense of minimum cost of computation is the main goal in \textit{feature extraction} phase. Previous works have proposed a wide range of features for HAR models \cite{janidarmian2017comprehensive, wang2019survey}. Although the cost of extracting a feature can be measured by calculating the complexity order of the function, the impact of a feature on the performance of the model is something not achievable theoretically\cite{rosati2018comparison}. Therefore, we need an empirical study on hand-crafted features to assess their impacts on performance.\\
+%The goal of this paper is to perform a comprehensive examination of the different featuresets, models and evaluation techniques used in wearable-based HAR systems. Specifically, we aim at examining five state-of-the-art featuresets (RQ1) and performance of classifiers on each featureset (RQ2) through a start-to-finish pipeline HAR system. Furthermore, we investigate the performance achieved by models under three evaluation methods (RQ3).
+%
+%
+%%Study on validation protocols to choose a reliable method to assess an HAR model \cite{jordao2018human} (in the phase 3)
+%
+%%(3) impact of quality of dataset on performance since they vary from paper to paper\cite{jordao2018human}.\\
+%%While the first two issues have impact on performance of a model in general, the third one influences directly on recognition result, independent from how much a model is well designed. Factors like size of dataset, frequency rate of sensors, complexity of target activities, sensor position and how it is attached to the body, and so on. In [], the authors, looking for impact of sensor alignments, in two different trials attached the sensor to the subjects. In first trial, an expert attached the sensor while in the second trial, subjects were asked to attached the sensors by themselves. Results show that the performance has a significant collapse during the second trials.
+%%
+%%Regarding the first issue, previous works have employed a wide range of features for HAR models. Dealing with selecting appropriate features (feature extractions/selection) are usually aiming to improve the performance and/or decreasing the computational costs. Previous works have proposed a wide range of features to be extracted as well as feature selection methods to choose the most appropriate featuresets. Some studies also have presented some featuresets that are manually selected based on the context (e.g., type of the activity). In our previous work\cite{Nourani_CoMoRea2019}, we showed that by removing redundant features, we can keep the performance identical while shrink the dataset to 8\% of its initial size. This approach significantly decreases the processing cost and vulnerability of getting overfit. In this study, we will also focus on improving performance by choosing the right featureset rather just decreasing size of dataset in a feature-set.\\
+%In addition to this, in \cite{rosati2018comparison} the authors also listed two extra issues which have been less considered in previous work:
+%(1) the processing cost of producing a feature
+%(2) the complexity of calculation of features makes a model difficult to understand.
+%We also mention these aspects in our study.
+%
+%While choosing an appropriate featureset plays an important role to improve the performance of the model, study on validation methods is a critical point since different validation methods show performance differently. For the same reason, using HAR models on new dataset shows a significant decrease in performance. As a consequence of this issue, currently it is impossible to know the state-of-the-art methods in HAR~\cite{jordao2018human}. In addition, some factors like temporal changes in user body (e.g., tiredness) have impacts on how they perform an identical activity within two different trials. However, it is impossible to evaluate such impacts by traditional validation methods like k-fold cross-validation or Leave-One-Subject-Out (LOSO) cross validation. To address this issue, in this study, we employ Leave-One-Trial-Out (LOTO) cross-validation addition to conventional validation methods.\\
+%
+%A typical work-flow on human activity recognition is including feature extraction, classification and evaluation (Figure \ref{fig:main_approach}). The aforementioned discussion motivated our study, where we evaluate a wide range of features by the performance reached by four popular classifiers. The models train and evaluate on our dataset which is one of the biggest dataset on gym exercises, publicly available. To provide a more robust evaluation we validate our models under several cross-validation methods including K-Fold, LOSO, and LOTO.
+%=======
+ 
 
-While choosing an appropriate featureset plays an important role to improve the performance of the model, study on validation methods is a critical point since different validation methods show performance differently. For the same reason, using HAR models on new dataset shows a significant decrease in performance. As a consequence of this issue, currently it is impossible to know the state-of-the-art methods in HAR~\cite{jordao2018human}. In addition, some factors like temporal changes in user body (e.g., tiredness) have impacts on how they perform an identical activity within two different trials. However, it is impossible to evaluate such impacts by traditional validation methods like k-fold cross-validation or Leave-One-Subject-Out (LOSO) cross validation. To address this issue, in this study, we employ Leave-One-Trial-Out (LOTO) cross-validation addition to conventional validation methods.\\
+The data collected by sensors as \textit{time series raw signal} will be segmented into smaller pieces (Figure \ref{fig:main_approach} step 2) to become easier on classification phase. In step 3, useful representative features (e.g., statistical features) for distinguishing activities are extracted from each segment - \textit{feature extraction}\cite{rosati2018comparison, wang2019survey}. The data extracted from step 3 will be considered as input for \textit{classification} in step 4. The classification output is the activity name in step 5. At this step, different \textit{evaluation} method can asses the performance of the model.\\
+Basically, extracting features is based on a comprehensive understanding of physically how an activity has been done. Among different type of features, statistical features has been received the most attention in HAR studies. However, in recent years, other type of features, like frequency domain features and hybrid features have been combined with statistical features with the aim of improving activity recognition performance\cite{wang2019survey, morris2014recofit}. Although there are several studies in literature that show these featuresets outcome remarkable model performance, to the best of our knowledge, there is no empirical study investigating the performance of each set of features. Specifically, there is not a comparison study, considering different classifiers and evaluation methods under same dataset and experimental setup. One simple solution is to extract more features, however, more number of features causes more energy consumption, which can be problematic for an energy-limited device, like a smartphone\cite{Nourani_CoMoRea2019}. Hence, such a detailed analysis can help in deciding when to best use each set of features. Therefore, there is a need to study the impact of these featureset in detail. In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art, best used for better recognition performance (RQ1)".
 
-A typical work-flow on human activity recognition is including feature extraction, classification and evaluation (Figure \ref{fig:main_approach}). The aforementioned discussion motivated our study, where we evaluate a wide range of features by the performance reached by four popular classifiers. The models train and evaluate on our dataset which is one of the biggest dataset on gym exercises, publicly available. To provide a more robust evaluation we validate our models under several cross-validation methods including K-Fold, LOSO, and LOTO.
+Some researchers have already investigated the impact of various features in activity recognition\cite{morris2014recofit,zhang2013human, rosati2018comparison}. For example, in \cite{morris2014recofit}, the authors use statistical features in combination with auto-correlation features using SVM classifier and report a robust HAR system on gym exercises with around 99\% of accuracy on their own dataset. On the other hand, in \cite{zhang2011feature}, the authors claim that the addition of physical features, feature based on physical interpretation, to statistical features while employing a multi-level classification, improves the performance to 90\% of accuracy. Although the first study has reached a better performance than second study, it does not necessarily mean that the auto-correlation features are 9\% more informative than physical features. These two papers are showing different results probably due to their different experimental setups. In order to compare the impact of each featureset, it is important to examine them under same experimental setup. However, these previous studies have investigated featuresets on different dataset and classification method. In order to have general answer to RQ1, we need to know the role of other factors like classification method on HAR model. In other words, we are aiming to answer: "How different do classifiers perform on different featuresets (RQ2)". We chose four classifiers in order to cover the most commonly used classification methods in the previous studies. These classifiers are: Support-Vector Machine (SVM), Feed-Forward Network (FNN), Decision Tree (DT), and K-Nearest Neighbor (KNN).
 
-The aim of this article is to present the following main contributions:
+In 2018, Jordao et al. \cite{jordao2018human} revealed a basic issue regarding the process of extracting features. They showed that the traditional process of generating data points is vulnerable to bias leading skewed results. It occurs because the part of the sample's content can appear in training and testing, simultaneously. They have demonstrated that by applying non-biased ways of generating features from raw data, recognition performance has been significantly affected. Therefore, in this study we also investigate impact of three protocol of generating features: A: Extracting features over whole dataset (traditional method), B: Extracting features over sessions of recording data, and C: Extracting features over data of each subject separated. Method A is selected because it was mostly-used in previous studies \cite{}. There is an evaluation method corresponding with each way of generating features including K-fold, Leave-One-Trial-Out (LOTO), and Leave-One-Subject-Out (LOSO), respectively. In particular, we want to answer this research question: "How do different protocols impact on recognition performance? (RQ3)".\\
+
+We believe that our effort will assist the readership and this will save time for future studies by not repeating the same experiments. This study can be used as a basis for making design decisions about when and what to choose these set of features for better activity recognition. The main contributions and highlights of this paper are as follows:
+
+
 \begin{itemize}
-	\item Study and evaluation of the remarkable state-of-the-art featuresets.
-	\item Analysis and interpretation of a novel model using Forward Neural Network (FNN) in HAR
-	\item Study on validation methods and their vulnerabilities in HAR.
+	\item To the best of our knowledge, we are the first to do such an extensive analysis of the role of state-of-the-art featuresets in activity recognition, over different classifiers and evaluation methods. We extract features from two sensors equipped with accelerometer and gyroscope on two body positions (wrist and foot). We have used four classification models in our experiments, which are all used in the state-of-the-art. 
+	\item We also investigate the recognition performance when the features are orientation-independent comparing with when they are orientation-dependent. Moreover, we target a wide range of features from low complexity which are suitable for running on smartphones (e.g., histogram) to high complexity which are useful for online HAR systems\cite{morris2014recofit} for our evaluation scenarios.
+	\item We introduce leave-one-set-out cross-validation which is similar to LOTO cross-validation. In addition, we show how much robust each state-of-the-art featureset is against different evaluation methods.
+	\item We recognize eight gym exercises, commonly used in the state-of-the-art. Moreover, we make our data set and our labeling and extracting features application publicly available for future research in this domain \cite{gymDataset}.
 \end{itemize}
-%Regarding the target datasets, we chose [] dataset since it provides a wide range of activities (33 activities) and it is big enough.
-To the best of our knowledge, there is no dataset that targets different trials of same activity with same subject, publicly available. So, we collected a dataset of 13 subjects and +50 gym activities including different trials for each activity.
-
-The rest of this paper is organized as follows. Section 2 describes the study setup including the approach and the dataset used in this study. Section 3 defines the featuresets and theirs advantages in previous works. Section 4 presents the results of using featuresets on classifiers. Finally, Section 7 summarizes this study and highlight the most important contributions of this paper for future works.
-\section{Related Work}
 
 
+The rest of the paper is organized as follows. We describe related work in Section 2. The data and the study setup including the approach and the dataset are explained in Section 3. The featuresets are described in Section 4 and our evaluation approach in Section 5. We discuss the performance evaluation in Section 6. Finally, we describe our conclusions and future work in Section 7.
+
+%\section{Related Work}
+%
+%Addition to this, in \cite{rosati2018comparison} which is the most similar previous work to us, the authors also listed two extra issues which less have been considered in previous works:
+%(1) The processing cost of producing a feature
+%(2) The complexity of calculation of features makes a model difficult to understand.
+%
+%
+%
+%In literature, in order to gain more information from the sensory data, the authors came up with hundreds of hand-crafted features among time domains, frequency domain or a combination of them. While each feature represents the signal in a certain point of view, it does not mean that this feature is informative enough for a model to recognize an activity based on that. One decisive factor to build a new feature is respecting the type of activity. Wang et. al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases) of an activity into three main groups: (1) The \textbf{basic activities} which happen in comparatively longer duration e.g., walking and running. (2)  The complex activities that are in the form of a sequence of several phases. Each phase might be a complex or basic activity e.g., coffee time, smoking. (3) Transition activities which having a certain but temporal pattern happening between two different postures or two basic activities. e.g., stand-to-sit, push-ups and so on. From this point of view, previous works introduced  different feature sets that each one target a given type of activity. Consequently, targeting more than one type of activity brings more challenges for researcher to create a suitable set of features. Since exercises in gym composed of an orchestration of different type activities (basic, transition, complex), presenting a model to effectively recognize these activities will be more challenging.
+%
+%
+%Basically, a HAR system using Inertial Measurement Units (IMUs) is composed of two basic components: (1) a data acquisition unit responsible for capturing human movements, (2) a processing unit responsible for recognizing the certain activities among movements of the subject\cite{rosati2018comparison}. In the first component, the human movements is captured by different motion sensors such as accelerometer, gyroscope, and so on. These sensors can be located in an off-the-shelf device like a smart-phone for general HAR applications or specifically are accompanied by a storage and a processor, formed a System on Chip (SoC) for a certain purpose. The captured movements as raw data transmits to the second component for processing operation.\\
+%Within the processing unit, there is a pattern recognition (HAR) model that classifies the input signals into certain classes of activities. This HAR model typically consists of three phases. First, there is a pre-processing operation that extracts informative features from raw signal. Second, a classifier is trained over extracted features. Third, an evaluation method to ensure that the classifier provides the required performance\cite{kolodziej2019registration}. In other words, a HAR model should address these three aspects to be able to recognize an activity.
+%
+%
+%Basically, given a stream of sensory data, features are in three main categories.\cite{wang2019survey} 1) Time-domain features, 2) Frequency-domain features, 3) Hybrid features - any combination of statistical functions on signal in frequency-domain and/or time-domain. 
+%
+%To the best of our knowledge, the statistical functions on time-domain signal provide the most popular features in HAR. Features like mean, median, mean standard deviation, variance, minimum, maximum are the most popular ones. The second group, Frequency-domain features are so helpful for those models that target periodic activities like walking. To achieve a frequency-domain feature, one segment of time signal should be transferred to several components in frequency domain. Each component may/may not have meaning depend on the activity. Frequency bins and auto-correlation coefficient are some example.[available here]
+%
+%In feature extraction phase, the challenge is to extract the most informative set among a wide range of features\cite{krishnan2009recognition}.  In this regards,
+%
+%
+%Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures.  Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them.
+%
+%%Factors like size of dataset, frequency rate of sensors, complexity of target activities, sensor position and how it is attached to the body, and so on. In [], the authors, looking for impact of sensor alignments, in two different trials attached the sensor to the subjects. In first trial, an expert attached the sensor while in the second trial, subjects were asked to attached the sensors by themselves. Results show that the performance has a significant collapse during the second trials.
+%
+%%Comparing the two feature subsets, no significant differences were observed for every dynamic activity using SVM and DT, while FNN fed with FeatSet_B was not able to reach acceptable results. \cite{rosati2018comparison}
+%
+%
+%in \cite{Suto et al., 2017} investigate the efficiency of the popular machine learning strategies based on a right-ankle-mounted accelerometer, and their results suggest that one sensor is not enough for appropriate daily activity recognition due to the similar data generated from one sensor for different activities. Nevertheless, using one sensor can be used as a suitable setup for the basic recognition tasks, such as step counting or sleep quality monitoring. Placing more sensors on multiple body parts is intuitively beneficial for improving the performance and robustness, whereas this can also result in increased complexity in deployment and computation cost. In \cite{Sztyler et al.}, authors developed a position-aware HAR system by placing seven accelerometers in different body positions.
+%
+%There are challenges associated with exercise analysis including 1)The sensor signal is exceedingly similar between an exercise and a non-exercise activity.~\cite{morris2014recofit} 2) Repetitiveness in signal on exercises can be a metric to distinct but there are exceptions(e.g., walking)~\cite{morris2014recofit, baldominos2019comparison}.  
+%
+
+\section{Data Collection}
 
 
 Basically, a HAR system using Inertial Measurement Units (IMUs) is composed of two basic components: (1) a data acquisition unit responsible for capturing human movements, (2) a processing unit responsible for recognizing the certain activities among movements of the subject~\cite{rosati2018comparison}. In the first component, the human movements is captured by different motion sensors such as accelerometer, gyroscope, and so on. These sensors can be located in an off-the-shelf device like a smart-phone for general HAR applications or specifically are accompanied by a storage and a processor, formed a System on Chip (SoC) for a certain purpose. The captured movements as raw data transmits to the second component for processing operation.\\
@@ -206,103 +253,106 @@ In literature, in order to gain more information from the sensory data, the auth
 
 Basically, given a stream of sensory data, features are in three main categories.\cite{wang2019survey} 1) Time-domain features, 2) Frequency-domain features, 3) Hybrid features - any combination of statistical functions on signal in frequency-domain and/or time-domain. 
 
-To the best of our knowledge, the statistical functions on time-domain signal provide the most popular features in HAR. Features like mean, median, mean standard deviation, variance, minimum, maximum are the most popular ones. The second group, Frequency-domain features are so helpful for those models that target periodic activities like walking. To achieve a frequency-domain feature, one segment of time signal should be transferred to several components in frequency domain. Each component may/may not have meaning depend on the activity. Frequency bins and auto-correlation coefficient are some example.[available here]
+%The most crucial requirement to start an gym exercise recognition process is having the real-world data of human activities ~\cite{morris2014recofit}. 
+%In this study, to choose the dataset, we took the "complexity of data" into account, e.g., whether a sophisticated featureset is essentially required to reach a high-performing recognition or not. Otherwise, it does not give us a meaningful difference in the performance of the different featuresets. To this end, we have targeted \textit{transition activities}~\cite{wang2019survey, mortazavi2014determining} (e.g., gym exercises) . Transition activities have a temporal pattern; they most of the time occur repetitively and have more complexity in terms of pattern recognition rather \textit{basic activities} (e.g., walking, sitting). We have not chosen \textit{complex activities}~\cite{wang2019survey} (e.g., smoking, or talking) since recognition of these activities is involved in processing on other types of sensors such RFID or microphone which is out of the scope of this study.
+%>>>>>>> 4f3f60c8619bd1e5ea50f7d8d3dcb475d19f46f9
 
-In feature extraction phase, the challenge is to extract the most informative set among a wide range of features\cite{krishnan2009recognition}.  In this regards,
+\subsection{Activities}
+This section describes the activities and how we chose them. As mentioned earlier, we have chosen gym exercise activities to collect data from.
+We captured data from 55 gym exercises. Exercises involve different parts of body including upper-body, lower-body, or entire-body. We only chose beginner to intermediate level exercises since it raises the chance of finding participants, thereby, collecting more data of each exercise for this and future works. 
+In total, we recorded the data from 15 subjects over 25 sessions. In fact, we asked some subjects to participate multiple times in data collection. By repeating same exercise by same subject through different sessions, we reduce the impact of temporal factors i.e., tiredness on our dataset.
+Addition to this, in order to have more realistic scenarios, we did not limit participants to certain set of exercises, instead we left them to follow up their own exercise plan.
 
+\noindent \textbf{Subjects.} We asked 15 members of a gym (4 female), ages 21-35, to participate in this study. Participants varied in level of expertise in gym exercises (from 1 month to 6 consecutive years of experience). 
 
-Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures.  Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them.
+Comparing with literature ~\cite{morris2014recofit, soro2019recognition, s140610146, anguita2013public}, this way of collecting data bring following advantages:
 
+\begin{enumerate}
+	
+	\item \textbf{Realistic workload}: There was no instruction of how doing exercises for subjects. Although this can let subjects to perform an activity in non-identical way, it is considered as an advantage for our study since it replicates the real-world condition. In \cite{morris2014recofit}, the authors showed that by changing the environment from space-constrained laboratory to a real gym the segmentation performance for recognizing gym exercises has dropped by 50\%. Therefore, another advantage of keeping the experiment under real-world condition is the performance of the HAR model is more reliable.	
+	\item \textbf{Realistic null-class activities}:	The unknown period or null-class activities are not artificially performed, since subjects were free to do whatever they normally do in gym.	
+	\item \textbf{Effects of fatigue}: Since sessions are relatively long (between 1 to 2 hours), subjects mostly get tired. Thus, we can observe the impact of fatigue on performing an activity. Therefore, more generalized dataset.
+	
+	\item \textbf{Impact of subject experience}: Gym exercises are performed in a iterative manner over weeks or months. By repeating an activity, subjects become more comfortable on that, consequently, they will do that exercise more consistently. Since we asked the length of practicing each exercises from participant, we can observe if there is any correlation exist between them.
+\end{enumerate}
 
-%Comparing the two feature subsets, no significant differences were observed for every dynamic activity using SVM and DT, while FNN fed with FeatSet_B was not able to reach acceptable results. \cite{rosati2018comparison}
+\subsection{Sensors} 
 
+In this section, We describe how we choose sensors and how we deploy our system to collect the data. Depending on how many parts of the body that are involved in a task (exercise), a HAR system may need to have one or more sensors on different positions of the human body with the aim of capturing diverse-source information ~\cite{wang2019survey}. On the other hand, using more sensors limits the user's movement ~\cite{de2018comparative}. 
 
-in \cite{Suto et al., 2017} investigate the efficiency of the popular machine learning strategies based on a right-ankle-mounted accelerometer, and their results suggest that one sensor is not enough for appropriate daily activity recognition due to the similar data generated from one sensor for different activities. Nevertheless, using one sensor can be used as a suitable setup for the basic recognition tasks, such as step counting or sleep quality monitoring. Placing more sensors on multiple body parts is intuitively beneficial for improving the performance and robustness, whereas this can also result in increased complexity in deployment and computation cost. In \cite{Sztyler et al.}, authors developed a position-aware HAR system by placing seven accelerometers in different body positionsl
-\section{Data}
+In a recently related work, Soro et al. ~\cite{soro2019recognition} have targeted 10 CrossFit activities and showed that using one sensor on wrist is sufficient to reach an accuracy of 99.96\%. One reason that may underlies using one sensor is that, in that case, almost all activities have moving hand involved in. However, in this study, we cover a wider range of activities which is not necessarily get performed by hand. For example, \textit{reverse crunch} needs subject to fix hands on the ground and then draw legs in towards the torso. In this case, it is almost impossible to identify the exercise by only one sensor on wrist. Therefore, in this study, to cover activities both on lower-body and upper-body, two sensors were attached to right wrist and right foot (Figure \ref{neblina_setup} (b) and (c)). These positions (wrist and foot) are also used in previous works ~\cite{baldominos2019comparison, anwary2018automatic, soro2019recognition}.
 
-The most crucial requirement to start an activity recognition process is having the real-world data of human activities. Although there are couple of datasets publicly available for HAR\cite{wang2019survey}, to the best of our knowledge, non of them provide the data of different sessions (neither at same day or different days) of same subject. In addition, they mostly focused on daily routine activities rather transition activities (e.g., gym exercises) which are repetitive and more complicated in terms of pattern recognition\cite{wang2019survey}. Therefore, in this study we collect a dataset providing the following features:
-\begin{itemize}[leftmargin=*,labelsep=5.8mm]
-	\item Specifically targeted on regular gym activities (including 55 exercises)
-	\item The data tracks activities of a set of subjects over two to six weeks
-	\item Data is recorded by four sensors (two wrists and two foots)
-	\item Subjects performed the practices only based on their own experiences (there is no instruction) 
-\end{itemize}
-In this regard, the first step is to determine the sensor type and how to deploy a system to collect the data. In this work, we have employed a SoC device which called \textit{Neblina}.
-\subsubsection{Neblina}
-Neblina is a miniature-sized box containing three tri-axial motion sensors (accelerometer, gyroscope, magnetometer) along with a processor, a flash memory, battery, and a bluetooth port. Using blue-tooth port, it can transmit the result to a host (e.g., cellphone or desktop computer).  In fact, Neblina is equipped with all requirements for a real-time HAR system. Comparing with a smartphone, Neblina is much smaller (Figure \ref{neblina_setup}) that lets us to attach it to different part of the subject's body without making any interrupt in his/her actions\cite{de2018comparative}. Having access directly to different resources like sensors or memory without OS interferences is another advantage of using Neblina that let us improve the efficiency of the model.
+To record the data, we choose well-known accelerometer and gyroscope sensors. These two sensors are  available on almost all Wearables such smartphones or smartwatches. In this study, as it showed in Figure \ref{neblina_setup} (a), we employed a Neblina chip, instead. The main advantage of using Neblina is its small size and ability to tightly stick to the body preventing unexpected moves during performing an activity.
+
+\noindent \textbf{Neblina} is a miniature-sized box containing three tri-axial motion sensors (accelerometer, gyroscope, magnetometer) along with a processor, a flash memory, battery, and a bluetooth port. Using blue-tooth port, it can transmit the result to a host (e.g., cellphone or desktop computer).  In fact, Neblina is equipped with all requirements for a real-time HAR system. Comparing with a smartphone, Neblina is much smaller (Figure \ref{neblina_setup}) that lets us to attach it to different part of the subject's body without making any interrupt in his/her actions\cite{de2018comparative}. Having access directly to different resources like sensors or memory without OS interferences is another advantage of using Neblina that let us improve the efficiency of the model.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=10 cm]{Definitions/images/neblina_setup.jpg}
 	\caption{Neblina setup. (a) Compares dimensions of Neblina with a 1 dollar coin and a cellphone (Sumsung Galaxy s9). (b) How Neblina located on foot using a strap. (c) How Neblina located on wrist using a strap.}
 	\label{neblina_setup}
 \end{figure} 
-\subsubsection{Sensors} 
-Depending on how much an activity is complicated (e.g., how many parts of body are involved or how many stages it contains), a researcher may need to attach one or more sensors on different positions of the human body. However, using more sensors affects usability negatively. From the literature, using sensor on wrist for most of upper body activities and using a sensor on foot for lower-body activity are more effective than other locations including chest, waist, thigh and so on. In this study, to cover activities both on lower-body and upper-body, two sensors were attached to right wrist and right foot (Figure \ref{neblina_setup} (b) and (c)). Although the device provides the magnetometer signals, we limited our process on using the accelerometer and gyroscope signals only. It is because the magnetometer signal can be affected by getting close to iron equipments in the gym. The frequency rate is fixed on 50Hz. It is worth to mention that the frequency rate more than 50Hz is not necessary because according to the Nyquist theorem, this rate is enough to record a repetitive activity with 25 cycle per second which is so much faster than the iterations of normal workouts in the gym (one iteration per 1-5 seconds).\\
-\subsection{Subjects}
-We asked 15 members of a gym (4 female), ages 21-35, to participate in this study. Participants varied in level of expertise (from 1 month to 6 consecutive years of experience). For more realistic scenarios, we did not constrain participants to certain set of exercises, instead we asked them to follow up their own exercise plan. Comparing with previous works' dataset, considering this level of freedom for subjects returns following advantages: (1) Since each session is about 1 to 2 hours, we can observe the impact of fatigue on performing an activity. (2) The unknown period or null-class activities are not artificially performed, since subjects were free to do whatever they normally do in gym (3) impact of background experience can be measured. It is because the gym programs are cyclic over week or month. By repeating an activity over cycles, Subjects will be more consistent over different sets ( a consecutive sequence of doing one activity). (4) there is no instruction of how doing exercises for subjects. Although this can let subjects to perform an activity in non-identical way, it is considered as an advantage for our study since it replicates the real-world condition. In \cite{morris2014recofit}, the authors showed that by changing the environment from space-constrained laboratory to a real gym the segmentation performance for recognizing gym exercises has dropped by 50\%. Therefore, another advantage of keeping the experiment under real-world condition is the performance of the model is more reliable.\\
-\subsection{Activities}
-Our dataset ended up with 55 common exercises in gym. During electing participants, we picked mostly those persons who do more common exercises involved in either upper body or lower body. Thus, activities like Wall ball, jumping jacks and so on or advanced exercise in body-building are not in our dataset. In \cite{soro2019recognition} (the second dataset in this work), authors have targeted CrossFit activities which are involved in upper and lower body together. They have shown that only one sensor on wrist is enough to recognize such activities. Therefore, in this study we focused on those exercises in which either lower or upper body keeps stable during the activity. Thereby, existing the second sensor is necessary for recognizing the activity. As listed in Table \ref{activity_list}, only two activities are involved in both upper and lower body. Running on treadmill (A1) make lower body involved. While In previous works this activity was recognized by sensor on wrist. Since a user can put her/his hands on device handler, using sensor on wrist is not effective always. \\
-\hosein{Recognition accuracy is assessed in the context of a circuit, and inevitably the choice of circuit affects accuracy. A larger number of activities or high similarity among activities will reduce accuracy. Comprehensive analysis of all possible circuits is prohibitive, so we present results from the two circuits used in our study, along with leave-one-out cross-validation results from our training data for two reasonable circuits of different sizes, to demonstrate the effect of circuit size on accuracy.}
-\begin{table}[H]
-	\caption{List of exercises along with target body part involved in each exercise.}
-	\centering
-	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-	\begin{tabular}{ccc}
-		\toprule
-		\textbf{Exercise}	& \textbf{Body Involved}	& \textbf{Code}\\
-		\midrule
-		Lat Pull Down		& upper 		& A1\\
-		Bench Press		& upper 			& A2\\
-		Biceps curl		& upper			& A3\\
-		Push-ups & upper			& A4\\
-		Treadmill		& lower 			& A5\\
-		Ab crunch machine		& lower \& upper & A6\\
-		Reverse Crunch & lower			& A7 \\
-		Russian Twist & lower			& A8 \\
-		\bottomrule
-	\end{tabular}
-\label{activity_list}
-\end{table}
-\subsection{Data points}
-To generate the data points, previous works have employed different strategies. One well-known method for time-series signals is sliding-windows. As long as an activity is squashed in a range of samples during time, a model can see a stream of recorded data through a window with limited length of seconds (e.g., in this study it is 5 seconds time window). This window slides through the stream with a certain step size called shifting size. As long as the shifting size smaller than widow size, the sliding window is called overlapping and non-overlapping if they are equal. Previous works have shown that the different lengths of window size and shifting size influence the performance of the model and the computational cost. Because the activities in this study are gym exercise which the do not take longer than 5 seconds, intuitively, we choose 5 seconds for window size. It is a safe window size to ensure that at least one cycle of the activity can be completely seen in a window frame. we defined 200 milliseconds for shifting step which keeps the model more sensitive against changes in signal at the expense of more computational cost. Having such small shifting step does make sense since in real-world applications it decreases the latency of the application on predicting the activity type. Addition to the time period, the window length can be defined by the sampling rate of sensor. In this work, the sample rate is 50Hz. So, each window contains 250 (5 * 50) samples.
+
+Although the device provides the magnetometer signals, we limited our process on using the accelerometer and gyroscope signals only. It is because the magnetometer signal can be affected by getting close to iron equipments in the gym. The frequency rate is fixed on 50Hz. It is worth to mention that the frequency rate more than 50Hz is not necessary because according to the Nyquist theorem~\cite{mazo1975faster}, this rate is enough to record a repetitive activity with 25 cycle per second which is so much faster than the iterations of normal workouts in the gym (one iteration per 1-5 seconds).
 
 \subsection{Dataset}
-To label the data we employed a process including three phases: (1) Before beginning of each session, each subject was asked to fill a form about list of activities, number of sets, and the weights if applicable. (2) During the session, a supervisor manually records type of exercise, the moment of start and stop, and number of repetitions. (3) After finishing the session, in order to have our desired accuracy in labelling, we visually trace the signals of accelerometer and gyroscope to refine the regains assigned to each exercise.
-Table \ref{dataset_statistics} shows the statistics of the dataset. Since subjects may participate in more than one session, next column after subjects, shows the total number of sessions for each activity.  , in the initial dataset, the number of subjects who are involved in all exercises is not equally distributed. Although  Thus, we defined four datasets corresponding with our four experiments including K-fold evaluation, Leave-One-Set-Out evaluation, Leave-One-Session-Out evaluation, and Leave-One-Subject-Out evaluation.
+In this section, we explain the process of preparing our dataset for experiments.
+
+\noindent \textbf{Labeling.} In order to train a HAR model in a supervised machine learning process, we need labeled data points. Quality of labeled data points at this level has a direct impact on model performance ~\cite{janidarmian2017comprehensive}. In this study, 
+to label the data we employed a process including three phases: (1) \textbf{By participant}: before beginning of each session, each subject was asked to fill a form about list of activities, number of sets, and the weights if applicable. (2) \textbf{By supervisor}: during the session, a supervisor manually records type of exercise, the moment of start and stop, and number of repetitions. (3) \textbf{By visual signal}: after finishing the session, in order to have our desired accuracy in labeling, we visually trace the signals of accelerometer and gyroscope to refine the regains assigned to each exercise. Using this way, any error missing in one step, will be caught in the next step.
+
+\noindent\textbf{Adapting.} In order to make the dataset suitable for the experiments of this study, we trimmed the dataset. As we will explain later in \textit{Method} section, addition to k-fold cross-validation, we have two other evaluation methods including \textit{session cross-validation} and \textit{subject cross-validation}. These two additional evaluation methods bring some restrictions on the dataset. While \textit{session cross-validation} requires some activities to be repeated in several sessions, \textit{subject cross-validation} requires them to be repeated by several subjects. Furthermore, in RQ3, we want to compare results of different evaluation methods; So, we have to use equal dataset for all evaluation methods. This is to say that for each activity to be suitable for this study, it should be repeated at least in certain number of sessions and also performed at least by certain number of subjects.
+Table \ref{dataset_statistics} shows the statistics of the dataset after applying the restrictions. Column \textit{Sessions} shows the total number of sessions that an exercise appeared in. Column \textit{Subjects} shows how many subjects performed an exercise.
 \begin{table}[H]
 	\caption{Statistics of the dataset divided by type of exercise along with the experiments that involve them in.}
 	\centering
 	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-	\begin{tabular}{ccccc}
+	\begin{tabular}{ccccc|cc}
 		\toprule
-		\textbf{Exercise} & \textbf{Subjects} & \textbf{Sessions}	 & \textbf{Reps} & \textbf{Samples}  \\
+		\textbf{Exercise} & \textbf{Subjects} & \textbf{Sessions}	 & \textbf{Reps} & \textbf{Samples}& \textbf{Body Involved}	& \textbf{Code}  \\
 		\midrule		
-		Lat Pull Down& 6& 22& 218& 14700\\
-		Bench Press	& 6& 26& 273& 23230\\
-		Biceps curl	& 4& 13& 115& 16095\\
-		Push-ups & 5& 16& 181& 9200\\
-		Treadmill& 4& 5& +1200 & 68780\\
-		Ab crunch machine& 4& 12& 108 & 10580\\
-		Crunch Twist &  3& 12& 98& 8760Yes\\
-		Russian Twist & 3& 8& 67& 8520\\
+		Lat Pull Down& 6& 22& 218& 14700& upper 		& A1\\
+		Bench Press	& 6& 26& 273& 23230& upper 			& A2\\
+		Biceps curl	& 4& 13& 115& 16095& upper			& A3\\
+		Push-ups & 5& 16& 181& 9200& upper			& A4\\
+		Treadmill& 4& 5& +1200 & 68780& Entire 			& A5\\
+		Ab crunch machine& 4& 12& 108 & 10580& Entire & A6\\
+		Crunch Twist &  3& 12& 98& 8760& lower			& A7 \\
+		Russian Twist & 3& 8& 67& 8520& lower			& A8\\
 		\bottomrule
 	\end{tabular}
 	\label{dataset_statistics}
 \end{table}
 
+%\begin{table}[H]
+%	\caption{List of exercises along with target body part involved in each exercise. \diego{You mention our dataset contained 55 exercises. Is this just a sample?}}
+%	\centering
+%	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
+%	\begin{tabular}{ccc}
+%		\toprule
+%		\textbf{Exercise}	& \textbf{Body Involved}	& \textbf{Code}\\
+%		\midrule
+%		Lat Pull Down		& upper 		& A1\\
+%		Bench Press		& upper 			& A2\\
+%		Biceps curl		& upper			& A3\\
+%		Push-ups & upper			& A4\\
+%		Treadmill		& Entire 			& A5\\
+%		Ab crunch machine		& Entire & A6\\
+%		Reverse Crunch & lower			& A7 \\
+%		Russian Twist & lower			& A8 \\
+%		\bottomrule
+%	\end{tabular}
+%	\label{activity_list}
+%\end{table}
+
 
 \section{Method}
-As mentioned above, in addition to data collection, a HAR process encompasses, feature extraction and activity recognition (i.e., classification). In addition, we typically employ a number of validation techniques to examine the effectiveness of the validation. In this section, we describe the aforementioned part of a HAR process.
+In this section, we explain the procedure of HAR as it is provided in Figure \ref{fig:main_approach}.
 
 \subsection{Feature Extraction}
 
-To perform our study, we extracted five sets of features from our dataset. To create the features, we applied a comprehensive range of functions, detailed in previous work, directly on tri-axial input signals of acceleration and gyroscope from sensors on wrist and foot (12 input signals) \cite{morris2014recofit, yurtman2017activity, zhang2011feature, Sarbishei2019platform} \todo{add cites}. Table \ref{features_table} shows functions along with a description/intuition about each feature. Based on the main advantage of each group of features, we wrap them into  feature sets. In other words, each set is uniquely representative of a certain aspect of the signal stream we gathered from the sensors. 
-
-\textbf{Preprocessing.}  \todo{add reason...} \hosein{To ensure that the data from different sensors are on the same scales}, we performed a scale normalization to extracted all features, which scales the input signals into a range between 0 and 1. In certain cases, we performed specific preprocessing operations, which are only specific for a certain feature set (which we explain within). Next, we describe the five feature sets.
-
-\subsubsection{Set\_A: Statistical Features (ST\_Set)}
-Statistical features have been intensively investigated in different applications and proved to be effective and useful for HAR~\cite{rosati2018comparison}. These features are based on a comprehensive and intuitive understanding of how a given activity produces a set of discriminative features from measured sensor signals. We created a set of 264 features obtained by applying 11 statistical functions on 24 input signals, including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of each axis). Functions are used in the statistical feature set are indicated by the code S1-S11 in Table~\ref{features_table}. 
-
+In this study, we targeted five state-of-the-art sets of hand-crafted features. Table \ref{features_table} shows 31 functions along with a description/intuition about each one. Functions are grouped into sets (first column). Each set of functions is uniquely representative of a certain aspect of the signal.
+ 
+\noindent\textbf{Preprocessing.} We used two tri-axial sensors (accelerometer and gyroscope) on two body positions (wrist and foot); So, To reproduce features, we normally apply these 31 functions on 12 raw signals coming from sensors. However, in some cases, an extra preprocessing operation is also required which will be explained in related section. Addition to this, to ensure that the data from different resources (sensors) are at the same scales, we performed a scale normalization in advance of any other computations.
 \begin{table}[H]
 	\caption{Statical Functions along with the definitions and abbreviations }
 	\centering
@@ -323,8 +373,8 @@ Statistical features have been intensively investigated in different application
 		{\footnotesize S10, SS10}&Variance& {\scriptsize the average degree of distance between samples and mean}& VAR\\
 		{\footnotesize S11, SS11}&Root Mean Square& {\scriptsize The square root of the arithmetic mean of the squares of samples}& RMS\\
 		{\footnotesize HB}& Histogram Bin&{\scriptsize a 20 bins distribution of data } & Hbin (1-20) \\
-		{\footnotesize SS1}&Number of autocorrelation peaks& {\scriptsize \hosein{???}The greater number of peaks refers to non-periodic activity and vice versa. }& NAcP\\
-		{\footnotesize SS2}&Prominent autocorrelation peaks&{\scriptsize NAcP with an extra condition that the peaks should be greater than neighbours with at least a certain distance} & NAcPP \\
+		{\footnotesize SS1}&Number of auto-correlation peaks& {\scriptsize The bigger number means non-periodic activity while smaller number refers to periodic activity }& NAcP\\
+		{\footnotesize SS2}&Prominent auto-correlation peaks&{\scriptsize NAcP with an extra condition that the peaks should be greater than neighbours with at least a certain distance} & NAcPP \\
 		{\footnotesize SS3}&Weak autocorrelation peaks&{\scriptsize NAcP with an extra condition that the distance between the peaks and neighbours should be less than a certain distance} & NAcWP \\
 		{\footnotesize SS4}&Maximum autocorrelation value&{\scriptsize Value of the greatest peak (except for the initial peak at zero lag)} & MAXAc \\
 		{\footnotesize SS5}&Height of the first autocorrelation peak (after zero-crossing)&{\scriptsize less height refers to more fluctuations within the stream  } & FAcP \\
@@ -351,121 +401,124 @@ Statistical features have been intensively investigated in different application
 \end{table}
 
 
+\subsubsection{Set\_A: Statistical Features (ST\_Set)}
+Statistical features have been intensively investigated in different applications and proved to be effective and useful for HAR~\cite{rosati2018comparison}. These features are based on a comprehensive and intuitive understanding of how a given activity produces a set of discriminative features from measured sensor signals. We created a set of 264 features obtained by applying 11 statistical functions on 24 input signals, including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of each axis). Functions are used in the statistical feature set are indicated by the code S1-S11 in Table~\ref{features_table}. 
+
 \subsubsection{Set\_B: Histogram bins Features (HB\_Set)}
 The second set of features are based on histogram representation of time series signal. Mathematically speaking, histogram representation of a signal is the probability distribution of signal over a period of time (often referred to as window size)~\cite{zardoshti1995emg}. In HAR, considering the fact that each activity contains a set of small movements (as small as one sample) with certain acceleration and rotation, histogram bins indicate the difference between activities by showing the different distributions of those small movements. Shirahama et. al.~\cite{shirahama2016codebook} used a histogram-based feature set for HAR. Comparing with statistical features, histogram bins have a significantly lower cost in terms of required processing time and memory usage~\cite{Sarbishei2019platform}. However, they are sensitive against the resolution/granularity of bins (count and width of bins). Following prior work~\cite{xi2017evaluation}, in this work, we consider 21 bins for values between 0 through 1 of a signal. Histogram bins are indicated with the code HB in Table~\ref{features_table}.
 
-
 \subsubsection{Set\_C: Self-Similar Features (SS\_Set)}
-%As formerly mentioned, having enough number of bins, histogram can represent the distribution of data. However, it can not show the periodic attributes of a signal over time. 
-Considering that an exercise activity is inherently more repetitive rather than a non-exercise activity, having a featureset that can capture the repetitive behaviour of signal is helpful. Morris et. al. presented a featureset designed based on the idea of extracting repetitions forms of signal \cite{morris2014recofit}. These features can be extracted by calculating the convolution of a signal with a shifted version of itself (autocorrelation) or by extracting the components of the signal in the frequency domain. We extracted a number of self-similar features from our data, as shown in~Table~\ref{features_table}, features with code SS1-SS11 \emad{In the table, the SS features do not make sense.}\hosein{updated their descriptions. check it please.}. SS6 composed of 10 power bins \emad{what are power bins?} \hosein{for example after applying Fourier transformation on 250 samples(5s), we have 125 frequencies (Nyquist). these frequencies start from 1/5Hz through 25Hz. In this case, I split 125 frequencies into 10 groups based on certain frequency band. Then, for each group, calculated the magnitude of each frequency and summed them together. it is roughly similar to histogram bins but in frequency domain. }.
-\hosein{Resembling the study of Morris et. al \cite{morris2014recofit}, as the preprocessing operation, we transformed 3 input signals from each sensor (x/y/z inputs) to 4 processed signal describing as follows: 1) The magnitude of a/y/z axes, 2) The first principal component of all axes. 3) The first principal component of y and z axes. 4) The scaled normalized of y axis. It is important to mention that in our experiments, the y axis of sensor is along the user's arm. To build the featureset, we applied 20 functions on 16 processed signals (two accelerometers and two gyroscopes). These functions indicated by "SS" prefix are described in \ref{features_table}. Therefore, this featureset contains 320 features. }
-In total, we applied 20 functions on the raw values of the y-axes \emad{y-axes? why only y-axes?} of sensors along with three processed signals as follows: 1) the magnitude of all axes of each sensor (two inputs); 2) the first principal component of all axes of each sensor (two inputs); and 3) the first principal component of y and z axes of each sensors (two inputs). Therefore, in total this featureset has 320 ( 2 * 8 * 20) \emad{what are the 2, 8 and 20 here?} features. It is important to mention that in our experiments, the y vector is along the user's arm. 
+
+Considering that an exercise activity is inherently more repetitive rather than a non-exercise activity, having a featureset that can capture the repetitive behaviour of signal is helpful. Morris et al. presented a featureset designed based on the idea of extracting repetitions forms of signal \cite{morris2014recofit}. These features can be extracted by: 1) Calculating the convolution of a signal with a shifted version of itself (auto-correlation) or 2)Extracting the components of the signal in the frequency domain. We extracted a number of self-similar features from our data, as shown in~Table~\ref{features_table}, features with code SS1-SS11. SS6 composed of 10 features per se; Thus, in total there are 20 functions.
+There is a preprocessing operation required for this featureset. We transformed 3 input signals from each sensor (x/y/z inputs) to 4 processed signal describing as follows: 1) The magnitude of a/y/z axes, 2) The first principal component of all axes. 3) The first principal component of x and z axes. 4) The scaled normalized of y axis. It is important to mention that in our experiments, the y axis of sensor is along the user's arm. To build the featureset, we applied 20 functions on 16 processed signals. Therefore, this featureset contains 320 features.
 
 \subsubsection{Set\_D: Physical Features (PH\_Set)}
 One intuitive idea to design a set of features from sensory data is to take the principles of human movements into consideration. In 2011, Zhang et. al. ~\cite{zhang2011feature} introduced a set of features based on physical parameters of human motion. To have a strong physical meaning of motion data (e.g., moving forward, backward), they assumed that the sensor position and direction are known during the experiment. In other words, this types of features is derived based on the physical interpretations of human motion, called physical features. Comparing with other featuresets, these features are made up of a fusion of multiple sensor inputs rather than just one inputs sensor. In our paper, this featureset contains 11 features, labeled with the code Ph1-Ph11 in Table~\ref{features_table}. As a part of our pre-processing operation, we remove gravity from acceleration using gyroscope data by applying the method described in~\cite{Accelero5:online}.
 
 \subsubsection{Set\_E: Orientation Independent Features (OI\_Set)}
-In contrast to physical features, which depend on the position and orientation of sensors, Yurtman et. al~\cite{yurtman2017activity} proposed features that do not rely on variation of sensor orientation. In fact, in their model, they introduced an Orientation-invariant transformations (OITs). They compared their model with the ordinary model - pre-defined sensor orientation, on five different datasets. Although their featureset did not have a significant impact on performance, it brought an extra added value to the model that lets it to be more robust against orientation. The OIT that they have introduced in their work is inspired by the idea of \textit{single value decomposition}\cite{moon2000mathematical}. Therefore, to create this featureset, first, we project every data point from original x/y/z space to a new space with same number of dimensions but at the farthest distance between data points. The intuition here is that the direction of the axes are defined by value of the data points not by x, y or z direction. Next, we apply PCA on the transformed data and take the first 30 most informative features \cite{janidarmian2017comprehensive} \todo{can we add a cite here?}. In Table~\ref{features_table}, these type of features  are indicated by "OI" prefix.
+In contrast to physical features, which depend on the position and orientation of sensors, Yurtman et. al~\cite{yurtman2017activity} proposed features that do not rely on variation of sensor orientation. In fact, in their model, they introduced Orientation-invariant transformations (OITs). They compared their model with the ordinary model - pre-defined sensor orientation, on five different datasets. Although their featureset did not have a significant impact on performance, it brought an extra added value to the model that lets it to be more robust against orientation. The OIT that they have introduced in their work is inspired by the idea of \textit{single value decomposition}\cite{moon2000mathematical}. Therefore, to create this featureset, first, we project every data point from original x/y/z space to a new space with same number of dimensions but at the farthest distance between data points. The intuition here is that the direction of the axes are defined by value of the data points not by x, y or z direction. Next, we apply PCA on the transformed data and take the first 30 most informative features \cite{janidarmian2017comprehensive}. In Table~\ref{features_table}, these type of features  are indicated by "OI" prefix.
 
 \subsection{Activity Recognition}
-To perform the HAR, we employed a number of classification techniques. In this subsection, we detail the classification techniques used.
+In this paper, to discriminate the classes (exercises), we implemented four state-of-the-art classifiers on every featureset. The classifiers are implemented on mobile phones in various studies ~\cite{morris2014recofit,baldominos2019comparison,rosati2018comparison}: Support Vector Machine , Decision Tree, K-nearest neighbor, and Feed-forward neural network. 
+\begin{table}[H]
+	\caption{Classifier names along with hyper-parameters in this study}
+	\centering
+	\begin{tabular}{p{2cm}p{7.7cm}}
+		\toprule
+		\textbf{Classifier} & \textbf{Hyper-Parameters} \\
+		\midrule
+		SVM &  kernel = polynomial. degree = 3. gamma = 1/(data dimension)  \\
+		\midrule
+		KNN & K = 64. Similarity Method = Euclidean distance  \\
+		\midrule
+		FNN & { 2 dense layers with total 1000 and 400 units ~\cite{nair2010rectified}. One dropout layer (rate 60\%). Optimizer = Adam. learning rate = 0.0001. decay = 1e-10. 100 epochs.}\\
+		\midrule
+		DT & minimum split = 20, min number of sample in leaves = round(minimum split/3), maximum depth = 30 \\
+		\bottomrule
+	\end{tabular}
+	\label{classifier_hyper_parameter}
+\end{table}
 
 \subsubsection{Support Vector Machine}
-A multiclass Support Vector Machine (SVM) has been used to discriminate among the activities. Assuming each data point is a co-ordinate (support vector) of feature space, the Support Vector Machine (SVM) is an algorithm to find an optimum hyperplane between support vectors between two classes. To create a more robust classification, SVM maximizes the distance between the hyperplane and the closest support vectors of each class (margin) \cite{zhang2012physical}. We chose to use SVM since it has been employed extensively in previous studies in HAR. Moreover, Morris et. al.~\cite{morris2014recofit,rosati2018comparison} showed that SVM provides high accuracy in HAR.
-
+A multi-class Support Vector Machine (SVM) has been employed extensively in previous studies in HAR to discriminate among the activities~\cite{zhang2012physical,rosati2018comparison,morris2014recofit}. Morris et al.~\cite{morris2014recofit} showed that SVM provides higher accuracy in HAR. Assuming each data point is a co-ordinate (support vector) of feature space, the Support Vector Machine (SVM) is a method to find an optimum hyperplane with respect two some support vectors in order to separates different classes. 
 
 % More Details: This happens at the expense of increasing the tolerance(mis-classification) of the model (loss function). In a situation that finding a hyperplane between two classes is impossible, the SVM project the feature space to another space having more number of dimensions. This is the responsibility of a function called Kernel function.
 
+
 \subsubsection{Decision Tree}
 
-We also use a decision tree classifier since it is one of the most commonly used classifiers in HAR \cite{mortazavi2014determining, baldominos2019comparison} and provides explainability for its classification. \hosein{Baldominos et. al. \cite{baldominos2019comparison} achieved best accuracy among different classifiers using DT} Decision trees predict the type of an activity using the average class probabilities at leaf nodes and the highest average probability is chosen as the class label (activity type). There are different techniques to split nodes, however we used the Gini index error metric, which is generally designed to evaluate inequality. We chose to use the Gini index metric since ...\todo{add reasons.} \hosein{since authors in \cite{rosati2018comparison, masum2018human}used it; it is very simple to implement and, it is the default splitting method for decision tree in R (rpart library) }
+Decision Tree is an ensemble method that provides an explainable model in classification. It is suitable for running on mobile phones with reasonable recognition performance \cite{mortazavi2014determining, baldominos2019comparison, shoaib2016complex}. Baldominos et al. \cite{baldominos2019comparison} reported the best recognition performance for decision tree among a set of classifiers including Naive Bayes, KNN, FNN, and Logistic Regression.\\
+In order to distinct activities, decision trees look through every possible split in a range of values of a given feature and pick the best split between two adjacent points; The goal is that, after each split, branches become more "pure" (i.e., homogeneous activities) ~\cite{bishop2006pattern}. The "information gain" is a metric which assess error after each split. Thus, decision trees pick splits to maximize "Information Gain". There are two methods to assess the information: 1) Entropy and 2) Gini index.\\
+Following ~\cite{rosati2018comparison, masum2018human}, we used the Gini index error metric.
+There is also other hyper-parameters to control additional splits including maximum depth, minimum samples in leaves, and maximum number of leaf nodes. The values for these parameters are mentioned in Table \ref{classifier_hyper_parameter}. 
 
-\hosein{Explanation: Considering we split data points based on values of a feature into several chunks, basically, Gini function returns how "pure" a chunk is. The "Purity" means how much of data in each branch belongs to a certain activity. Greater proportion of an activity in a chunk results smaller value of Gini coefficient for that feature. features with lower Gini index will be located on upper level of tree. splitting continues as long as new chunks have smaller Gini index. }
-
-
-\subsubsection{K-nearest neighbour}
-Another widely used classifier in HAR is the KNN algorithm \cite{wang2019survey,shakya2018comparative}, which is based on the calculation of the distance (in our study the Euclidean distance) between the data point required to be classified and labelled data points in training set.  Firstly, the training sets are sorted in descending order according to their distance from the new element. Then, the most frequent class of the first K elements (called neighbours) is associated to the new element. The majority of neighbours determine the class for a new data point. Prior work showed that by increasing the number of neighbours, they reached a better performance on HAR model. In this study we used k = 64~\cite{kose2012online}.
-
+\subsubsection{K-nearest neighbor}
+Another widely used classifier in HAR is the KNN algorithm ~\cite{wang2019survey,shakya2018comparative}, which works based on the calculation of the distance between data-points. As a lazy learning algorithm, KNN does not need off-line training. In other words, during the classification phase, for a given test data point, KNN finds the first \textit{k} nearest neighbors among training data-points. The majority of neighbors produces the classification output. Prior works showed that increasing k improves the performance on HAR model~\cite{kose2012online}. All the parameters for KNN in this study are mentioned in Table \ref{classifier_hyper_parameter}.
 
 \subsubsection{Forward Neural Network}
-\emad{we should add a sentence as to why we use FNN. For example...}
-\hosein{With proper feature design, convention machine learning models (e.g., SVM, KNN) can achieve a good performance in activity recognition. However we can improve it by using Deep Neural Network, which underlies the complementary information learned within the layers \cite{chen2018distilling}.}
-Recently, a number of studies have shown that Feedforward Neural Networks achieve high performance in HAR\cite{chen2018distilling, zhu2009human}. A FNN is made up of a set of neurons, connected by weighted arcs, that process the input
-information:
-\begin{equation}\label{fnn_formula}
+By choosing a proper featureset, convention machine learning models (e.g., SVM, KNN) can achieve a good performance in activity recognition. However, we can improve it by using Deep Neural Network, which underlies the complementary information learned within the layers \cite{chen2018distilling}.
+Recently, a number of studies have shown that Feed-forward Neural Networks achieve high performance in HAR\cite{chen2018distilling, zhu2009human}. A FNN is made up of a set of neurons, connected by weighted arcs, that process the input information:
+
+\begin{equation}
+\label{fnn_formula}
  y = f(\sum_{i}^{}w_{i}.x_{i})
 \end{equation}
-where y is the output of the neuron, $ w_{i} $ are weights of the incoming connections, xi are inputs to the neuron, and $f$ is called transfer function and should be selected according to the classification problem \cite{zhang1999geometrical}. Neurons in a FNN are organized in layers: in the input layer, one neuron for each input variable is required; the number of neurons in the output layer is decided according to the number of classes to be recognized and the selected transfer function; between input and output layers a certain number of hidden layers can be inserted, whose dimensions are usually decided testing different configurations ~\cite{baldominos2019comparison}. 
-In the FNN model we used the multi-layers perceptron (MLP), commonly used as a universal function approximator. The first layer of the network (input layer) receives a vector of feature values of a data point. The secondary layers well known as hidden layers are responsible for summation operation of inputs and non-linearity behaviour of network. We considered 3 hidden layers including two dense layers and one dropout layer for out FNN. The activation functions for the first and third layer is "ReLu" \cite{nair2010rectified} with total 1000 and 400 units respectively. The dropout rate in second layer is 60\%. The output layer contains 9 units corresponding with total 8 activities plus 1 non-activity class. Same as similar study in \cite{baldominos2019comparison}, we used Adam optimizer setting a learning rate of 0.0001 and decay = 1e-10. In total, we trained the model by 100 epochs.
+where y is the output of the neuron, $ w_{i} $ are weights of the incoming connections, $ x_i $ are inputs to the neuron, and $f$ is called transfer function and is selected according to the classification problem \cite{zhang1999geometrical}. Neurons in a FNN are organized in layers. Number of neurons at first layer and last layer are corresponding with number of features and number of activities, respectively~\cite{baldominos2019comparison}. Between input and output layers a certain number of hidden layers can be inserted, whose dimensions are usually decided testing different configurations ~\cite{baldominos2019comparison}. The configuration details of the network described in Table \ref{classifier_hyper_parameter}.
 
-
-\subsection{Validation Technique}
-To evaluate the performance of the model, we need to split data into training and testing sets. For this purpose, in the context of HAR, there are traditional techniques such as k-fold cross-validation, leave-one-subject-out~\cite{jordao2018human}, as well as, the relatively less common techniques like hold-out and leave-one-trial-out~\cite{sena2018multiscale}. In this study, we chose three validation methods that are commonly used in the evaluation of HAR models \cite{wang2019survey}. 
-%The other methods like leave-one-sample-out or holdout can be considered as different forms of these three methods.
+\subsection{Evaluation}
+To evaluate the performance of the model, we need to split data into training and testing sets. For this purpose, in the context of HAR, there are traditional techniques such as k-fold cross-validation, leave-one-subject-out~\cite{jordao2018human}, as well as, the relatively less common techniques like leave-one-trial-out~\cite{sena2018multiscale}. In this study, we used all three validation methods while we modified leave-one-trial-out to leave-one-set-out in order to make it more flexible for repetitive activities. 
 
 \subsubsection{K-fold Cross validation}
-The most typical approach to evaluate the performance of HAR model is k-fold-cross validation. The idea is to use resampling procedure in a way that all the samples be used once during the testing period, mostly in the case of having limited dataset. The so called parameter k refers to the number of groups that the given dataset is to be split into. Each time one group becomes the test set and remaining $k-1$ groups become training set. During k turns, we evaluate the model k times on different test set and train set. Finally, the performance is summarized by averaging the performance of all k turns. In this work, we apply k-fold cross validation on all the models.
+The most typical approach to evaluate the performance of HAR model is k-fold-cross validation. The idea is to use resampling procedure in a way that all the samples be used once during the testing period, mostly in the case of having limited dataset. The so called parameter k refers to the number of groups that the given dataset is to be split into. Each time one group becomes the test set and remaining $k-1$ groups become training set. During k turns, we evaluate the model k times on different test set and train set. Finally, the performance is summarized by averaging the performance of all k turns. In this work, we apply k-fold cross validation on all the models. 
+\diego{Is the k-fold stratified? That is, do you guarantee a homogeneous distribution of classes while splitting the data into k groups?}
 
 \subsubsection{Leave-One-Subject-Out Cross validation}
 Leave-One-Subject-Out (LOSO) validation is a special case of cross-validation, where a subject can be seen as a fold, hence, the number of subjects determine the number of folds. Furthermore, the LOSO validation technique reflects a realistic scenario, where a model is trained in an offline way, using the samples of some subjects, and is tested with samples of unseen subjects. It is important to note that using LOSO may present high variance in performance from one subject to another, since the same activity can be performed in different ways by the subjects. 
 
 \subsubsection{Leave-One-Trial-Out Cross validation}
-The Leave-One-Trial-Out (LOTO) cross validation is similar to LOSO, however, instead of considering the subjects as folds, each trial (session) of doing the activity is considered as a fold \emad{is it folds across subjects or within the same subject?}. In other words, the recorded data from each session has an identifier to be distinguished from other sessions. So, during the evaluation, the dataset is split into sessions instead of subjects. sessions can be for same subject or different subjects. In our dataset we also put an extra column showing the session $id$, which is unique among all sessions of a given subject. The main advantage of using this process comparing with the previous one is that it needs a smaller number of subjects since each subject can have several sessions. And same as to other validation techniques, there is no overlap between train set and test set.
+The Leave-One-Trial-Out (LOTO) cross validation is similar to LOSO, however, instead of considering the subjects as folds, each trial (session) of doing the activity is considered as a fold. In fact, sessions might belong to same subjects of different subjects. To implement LOTO, on dataset of each subject which may contain several sessions, we assigned an index to each session. So, in order to split the dataset into test and train, we use session id instead of subject id in LOSO. The main advantage of using this method comparing with LOSO is that it needs a smaller number of subjects since each subject can have several sessions. In addition, similar to LOSO, this method does not suffer from having same content between train set and test set.\\
 
-
-\subsection{Performance Measures}
-
-Some of the most commonly used performance measures to determine the performance of HAR models used in prior work are: accuracy\cite{brownlee2018gentle,zhang2011feature,mehrang2017human} and F-measure\cite{rosati2018comparison,Nourani_CoMoRea2019}. While accuracy is a straight forward measure to show the performance of the model, F1 is also a suitable measure since it relies on both the precision and recall; knowing, it is less affected by unbalanced classes. Specifically, measurement units in this study determined as follows:
-
+\noindent \textbf{Measurements.} Most commonly used measures to asses the performance of a HAR model in prior works are: accuracy\cite{brownlee2018gentle,zhang2011feature,mehrang2017human} and F-measure\cite{rosati2018comparison,Nourani_CoMoRea2019}. We used accuracy and F1. Using F1 is essential since our dataset is imbalanced. Thus, since F1 relies on both the precision and recall, it is less affected by imbalanced dataset. Specifically, measurement units in this study determined as follows:
 \begin{itemize}
-
-\item \textbf{True Positive (FP):} These are cases in which we predict an activity, and user was doing that activity.\\
-
-\item \textbf{True Negative (TN):} Is where we predict a non-activity period, and user was not doing a certain activity.\\
-
-\item \textbf{False Positive (FP):} Is where we predict a certain activity for a segment of data, however, user is either doing another specific activity or generally doing something else (out of activity given list)\\
-
-\item \textbf{False Negative (FN):} Is where we predict either a not-activity period or a certain activity, but, it is not the activity that user is really doing that.\\
-
+	\item \noindent \textbf{Accuracy} measures how often the classifier is correct. Specifically, it is equal to (TN + TP) / total.
+	%\item \noindent \textbf{Miss-classification} measure how often the classifier is incorrect. Specifically, it is equal to (1 - Accuracy).
+	%\item \noindent \textbf{Precision} measures when the classifier detects an activity, how often it is  correct. Specifically, it is equal to TP / (TP + FP). 
+	%\item \noindent \textbf{Recall} measures when user is doing a certain activity, how often the classifier can detect it correctly. Specifically, it is equal to TP / (TP + FN). This term is also known as \textit{Sensitivity} or \textit{True Positive Rate}.
+	\item \noindent \textbf{F-Score} measures a weighted average of both Recall and Precision. Specifically, it is equal to (2 x Precision x Recall ) / (Precision + Recall). 
+	%\item \noindent \textbf{Null Error Rate:} measures how often it is incorrect if we constantly return the major class in dataset as response of the classifier. To the best of our knowledge, in most HAR datasets, the major class is non-activity class.
 \end{itemize}
 
-The most popular metrics are the following:\\
-
+Where:
 \begin{itemize}
-
-\item \noindent \textbf{Accuracy} measures how often the classifier is correct. Specifically, it is equal to (TN + TP) / total.\\
-
-\item \noindent \textbf{Miss-classification} measure how often the classifier is incorrect. Specifically, it is equal to (1 - Accuracy).
-
-\item \noindent \textbf{Precision} measures when the classifier detects an activity, how often it is  correct. Specifically, it is equal to TP / (TP + FP). \\
-
-\item \noindent \textbf{Recall} measures when user is doing a certain activity, how often the classifier can detect it correctly. Specifically, it is equal to TP / (TP + FN). This term is also known as \textit{Sensitivity} or \textit{True Positive Rate}.\\
-
-\item \noindent \textbf{F-Score} measures a weighted average of both Recall and Precision. Specifically, it is equal to (2 x Precision x Recall ) / (Precision + Recall). \\
-
-\item \noindent \textbf{Null Error Rate:} measures how often it is incorrect if we constantly return the major class in dataset as response of the classifier. To the best of our knowledge, in most HAR datasets, the major class is non-activity class.\\
-
+	
+	\item \textbf{True Positive (FP):} These are cases in which we predict an activity, and user was doing that activity.
+	
+	\item \textbf{True Negative (TN):} Is where we predict a non-activity period, and user was not doing a certain activity.
+	
+	\item \textbf{False Positive (FP):} Is where we predict a certain activity for a segment of data, however, user is either doing another specific activity or generally doing something else (out of activity given list).
+	
+	\item \textbf{False Negative (FN):} Is where we predict either a not-activity period or a certain activity, but, it is not the activity that user is really doing that.
+	
 \end{itemize}
-
-
-
 
 \section{Results}
-Our study aims to perform a systematic examination of HAR. Therefore, we answer three RQs in our study that focus on the featuresets used in HAR (\textbf{RQ1}), the classifiers use in HAR (\textbf{RQ2}) and the impact of different evaluation methods on HAR's performance (\textbf{RQ3}).
+Our study aims to perform a systematic examination on HAR pipeline (Figure \ref{fig:main_approach}) through three crucial steps. First, in RQ1, we compare different featuresets and indicate the one providing the best recognition performance; Next, using this featureset as input, we examine four classifiers in classification phase to find the model with highest performance (RQ2). Finally, in RQ3,  we target the impact of different evaluation methods on performance of our model.
 
-\subsubsection{RQ1: Which featureset provides the best performance in HAR?}
+\subsection{RQ1: Which featureset provides the best performance in HAR?}
 
-As motivated earlier, choosing an appropriate featureset significantly impacts performance. Many different featuresets have been presented in previous work, with varying levels of performance. Hence, we would like to investigate the impact of each featureset on performance, when all of the conditions (i.e., data, classifiers, etc.) are the same. To increase the generality of answer we train four classifiers including FNN, KNN, SVM, and DT on all five featuresets (20 model in total). We used 10-fold cross validation to measure the performance. A total of 150,000 data points were included in the validation set. 
+As motivated earlier, choosing an appropriate featureset significantly impacts on recognition performance. Many different featuresets have been presented in previous works. While they all are reporting remarkable performances on HAR, they can not be compared with each other due to different experimental setups that those results are achieved. Hence, we aim to investigate five state-off-the-art featuresets when all other factors (i.e., dataset, classifiers) are fixed. Each featureset is examined by four classifiers including FNN, KNN, SVM, and DT. To measure the performance, we used 10-fold cross validation and F-score metric for each experiment.
 
-Table \ref{accuracy_classifier_featureset} shows the accuracy results for each featureset (columns 2-6) for the various classifiers (rows 2-5). We highlight the best performance for each featureset in the Table. It can be seen that the best performing featuresets are \textit{statistical featureset} (ST\_Set) and \textit{Histogram bins} (HB\_Set), achieving an accuracy of approximately 95\%. The remaining featuresets that perform well are the \textit{self-similar featureset} achieving a maximum accuracy of 89.18\%, the \textit{physical featureset} achieving a maximum accuracy of 85.34\% and \textit{Orientation independent featureset} achieving a maximum accuracy of 78.47\%.
+Table \ref{f1_classifier_featureset} shows the performance for each featureset (columns 2-6) on different classifiers (rows 2-5). We highlighted the best performance for each featureset in the Table. It can be seen that the best performing featuresets are \textit{statistical featureset} (ST\_Set) and \textit{Histogram bins} (HB\_Set), achieving approximately 95\% of F1. However, the remaining featuresets have never exceeded 90\% of F1. The highest recognition performance for \textit{self-similar featureset}, \textit{physical featureset}, and \textit{Orientation independent featureset} are respectively 89.18\%, 85.34\%, and 78.47\%.
 
-It is worth mentioning here that when it comes to the complexity of computing the different features, histogram bins are the least complex to calcualte. Hence, given that they perform so well, they make an ideal candidate featureset, although there are for sure cases where this is not case. At the same time, we do expect that orientation indepedent features to not perform as highly, however, they do allow for flexibility in the way that sensors are placed on a subject.
+It is worth mentioning here that regarding th computational cost of featuresets, \textit{histogram bins} is placed at the lowest complexity (cost) with having only $ O(n\log m) $ where \textit{m} is number of bins. \textbf{Low computational cost along with providing the highest recognition performance make \textit{histogram bins} an ideal candidate featureset for Wearables, since they are limited in resources}. On the other hand, \textit{Orientation Independent} features achieved the minimum performance (77.44\% on average). Although it reached to a relatively lower performance among 
+
+featuresets, it allows for a flexibility in the way that sensors are placed on a subject.
 
 %classifiers have almost similar behaviour over different featuresets. Almost all classifiers on \textit{statistical featureset} and \textit{Histogram bins} deliver their higher performance which means these two featuresets bring the most informative features rather others. While almost in all featuresets, models are exceeding 80\% accuracy, the orientation invariant features provides insufficient information for successfully tackling activity recognition, since the accuracy never exceeds 77\%. \textbf{Interestingly, the Histogram Features with having the least complexity in computation gained the best performance among other featuresets at 95.89\% when using FNN and 93.30\% on average among all classifier.} In fact, accuracy achieved by the top-performing models (FNN and SVM) are significantly better when they use histogram features. This might happen due to choosing an appropriate bin width based on length of activity and windows size.\\
 %We naturally expect the accuracy achieved with the Orientation Invariant featureset to be lower compared to the other featureset since other featuresets (especially physical features) know about the directions of moving and gravity. However, the goal in creating this featureset was to provide the user the flexibility to place the sensor units at any orientation while this ability is not available on other featuresets. 
 
 \begin{table}[H]
-	\caption{Accuracy for each classifier and for all each feature-set using 10-fold cross validation \emad{we should only highlight the best performing featureset,i.e., one per column.}\hosein{done}}
+	\caption{F-score for each classifier over different feature-sets using 10-fold cross validation }
 	\centering
 	\begin{tabular}{p{2cm}p{1.7cm}p{1.7cm}p{1.7cm}p{1.7cm}p{1.7cm}p{1.7cm}}
 		\toprule
@@ -481,7 +534,7 @@ It is worth mentioning here that when it comes to the complexity of computing th
 		\textbf{Average} & 92.74\% &  \cellcolor{gray!35}{93.30\%}  & 86.77\% &83.04\% & 77.44\% &86.66\%\\
 		\bottomrule
 	\end{tabular}
-	\label{accuracy_classifier_featureset}
+	\label{f1_classifier_featureset}
 \end{table}
 %\begin{table}[H]
 %\caption{F1 for each classifier and for all each feature-set using 10-fold cross validation }
@@ -503,11 +556,9 @@ It is worth mentioning here that when it comes to the complexity of computing th
 
 %\hosein{if we use the feature selection method to evaluate featuresets, so, One interesting question to ask is whether the features selected by feature selection methods are truly important for our activity recognition problem. To answer this question, we can first remove the top 50 features selected by feature selection methods. Then perform the same procedure to classify the activities. if the classification errors decrease significantly, This indicates that the top 50 features selected contain more important information than the remaining feature set.}
 
-\subsubsection{RQ2: Which classifier performs better on gym exercise recognition?}
-
-\emad{we should create distributions here based on the different activities, and see if we find a statistically significant difference between the different classifiers.} \hosein{is it different from confusion matrix?}
-
-\emad{also, the results in Table 4 are the average of all the experiments or what activity are these numbers based on.} \hosein{calculated by total correct / total datapoints}
+\subsection{RQ2: Which classifier performs better on gym exercise recognition?}
+Figure \ref{fig:classification_comparison} shows how results of each classifier are spread out over 10 rounds. FNN followed by SVM show a range between 85\% through 99\% of F-measure over 10 trials while DT and KNN are showing more divergence over trials respectively between (75\%-98\%) and (78\%-98\%) of performances. Obviously, The median for all classifiers are closely around 95\% whereas only for FNN's result, the 3rd quartile is located above the 98\%. The 3rd quartile for other classifiers are equal to their median. This is to say that this result is also promising to achieve a better performance for more number of trials.
+A expected and confirmed by our results in RQ1, different classifiers perform differently. Hence, one question that we aim to answer is whether certain classifiers perform better than others. Therefore, in this research question we do an empirically compare the performance of different classifiers in HAR. We use four popular classifiers in HAR including SVM, KNN, FNN, and DT. It is important to mention that we evaluate the model using default configurations. We are not looking for optimal setup of each classifier.
 
 \begin{figure}[H]
 	\centering
@@ -515,13 +566,11 @@ It is worth mentioning here that when it comes to the complexity of computing th
 	\caption{Comparison between classifiers in terms of accuracy}
 	\label{fig:classification_comparison}
 \end{figure}
- Figure \ref{fig:classification_comparison} shows how results of each classifier are spread out over 10 rounds. FNN followed by SVM show a range between 85\% through 99\% of accuracy over 10 trials while DT and KNN are showing more divergence over trials respectively between (75\%-98\%) and (78\%-98\%) of performances. Obviously, The median for accuracy of all classifiers are closely around 95\% whereas only for FNN's result, the 3rd quartile is located above the 98\%. The 3rd quartile for other classifiers are equal to their median. This is to say that this result is also promising to achieve a better performance for more number of trials.
-A expected and confirmed by our results in RQ1, different classifiers perform differently. Hence, one question that we aim to answer is whether certain classifiers perform better than others. Therefore, in this research question we do an empirically compare the performance of different classifiers in HAR. We use four popular classifiers in HAR including SVM, KNN, FNN, and DT. It is important to mention that we evaluate the model using default configurations. We are not looking for optimal setup of each classifier \emad{so which configuration do we use? Default?}. \hosein{it is not different from what we said in the methodology/classification.}
 
-Table~\ref{accuracy_classifier_featureset} summarizes the classification results for each classifier over all featuresets.  From analysing the behaviour of classifiers, it emerges that \textbf{FNN and SVM provide the best results on all featuresets, allowing to correctly recognize activities on average 89.04\% and 87.82\% of data points, respectively}. On the other hand, the other classifiers achieve an accuracy of 85.50\% and 82.83\% of accuracy for KNN and DT, respectively. Overall, the highest accuracy achieved by the FNN is 95.89\% for Histogram features \textit{set\_B}, while the worst accuracy is 74.02\% obtained by DT. In the majority of the cases, the classifiers follow same accuracy performance patterns over different featuresets, i.e., ST\_Set and HB\_Set perform best, followed by SS\_Set, PH\_Set and OI\_Set. 
+Table~\ref{f1_classifier_featureset} summarizes the classification results for each classifier over all featuresets.  From analysing the behaviour of classifiers, it emerges that \textbf{FNN and SVM provide the best results on all featuresets, allowing to correctly recognize activities on average 89.04\% and 87.82\% of data points, respectively}. On the other hand, the other classifiers achieve a performance of 85.50\% and 82.83\% of F-measure for KNN and DT, respectively. Overall, the highest performance achieved by the FNN is 95.89\% for Histogram features \textit{set\_B}, while the worst performance is 74.02\% obtained by DT. In the majority of the cases, the classifiers follow same performance patterns over different featuresets, i.e., ST\_Set and HB\_Set perform best, followed by SS\_Set, PH\_Set and OI\_Set. 
 
 
-\subsubsection{RQ3: How do different evaluation methods impact the reported HAR performance?}
+\subsection{RQ3: How do different evaluation methods impact the reported HAR performance?}
 
 K-fold is one of the most popular methods to evaluate the performance of a HAR model~\cite{wang2019survey}. However, in an empirical study, Jordao et al.~\cite{jordao2018human} showed that the result of k-fold cross validation can be biased when using sliding windows, a technique that is commonly used in HAR. Therefore, the focus of this research question is to asses models by two state-of-the-art evaluation methods namely, Leave-One-Subject-Out (LOSO) cross validation~\cite{liu2011multisensor} and Leave-One-Trial-Out (LOTO) Cross validation~\cite{sena2018multiscale,jordao2018human}. 
 
@@ -553,45 +602,43 @@ Figure~\ref{fig:evaluation_comparison} compares the performance of models using 
 	\caption{Comparison between evaluation methods (10-Fold, LOTO, LOSO)}
 	\label{fig:evaluation_comparison}
 \end{figure} 
+%
+%\begin{table}[H]
+%	\caption{F-Score for each classifier and for all each feature-set using Leave-One-Trial-Out cross validation }
+%	\centering
+%	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+%		\toprule
+%		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
+%		\midrule	
+%		SVM &  \cellcolor{gray!35}{76.73\%} & 73.11\% & \cellcolor{gray!35}{76.70}\% &69.19\% & 62.13\% \\
+%		KNN & 72.91\% & 75.58\% & 74.24\% &70.36\% & 61.74\% \\
+%		FNN & \cellcolor{gray!35}{77.07}\% & \cellcolor{gray!35}{79.87\%} &  \cellcolor{gray!35}{76.06\%} &\cellcolor{gray!35}{73.04\%} & 66.60\% \\
+%		DT & 69.48\% & 71.70\% & 72.58\% &71.18\% & 65.34\% \\
+%		\bottomrule
+%	\end{tabular}
+%	\label{Table:LOTO_results}
+%\end{table}
+%
+%\begin{table}[H]
+%	\caption{F-Score for each classifier and for all each feature-set using Leave-One-Subject-Out cross validation }
+%	\centering
+%	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+%		\toprule
+%		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
+%		\midrule	
+%		SVM &  \cellcolor{gray!35}{68.83\%} & 69.11\% & \cellcolor{gray!35}{76.70}\% &69.19\% & 62.13\% \\
+%		KNN & 72.91\% & 75.58\% & 74.24\% &70.36\% & 61.74\% \\
+%		FNN & \cellcolor{gray!35}{77.07}\% & \cellcolor{gray!35}{79.87\%} & 76.06\% &\cellcolor{gray!35}{73.04\%} & 66.60\% \\
+%		DT & 69.48\% & 71.70\% &  \cellcolor{gray!35}{72.58\%} &71.18\% & 65.34\% \\
+%		\bottomrule
+%	\end{tabular}
+%	\label{Table:LOSO_results}
+%\end{table}
 
-\begin{table}[H]
-	\caption{Accuracy for each classifier and for all each feature-set using Leave-One-Trial-Out cross validation }
-	\centering
-	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
-		\toprule
-		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
-		\midrule	
-		SVM &  \cellcolor{gray!35}{76.73\%} & 73.11\% & \cellcolor{gray!35}{76.70}\% &69.19\% & 62.13\% \\
-		KNN & 72.91\% & 75.58\% & 74.24\% &70.36\% & 61.74\% \\
-		FNN & \cellcolor{gray!35}{77.07}\% & \cellcolor{gray!35}{79.87\%} &  \cellcolor{gray!35}{76.06\%} &\cellcolor{gray!35}{73.04\%} & 66.60\% \\
-		DT & 69.48\% & 71.70\% & 72.58\% &71.18\% & 65.34\% \\
-		\bottomrule
-	\end{tabular}
-	\label{Table:LOTO_results}
-\end{table}
-
-\begin{table}[H]
-	\caption{Accuracy for each classifier and for all each feature-set using Leave-One-Subject-Out cross validation }
-	\centering
-	\begin{tabular}{p{3cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
-		\toprule
-		\textbf{Classifier} & \textbf{Set\_A} & \textbf{Set\_B} & \textbf{Set\_C} & \textbf{Set\_D} & \textbf{Set\_E} \\
-		\midrule	
-		SVM &  \cellcolor{gray!35}{68.83\%} & 69.11\% & \cellcolor{gray!35}{76.70}\% &69.19\% & 62.13\% \\
-		KNN & 72.91\% & 75.58\% & 74.24\% &70.36\% & 61.74\% \\
-		FNN & \cellcolor{gray!35}{77.07}\% & \cellcolor{gray!35}{79.87\%} & 76.06\% &\cellcolor{gray!35}{73.04\%} & 66.60\% \\
-		DT & 69.48\% & 71.70\% &  \cellcolor{gray!35}{72.58\%} &71.18\% & 65.34\% \\
-		\bottomrule
-	\end{tabular}
-	\label{Table:LOSO_results}
-\end{table}
-
-\emad{Are Tables 5 and 6 ever referenced to in the text?}\hosein{I wasn't sure to put them or remove them.}
 
 \section{Discussion}
 \subsection{Performance of FNN}
-In this section we focus on investigating the FNN model on Histogram bins more in detail. 
-Figure \ref{fig:fnn_hbins_confusion_matrix} shows the normalized confusion matrix for FNN model on \textit{set\_B}. One can see that activities such as Lat Pull Down and Bench Press (A1 and A2) are classified more accurately than activities such as Crunch Twist (A7) which is misclassified as Russian Twist (A8). In other words, it can be said that activities of a similar nature are more willing to get misclassified. Especially when the subject is not experienced enough on performing the exercise, recognizing the activity get harder. Addition to this the class A0 which stands for non-exercise activity is misclassified 1 percent as almost all other classes. This could be a result of variation in the distribution of data for all classes. This can also be illustrated in Figure \ref{fig:fnn_hbins_confusion_matrix} where the accuracy at first row is distributed across all the classes. Because of the uniform nature of data distribution among all classes, and because of a balanced nature, similar activities could be classified more accurately.\\
+In this section we focus on investigating the FNN model on Histogram bins more in detail. Figure \ref{fig:fnn_hbins_confusion_matrix} shows the normalized confusion matrix for FNN model on \textit{set\_B}. One can see that activities such as Lat Pull Down and Bench Press (A1 and A2) are classified more accurately than activities such as Crunch Twist (A7) which is misclassified as Russian Twist (A8). In other words, it can be said that activities of a similar nature are more willing to get misclassified. Especially when the subject is not experienced enough on performing the exercise, recognizing the activity get harder. Addition to this the class A0 which stands for non-exercise activity is misclassified 1 percent as almost all other classes. This could be a result of variation in the distribution of data for all classes. This can also be illustrated in Figure \ref{fig:fnn_hbins_confusion_matrix} where the performance at first row is distributed across all the classes. Because of the uniform nature of data distribution among all classes, and because of a balanced nature, similar activities could be classified more accurately.\\
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=7 cm]{Definitions/images/fnn_histogram_set.jpg}
@@ -599,7 +646,6 @@ Figure \ref{fig:fnn_hbins_confusion_matrix} shows the normalized confusion matri
 	\label{fig:fnn_hbins_confusion_matrix}
 \end{figure} 
 
-\hosein{regarding We observe that when the standard activity recognition system is used with randomly oriented sensors (the random rotation case), the accuracy drops by 21.21\% on the average}
 %\hosein{Since we already mention this aspect in RQ3, we may want to remove this subsection:\\
 %\subsection{K-fold Evaluation result is biased?}
 %As we argued earlier, each process has a drawback that might cause a negative impact on the methods. For instance, SNOW can produce biased results and the FNOW generates few samples. To face these problems, we propose the Leave-One-Trial-Out (LOTO) sample generation process.
@@ -660,12 +706,12 @@ Figure \ref{fig:fnn_hbins_confusion_matrix} shows the normalized confusion matri
 %Those work indicated that, when the HAR data is multi-dimensional and activities are more complex, more hidden layers can help the model train well since their representation capability is stronger (Bengio, 2013) }
 
 \subsection{Learning Speed }
-The last but not the least aspect worthy to mentioned is various converging speed of FNN between using different featuresets. As mentioned in RQ1, training an FNN on Histogram bins after 100 epochs delivers the best performance comparing with result of training at same number of epochs on other featuresets. In this section, we investigate velocity of FNN on reaching its best performance during first 100 epochs. Figure \ref{fig:fnn_learning_speed} shows the accuracy of FNN models using different featuresets. As we expect, after 100 epochs, the models on histogram bins, statistical features, self-similarity features have been reached a higher level of accuracy (all above 90\%) while the had been stable almost after first 20 epochs. On the other hand, the trend for both models on physical features and orientation independent are below 90\% while they have not been stable even at greater number of epochs (close to 100). This is to say that FNN can be trained faster when it is feed with histogram bins, statistical features, or self-similarity features rather two other featuresets. Interesting, for FNN on histogram features, the first time to touch the best accuracy is at the 5th epoch. This number for models on statistical features and self-similarity features happens after 14 epochs and 12 epochs respectively.
+The last but not the least aspect worthy to mentioned is various converging speed of FNN between using different featuresets. As mentioned in RQ1, training an FNN on Histogram bins after 100 epochs delivers the best performance comparing with result of training at same number of epochs on other featuresets. In this section, we investigate velocity of FNN on reaching its best performance during first 100 epochs. Figure \ref{fig:fnn_learning_speed} shows the performance of FNN models using different featuresets. As we expect, after 100 epochs, the models on histogram bins, statistical features, self-similarity features have been reached a higher level of F1 (all above 90\%) while the had been stable almost after first 20 epochs. On the other hand, the trend for both models on physical features and orientation independent are below 90\% while they have not been stable even at greater number of epochs (close to 100). This is to say that FNN can be trained faster when it is feed with histogram bins, statistical features, or self-similarity features rather two other featuresets. Interesting, for FNN on histogram features, the first time to touch the best performance is at the 5th epoch. This number for models on statistical features and self-similarity features happens after 14 epochs and 12 epochs respectively.
 
 \begin{figure}[H]
 	\centering
 		\includegraphics[width= 10cm]{Definitions/images/fnn_learning_speed.jpg}
-		\caption{Accuracy of FNN during first 100 epochs using 5 featuresets}
+		\caption{F-Score of FNN during first 100 epochs using 5 featuresets}
 		\label{fig:fnn_learning_speed}
 \end{figure} 
 
@@ -674,7 +720,7 @@ The last but not the least aspect worthy to mentioned is various converging spee
 \section{Conclusions}
 
 Human activity recognition is an important research topic
-in pattern recognition and pervasive computing. In this paper, we have studied on the state-of-the-art models using hand-crafted features and traditional models. From RQ1 and RQ2, it turned out that FNN and histogram bins can deliver a superior performance rather other 19 pairs of classifiers and featuresets. It is also important to mention that the number of bins and width of each bin play important roles on extracting informative features. In RQ3, comparing leave-one-trial-out cross validation with two conventional evaluation methods (k-fold and LOSO), we saw that LOTO and LOSO provide a more realistic result rather K-Fold at the expense of declining the accuracy. Addition to this, we figured out, LOTO can address two issues which are not solved LOSO, including: 1) it is applicable on datasets with less number of subjects comparing with LOSO which requires more subjects. 2) it can suppress the impact of performing differently of an exercise by different subjects. 
+in pattern recognition and pervasive computing. In this paper, we have studied on the state-of-the-art models using hand-crafted features and traditional models. From RQ1 and RQ2, it turned out that FNN and histogram bins can deliver a superior performance rather other 19 pairs of classifiers and featuresets. It is also important to mention that the number of bins and width of each bin play important roles on extracting informative features. In RQ3, comparing leave-one-trial-out cross validation with two conventional evaluation methods (k-fold and LOSO), we saw that LOTO and LOSO provide a more realistic result rather K-Fold at the expense of declining the performance. Addition to this, we figured out, LOTO can address two issues which are not solved LOSO, including: 1) it is applicable on datasets with less number of subjects comparing with LOSO which requires more subjects. 2) it can suppress the impact of performing differently of an exercise by different subjects. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt} 
