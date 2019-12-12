@@ -472,9 +472,8 @@ As motivated earlier, choosing an appropriate featureset significantly impacts o
 
 Table \ref{f1_classifier_featureset} shows the performance for each featureset (columns 2-6) on different classifiers (rows 2-5). We highlighted the best performance for each featureset in the Table. It can be seen that the best performing featuresets are \textit{statistical featureset} (ST\_Set) and \textit{Histogram bins} (HB\_Set), achieving approximately 95\% of F1. However, the remaining featuresets have never exceeded 90\% of F1. The highest recognition performance for \textit{self-similar featureset}, \textit{physical featureset}, and \textit{Orientation independent featureset} are respectively 89.18\%, 85.34\%, and 78.47\%.
 
-It is worth mentioning here that regarding th computational cost of featuresets, \textit{histogram bins} is placed at the lowest complexity (cost) with having only $ O(n\log m) $ where \textit{m} is number of bins. \textbf{Low computational cost along with providing the highest recognition performance make \textit{histogram bins} an ideal candidate featureset for Wearables, since they are limited in resources}. On the other hand, \textit{Orientation Independent} features achieved the minimum performance (77.44\% on average). Although it reached to a relatively lower performance among 
-
-featuresets, it allows for a flexibility in the way that sensors are placed on a subject.
+It is worth mentioning here that regarding th computational cost of featuresets, \textit{histogram bins} is placed at the lowest complexity (cost) with having only $ O(n\log m) $ where \textit{m} is number of bins. \textbf{Low computational cost along with providing the highest recognition performance make \textit{histogram bins} an ideal candidate featureset for Wearables, since they are limited in resources}. 
+On the other hand, \textit{Orientation Independent} features achieved the minimum performance (77.44\% on average). Although it reached to a relatively lower performance among featuresets, it allows for a flexibility in the way that sensors are placed on a subject.
 
 %classifiers have almost similar behaviour over different featuresets. Almost all classifiers on \textit{statistical featureset} and \textit{Histogram bins} deliver their higher performance which means these two featuresets bring the most informative features rather others. While almost in all featuresets, models are exceeding 80\% accuracy, the orientation invariant features provides insufficient information for successfully tackling activity recognition, since the accuracy never exceeds 77\%. \textbf{Interestingly, the Histogram Features with having the least complexity in computation gained the best performance among other featuresets at 95.89\% when using FNN and 93.30\% on average among all classifier.} In fact, accuracy achieved by the top-performing models (FNN and SVM) are significantly better when they use histogram features. This might happen due to choosing an appropriate bin width based on length of activity and windows size.\\
 %We naturally expect the accuracy achieved with the Orientation Invariant featureset to be lower compared to the other featureset since other featuresets (especially physical features) know about the directions of moving and gravity. However, the goal in creating this featureset was to provide the user the flexibility to place the sensor units at any orientation while this ability is not available on other featuresets. 
@@ -487,8 +486,8 @@ featuresets, it allows for a flexibility in the way that sensors are placed on a
 		\textbf{Classifier} & \textbf{ST\_Set} & \textbf{HB\_Set} & \textbf{SS\_Set} & \textbf{PH\_Set} & \textbf{OI\_Set} & Average \\
 		\midrule
 		SVM &  94.98\% & 94.55\% &\cellcolor{gray!35}{89.18\%} &84.15\% & \cellcolor{gray!35}{78.47\%} &87.82\%\\
-		KNN & 91.50\% & 92.05\% & 85.61\% &81.93\% & 76,41\%& 85.50\% \\
-		FNN & \cellcolor{gray!35}{95.31}\% & \cellcolor{gray!35}{95.89\%} &  87.93\% &\cellcolor{gray!35}{85.34\%} & 77.59\% & \cellcolor{gray!35}{89.04}\%\\
+		KNN & 91.50\% & 90.21\% & 85.61\% &81.93\% & 76,41\%& 85.50\% \\
+		FNN & \cellcolor{gray!35}{95.31}\% & \cellcolor{gray!35}{95.89\%} &  87.93\% &\cellcolor{gray!35}{85.34\%} & 77.59\% & \cellcolor{gray!35}{88.29}\%\\
 		DT & 88.64\% & 89.18\% &  82.94\% &79.37\% & 74.02\% &82.83\%\\
 		\bottomrule
 		\textbf{Median} & 92.36\% &  92.92\% &86.41\% & 82.70\% & 77.12\%&86.30\%\\
@@ -524,12 +523,12 @@ A expected and confirmed by our results in RQ1, different classifiers perform di
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=14 cm]{Definitions/images/boxplot_overall_accuracy_4.jpeg}
-	\caption{Comparison between classifiers in terms of accuracy}
+	\includegraphics[width=14 cm]{Definitions/images/F1_results_vioPlot.jpeg}
+	\caption{Comparison between the performance of classifiers}
 	\label{fig:classification_comparison}
 \end{figure}
 
-Table~\ref{f1_classifier_featureset} summarizes the classification results for each classifier over all featuresets.  From analysing the behaviour of classifiers, it emerges that \textbf{FNN and SVM provide the best results on all featuresets, allowing to correctly recognize activities on average 89.04\% and 87.82\% of data points, respectively}. On the other hand, the other classifiers achieve a performance of 85.50\% and 82.83\% of F-measure for KNN and DT, respectively. Overall, the highest performance achieved by the FNN is 95.89\% for Histogram features \textit{set\_B}, while the worst performance is 74.02\% obtained by DT. In the majority of the cases, the classifiers follow same performance patterns over different featuresets, i.e., ST\_Set and HB\_Set perform best, followed by SS\_Set, PH\_Set and OI\_Set. 
+Table~\ref{f1_classifier_featureset} summarizes the classification results for each classifier over all featuresets.  From analyzing the behavior of classifiers, it emerges that \textbf{FNN and SVM provide the best results on all featuresets, allowing to correctly recognize activities on average 89.04\% and 87.82\% of data points, respectively}. On the other hand, the other classifiers achieve a performance of 85.50\% and 82.83\% of F-measure for KNN and DT, respectively. Overall, the highest performance achieved by the FNN is 95.89\% for Histogram features \textit{set\_B}, while the worst performance is 74.02\% obtained by DT. In the majority of the cases, the classifiers follow same performance patterns over different featuresets, i.e., ST\_Set and HB\_Set perform best, followed by SS\_Set, PH\_Set and OI\_Set. 
 
 
 \subsection{RQ3: How do different evaluation methods impact the reported HAR performance?}
