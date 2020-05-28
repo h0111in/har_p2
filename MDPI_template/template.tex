@@ -159,34 +159,6 @@ Wearable sensor-based HAR systems basically share a similar approach, as shown i
 	\caption{Typical Work-flow on Human Activity Recognition}
 	\label{fig:main_approach}
 \end{figure} 
-%<<<<<<< HEAD
-%The data collected by sensors as \textit{time series raw signal} will be segmented into smaller pieces (Figure \ref{fig:main_approach} step 2). Based on a comprehensive understanding of physically how an activity has been done, useful representative features for distinguishing activities are extracted from each segment (step 3)\cite{rosati2018comparison, wang2019survey}.
-%So far, among different type of features, statistical features on time domain has been received the most attention in HAR studies. However, in recent years, other type of features, like frequency domain features and hybrid features have been combined with statistical features with the aim of improving activity recognition performance\cite{wang2019survey, morris2014recofit}. However, to the best of our knowledge, there is no study investigating the performance of each set of features in detail considering different classifiers and evaluation method but under same dataset and experimental setup. More over, using more features causes more energy consumption, which can be problematic for an energy-limited device, like a smartphone\cite{Nourani_CoMoRea2019}. Hence, such a detailed analysis can help in deciding when to best use each set of features. Therefore, there is a need to study the impact of these featureset in detail. In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art featuresets, best used for better recognition performance (RQ1)".
-%%Some researcher have already investigated the impact of using various features in HAR\cite{,,}. For instance, ?? et.al. compare 
-%
-%%the input for Human Activity Recognition (HAR) model. A HAR model classifies certain activities from input signal which consists of three phases: First, there is a processing operation to \textit{extract features} from raw signal. Then, in \textit{classification }phase there is a classifier to discriminates activities. Finally, in the third phase, there is an \textit{evaluation} method to ensure that the classification provides required performance\cite{kolodziej2019registration}.  Figure \ref{fig:main_approach} shows a start-to-finish pipeline of HAR.\\
-%
-%
-%To recognize an activity, selecting a proper set of features from raw data plays an important role in the HAR performance \cite{zhang2013human}. Basically, a feature might be acquired from a statistical function (e.g., mean, variance), or a transformation function (e.g., Discrete Wavelet Transform, Fourier Transformation), or a combination - hybrid of them \cite{wang2019survey}. Depends on the function that is in-use, features are coming at different levels of cost and complexity. Additionally, different features are not necessarily informative equally. Therefore, extracting the most valuable features at the expense of minimum cost of computation is the main goal in \textit{feature extraction} phase. Previous works have proposed a wide range of features for HAR models \cite{janidarmian2017comprehensive, wang2019survey}. Although the cost of extracting a feature can be measured by calculating the complexity order of the function, the impact of a feature on the performance of the model is something not achievable theoretically\cite{rosati2018comparison}. Therefore, we need an empirical study on hand-crafted features to assess their impacts on performance.\\
-%The goal of this paper is to perform a comprehensive examination of the different featuresets, models and evaluation techniques used in wearable-based HAR systems. Specifically, we aim at examining five state-of-the-art featuresets (RQ1) and performance of classifiers on each featureset (RQ2) through a start-to-finish pipeline HAR system. Furthermore, we investigate the performance achieved by models under three evaluation methods (RQ3).
-%
-%
-%%Study on validation protocols to choose a reliable method to assess an HAR model \cite{jordao2018human} (in the phase 3)
-%
-%%(3) impact of quality of dataset on performance since they vary from paper to paper\cite{jordao2018human}.\\
-%%While the first two issues have impact on performance of a model in general, the third one influences directly on recognition result, independent from how much a model is well designed. Factors like size of dataset, frequency rate of sensors, complexity of target activities, sensor position and how it is attached to the body, and so on. In [], the authors, looking for impact of sensor alignments, in two different trials attached the sensor to the subjects. In first trial, an expert attached the sensor while in the second trial, subjects were asked to attached the sensors by themselves. Results show that the performance has a significant collapse during the second trials.
-%%
-%%Regarding the first issue, previous works have employed a wide range of features for HAR models. Dealing with selecting appropriate features (feature extractions/selection) are usually aiming to improve the performance and/or decreasing the computational costs. Previous works have proposed a wide range of features to be extracted as well as feature selection methods to choose the most appropriate featuresets. Some studies also have presented some featuresets that are manually selected based on the context (e.g., type of the activity). In our previous work\cite{Nourani_CoMoRea2019}, we showed that by removing redundant features, we can keep the performance identical while shrink the dataset to 8\% of its initial size. This approach significantly decreases the processing cost and vulnerability of getting overfit. In this study, we will also focus on improving performance by choosing the right featureset rather just decreasing size of dataset in a feature-set.\\
-%In addition to this, in \cite{rosati2018comparison} the authors also listed two extra issues which have been less considered in previous work:
-%(1) the processing cost of producing a feature
-%(2) the complexity of calculation of features makes a model difficult to understand.
-%We also mention these aspects in our study.
-%
-%While choosing an appropriate featureset plays an important role to improve the performance of the model, study on validation methods is a critical point since different validation methods show performance differently. For the same reason, using HAR models on new dataset shows a significant decrease in performance. As a consequence of this issue, currently it is impossible to know the state-of-the-art methods in HAR~\cite{jordao2018human}. In addition, some factors like temporal changes in user body (e.g., tiredness) have impacts on how they perform an identical activity within two different trials. However, it is impossible to evaluate such impacts by traditional validation methods like k-fold cross-validation or Leave-One-Subject-Out (LOSO) cross validation. To address this issue, in this study, we employ Leave-One-Trial-Out (LOTO) cross-validation addition to conventional validation methods.\\
-%
-%A typical work-flow on human activity recognition is including feature extraction, classification and evaluation (Figure \ref{fig:main_approach}). The aforementioned discussion motivated our study, where we evaluate a wide range of features by the performance reached by four popular classifiers. The models train and evaluate on our dataset which is one of the biggest dataset on gym exercises, publicly available. To provide a more robust evaluation we validate our models under several cross-validation methods including K-Fold, LOSO, and LOTO.
-%=======
- 
 
 The data collected by sensors as \textit{time series raw signal} will be segmented into smaller pieces (Figure \ref{fig:main_approach} step 2) to become easier on classification phase. In step 3, useful representative features (e.g., statistical features) for distinguishing activities are extracted from each segment - \textit{feature extraction}\cite{rosati2018comparison, wang2019survey}. The data extracted from step 3 will be considered as input for \textit{classification} in step 4. The classification output is the activity name in step 5. At this step, different \textit{evaluation} method can asses the performance of the model.\\
 Basically, extracting features is based on a comprehensive understanding of physically how an activity has been done. Among different type of features, statistical features has been received the most attention in HAR studies. However, in recent years, other type of features, like frequency domain features and hybrid features have been combined with statistical features with the aim of improving activity recognition performance\cite{wang2019survey, morris2014recofit}. Although there are several studies in literature that show these featuresets outcome remarkable model performance, to the best of our knowledge, there is no empirical study investigating the performance of each set of features. Specifically, there is not a comparison study, considering different classifiers and evaluation methods under same dataset and experimental setup. One simple solution is to extract more features, however, more number of features causes more energy consumption, which can be problematic for an energy-limited device, like a smartphone\cite{Nourani_CoMoRea2019}. Hence, such a detailed analysis can help in deciding when to best use each set of features. Therefore, there is a need to study the impact of these featureset in detail. In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art, best used for better recognition performance (RQ1)".
@@ -208,45 +180,99 @@ We believe that our effort will assist the readership and this will save time fo
 
 The rest of the paper is organized as follows. We describe related work in Section 2. The data and the study setup including the approach and the dataset are explained in Section 3. The featuresets are described in Section 4 and our evaluation approach in Section 5. We discuss the performance evaluation in Section 6. Finally, we describe our conclusions and future work in Section 7.
 
-%\section{Related Work}
-%
-%Addition to this, in \cite{rosati2018comparison} which is the most similar previous work to us, the authors also listed two extra issues which less have been considered in previous works:
-%(1) The processing cost of producing a feature
-%(2) The complexity of calculation of features makes a model difficult to understand.
-%
-%
-%
-%In literature, in order to gain more information from the sensory data, the authors came up with hundreds of hand-crafted features among time domains, frequency domain or a combination of them. While each feature represents the signal in a certain point of view, it does not mean that this feature is informative enough for a model to recognize an activity based on that. One decisive factor to build a new feature is respecting the type of activity. Wang et. al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases) of an activity into three main groups: (1) The \textbf{basic activities} which happen in comparatively longer duration e.g., walking and running. (2)  The complex activities that are in the form of a sequence of several phases. Each phase might be a complex or basic activity e.g., coffee time, smoking. (3) Transition activities which having a certain but temporal pattern happening between two different postures or two basic activities. e.g., stand-to-sit, push-ups and so on. From this point of view, previous works introduced  different feature sets that each one target a given type of activity. Consequently, targeting more than one type of activity brings more challenges for researcher to create a suitable set of features. Since exercises in gym composed of an orchestration of different type activities (basic, transition, complex), presenting a model to effectively recognize these activities will be more challenging.
-%
-%
-%Basically, a HAR system using Inertial Measurement Units (IMUs) is composed of two basic components: (1) a data acquisition unit responsible for capturing human movements, (2) a processing unit responsible for recognizing the certain activities among movements of the subject\cite{rosati2018comparison}. In the first component, the human movements is captured by different motion sensors such as accelerometer, gyroscope, and so on. These sensors can be located in an off-the-shelf device like a smart-phone for general HAR applications or specifically are accompanied by a storage and a processor, formed a System on Chip (SoC) for a certain purpose. The captured movements as raw data transmits to the second component for processing operation.\\
-%Within the processing unit, there is a pattern recognition (HAR) model that classifies the input signals into certain classes of activities. This HAR model typically consists of three phases. First, there is a pre-processing operation that extracts informative features from raw signal. Second, a classifier is trained over extracted features. Third, an evaluation method to ensure that the classifier provides the required performance\cite{kolodziej2019registration}. In other words, a HAR model should address these three aspects to be able to recognize an activity.
-%
-%
-%Basically, given a stream of sensory data, features are in three main categories.\cite{wang2019survey} 1) Time-domain features, 2) Frequency-domain features, 3) Hybrid features - any combination of statistical functions on signal in frequency-domain and/or time-domain. 
-%
-%To the best of our knowledge, the statistical functions on time-domain signal provide the most popular features in HAR. Features like mean, median, mean standard deviation, variance, minimum, maximum are the most popular ones. The second group, Frequency-domain features are so helpful for those models that target periodic activities like walking. To achieve a frequency-domain feature, one segment of time signal should be transferred to several components in frequency domain. Each component may/may not have meaning depend on the activity. Frequency bins and auto-correlation coefficient are some example.[available here]
-%
-%In feature extraction phase, the challenge is to extract the most informative set among a wide range of features\cite{krishnan2009recognition}.  In this regards,
-%
-%
-%Time-domain features are those features obtained directly from a window of sensor data and are typically statistical measures.  Lots of studies used statistical features in their work because of the reasons mentioned above as well as the low computational cost of them.
-%
-%%Factors like size of dataset, frequency rate of sensors, complexity of target activities, sensor position and how it is attached to the body, and so on. In [], the authors, looking for impact of sensor alignments, in two different trials attached the sensor to the subjects. In first trial, an expert attached the sensor while in the second trial, subjects were asked to attached the sensors by themselves. Results show that the performance has a significant collapse during the second trials.
-%
-%%Comparing the two feature subsets, no significant differences were observed for every dynamic activity using SVM and DT, while FNN fed with FeatSet_B was not able to reach acceptable results. \cite{rosati2018comparison}
-%
-%
-%in \cite{Suto et al., 2017} investigate the efficiency of the popular machine learning strategies based on a right-ankle-mounted accelerometer, and their results suggest that one sensor is not enough for appropriate daily activity recognition due to the similar data generated from one sensor for different activities. Nevertheless, using one sensor can be used as a suitable setup for the basic recognition tasks, such as step counting or sleep quality monitoring. Placing more sensors on multiple body parts is intuitively beneficial for improving the performance and robustness, whereas this can also result in increased complexity in deployment and computation cost. In \cite{Sztyler et al.}, authors developed a position-aware HAR system by placing seven accelerometers in different body positions.
-%
-%There are challenges associated with exercise analysis including 1)The sensor signal is exceedingly similar between an exercise and a non-exercise activity.~\cite{morris2014recofit} 2) Repetitiveness in signal on exercises can be a metric to distinct but there are exceptions(e.g., walking)~\cite{morris2014recofit, baldominos2019comparison}.  
-%
-
-\section{Data Collection}
+--------------
 
 
 Basically, a HAR system using Inertial Measurement Units (IMUs) is composed of two basic components: (1) a data acquisition unit responsible for capturing human movements, (2) a processing unit responsible for recognizing the certain activities among movements of the subject~\cite{rosati2018comparison}. In the first component, the human movements is captured by different motion sensors such as accelerometer, gyroscope, and so on. These sensors can be located in an off-the-shelf device like a smart-phone for general HAR applications or specifically are accompanied by a storage and a processor, formed a System on Chip (SoC) for a certain purpose. The captured movements as raw data transmits to the second component for processing operation.\\
 Within the processing unit, there is a pattern recognition (HAR) model that classifies the input signals into certain classes of activities. This HAR model typically consists of three phases. First, there is a pre-processing operation that extracts informative features from raw signal. Second, a classifier is trained over extracted features. Third, an evaluation method to ensure that the classifier provides the required performance~\cite{kolodziej2019registration}. In other words, a HAR model should address these three aspects to be able to recognize an activity.
+
+
+
+\section{Related Work}
+
+\subsection{Hand-crafted Features}
+
+A large amount of researches have been conducted regarding the acquiring hand-crafted feature in preprocessing phase for recognizing human activities. In actual use, there are plenty of resources for a HAR model to receive the input. The hand-crafted features, manual functions to transform raw inputs into a more useful form for prediction, have proven to be effective and are gaining popularity\cite{wang2019survey}. This achieved due to the fact that, knowing a prior knowledge about the temporal pattern of a physical activity, researchers are able to extract those attributes of the signal that have correlation with that activity. For example, as can be seen in Figure \ref{fig:feature_intuition}, since the activity composed of two phases which in the second phase the wrist hits the highest point in x axis (the red circles in Figure \ref{fig:feature_intuition} (b)), the maximum value of x in each segment of signal can be used as a feature for a model to recognize "Dumbbell Triceps Dips". It is noteworthy that in this activity the wrist does not move significantly toward z axis, therefore, as it is shown in Figure \ref{fig:feature_intuition} (b), there is no significant information in the z signal to be extracted. In the section \ref{sec:feature_extraction}, there is a comprehensive explanation about different features and their intuitions.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14 cm]{Definitions/images/hand_craft_intuition.jpg}
+	\caption{(a) Two states of "dumbbell triceps dips" while a sensor attached to the wrist. (b) The signals recorded by a triaxial accelerometer during five iteration of dumbbell triceps dips. Red and green bullets stand for State A and B respectively. The red circles indicate the maximum peaks in x signal. In feature extraction process, an input like the y axis signal might be considered as an intuitive feature such as mean or median to recognize each state of this activity.}
+	\label{fig:feature_intuition}
+\end{figure} 
+
+
+
+Particularly, researchers have constructed various activity recognition models utilized the hand-crafted features. To this end the analysis of the activity per se is necessary. Wang et al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases of doing the activity) into three main categories:
+\begin{itemize}
+	\item \textit{Basic activities}, repetitive activities during comparatively longer period e.g., walking and running. 
+	\item \textit{Complex activities}, a sequence of several phases that each phase might be a complex or basic activity e.g., coffee time, smoking. 
+	\item \textit{Transition activities} which having a certain behavior occurring between two different postures or two basic activities (e.g., stand-to-sit, push-ups).
+\end{itemize}
+
+From this point of view, introduced features in previous works mostly focused on a certain group of activities rather multiple categories altogether. For instance, Shoaib and Bosch setup an experiment with ten subjects to recognize seven \textit{basic activities} including running, sitting, standing, jogging, biking, walking upstairs and walking downstairs \cite{s140610146}. They extracted six time-domain features (Mean, standard deviation, median, zero crossings, root means square and variance) and two frequency domain features including sum of first five Fast-Fourier Transformation (FFT) coefficients and the spectral energy on the data of a triaxial accelerometer and a gyroscope. They achieved 96\% of accuracy using time-domain features while maximum 89\% when used frequency-domain features. Khokhlov et al. in \cite{khokhlov2018design} also targeted the basic activities in an experiment with seven subjects equipped by accelerometer and gyroscope on their showed that the combination of frequency-domain features and time-domain features improves the performance 
+some studies focused on transition activities like x y z. there are also studies about complex activities like x and y, however they used other sensor modality like RFID in [] or oxygen intake sensor [] in their recognition. in this work, similar to \cite{morris2014recofit, }, , we focus on gym exercises a combination of basic and transition activities 
+
+
+
+
+
+Some researchers have evaluated the effect of amending HAR performance with combining different set of features  ~\cite{yazdansepas2016multi, chen2018distilling}.
+
+
+    Krishnan and Juillard setup a study \cite{krishnan2009recognition}
+
+In [], authors developed a position-aware HAR system by placing seven accelerometers in different body positions.
+
+
+
+
+Studies where a type of features was either used alone or in combination with another exist for many applications related to HAR.
+
+For example, for gait analysis ~\cite{zhang2011feature, sprager2015inertial}, gym exercises ~\cite{rosati2018comparison} and disease diagnosis ~\cite{janidarmian2014automated}, the time domain features have been used, either alone or in combination with frequency domain features. Moreover, time domain features, frequency domain features, and a set of auto-correlation features combined to detect certain exercises in the gym \cite{morris2014recofit, rosati2018comparison}. \\
+ 
+
+Rather than using a combination of features in a HAR model, There are studies in exploring and introducing new sets of hand-crafted features in the literature....
+
+\subsection{Feature Selection}
+In terms of accuracy and energy consumption, the number of used features matters. There are plenty of studies that aim to optimize the selection of features in a data driven way. In the process of selecting features, a subsection of the best individual features may not be a best set of features because of the possibility of redundancy among features which not only does not improve performance, but also increase the processing cost. Therefore, in practice, it may deteriorate the efficiency of the model[].% examples of feature selection methods
+\subsection{HAR Evaluation}
+To compare the performance of HAR models, in the literature, K-folds validation and cross-subject validation are more popular than others. [] uses 
+
+\subsection{Featureset comparison}
+
+While the extracting and applying hand-crafted features on HAR has been extensively studied ~\cite{wang2019survey,janidarmian2017comprehensive}, They less have done an empirical study that demonstrates a side-by-side comparison of advantages and drawbacks of different featuresets.
+
+In \cite{rosati2018comparison} which is the most similar previous work to us, the authors also listed two extra issues which less have been considered in \
+previous works:
+(1) The processing cost of producing a feature
+(2) The complexity of calculation of features makes a model difficult to understand.
+
+
+
+\cite{s140610146}Experimental results showed that models with time-domain features perform better compared to models using frequency-domain features, considering the fact that the distance between results vary with activity, classifier, and sensor position. They also showed that the combination of both accelerometer and gyroscope results ~3.5\% improvements on average of accuracy as compared with using either.
+
+
+
+
+Although there is earlier work in which motion sensors (accelerometer, gyroscope, magnetometer and linear acceleration) are used either alone or in different combinations. However, the merit of the individual sensors is often not evaluated in detail.
+
+
+related works: 
+1-goal
+	applying a certain set of feature (alone, combination) 
+	recognizing a certain activity (name/category) / application
+	
+ 2-result
+ 3-how(experiment)
+	which type of sensor (smartphone/ specific sensor)
+	how they extract the features (domain/name)
+	if they collect the data by themselves or using a benchmark dataset
+	
+
+\section{Materials and Methods}
+
+\subsection{Data Collection}
 
 
 In literature, in order to gain more information from the sensory data, the authors came up with hundreds of hand-crafted features among time domains, frequency domain or a combination of them. While each feature represents the signal in a certain point of view, it does not mean that this feature is informative enough for a model to recognize an activity based on that. One decisive factor to build a new feature is respecting the type of activity. Wang et. al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases) of an activity into three main groups: (1) The \textbf{basic activities} which happen in comparatively longer duration e.g., walking and running. (2)  The complex activities that are in the form of a sequence of several phases. Each phase might be a complex or basic activity e.g., coffee time, smoking. (3) Transition activities which having a certain but temporal pattern happening between two different postures or two basic activities. e.g., stand-to-sit, push-ups and so on. From this point of view, previous works introduced  different feature sets that each one target a given type of activity. Consequently, targeting more than one type of activity brings more challenges for researcher to create a suitable set of features. Since exercises in gym composed of an orchestration of different type activities (basic, transition, complex), presenting a model to effectively recognize these activities will be more challenging.
@@ -349,7 +375,7 @@ Table \ref{dataset_statistics} shows the statistics of the dataset after applyin
 In this section, we explain the procedure of HAR as it is provided in Figure \ref{fig:main_approach}.
 
 \subsection{Feature Extraction}
-
+\label{sec:feature_extraction}
 In this study, we targeted five state-of-the-art sets of hand-crafted features. Table \ref{features_table} shows 31 functions along with a description/intuition about each one. Functions are grouped into sets (first column). Each set of functions is uniquely representative of a certain aspect of the signal.
  
 \noindent\textbf{Preprocessing.} We used two tri-axial sensors (accelerometer and gyroscope) on two body positions (wrist and foot); So, To reproduce features, we normally apply these 31 functions on 12 raw signals coming from sensors. However, in some cases, an extra preprocessing operation is also required which will be explained in related section. Addition to this, to ensure that the data from different resources (sensors) are at the same scales, we performed a scale normalization in advance of any other computations.

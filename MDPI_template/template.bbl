@@ -99,13 +99,28 @@ Nourani, H.
 \newblock \url{https://github.com/h0111in/Gym-Exercises-dataset/},  2019.
 \newblock [Online; accessed 05-May-2019].
 
-\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
-  Gebert, and Sawicki]{kolodziej2019registration}
-Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
-  D.
-\newblock Registration and Analysis of Acceleration Data to Recognize Physical
-  Activity.
-\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
+\bibitem[Khokhlov \em{et~al.}(2018)Khokhlov, Reznik, Cappos, and
+  Bhaskar]{khokhlov2018design}
+Khokhlov, I.; Reznik, L.; Cappos, J.; Bhaskar, R.
+\newblock Design of activity recognition systems with wearable sensors.
+\newblock  2018 IEEE Sensors Applications Symposium (SAS). IEEE,  2018, pp.
+  1--6.
+
+\bibitem[Yazdansepas \em{et~al.}(2016)Yazdansepas, Niazi, Gay, Maier,
+  Ramaswamy, Rasheed, and Buman]{yazdansepas2016multi}
+Yazdansepas, D.; Niazi, A.H.; Gay, J.L.; Maier, F.W.; Ramaswamy, L.; Rasheed,
+  K.; Buman, M.P.
+\newblock A multi-featured approach for wearable sensor-based human activity
+  recognition.
+\newblock  2016 IEEE International Conference on Healthcare Informatics (ICHI).
+  IEEE,  2016, pp. 423--431.
+
+\bibitem[Chen \em{et~al.}(2018)Chen, Zhang, Cao, and Guo]{chen2018distilling}
+Chen, Z.; Zhang, L.; Cao, Z.; Guo, J.
+\newblock Distilling the knowledge from handcrafted features for human activity
+  recognition.
+\newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2018}, {\em
+  14},~4334--4342.
 
 \bibitem[Krishnan \em{et~al.}(2009)Krishnan, Juillard, Colbry, and
   Panchanathan]{krishnan2009recognition}
@@ -114,21 +129,32 @@ Krishnan, N.C.; Juillard, C.; Colbry, D.; Panchanathan, S.
 \newblock {\em Journal of Ambient Intelligence and Smart Environments} {\bf
   2009}, {\em 1},~143--155.
 
-\bibitem[Baldominos \em{et~al.}(2019)Baldominos, Cervantes, Saez, and
-  Isasi]{baldominos2019comparison}
-Baldominos, A.; Cervantes, A.; Saez, Y.; Isasi, P.
-\newblock A Comparison of Machine Learning and Deep Learning Techniques for
-  Activity Recognition using Mobile Devices.
-\newblock {\em Sensors} {\bf 2019}, {\em 19},~521.
+\bibitem[Sprager and Juric(2015)]{sprager2015inertial}
+Sprager, S.; Juric, M.B.
+\newblock Inertial sensor-based gait recognition: A review.
+\newblock {\em Sensors} {\bf 2015}, {\em 15},~22089--22127.
 
-\bibitem[Mortazavi \em{et~al.}(2014)Mortazavi, Pourhomayoun, Alsheikh,
-  Alshurafa, Lee, and Sarrafzadeh]{mortazavi2014determining}
-Mortazavi, B.J.; Pourhomayoun, M.; Alsheikh, G.; Alshurafa, N.; Lee, S.I.;
-  Sarrafzadeh, M.
-\newblock Determining the single best axis for exercise repetition recognition
-  and counting on smartwatches.
-\newblock  2014 11th International Conference on Wearable and Implantable Body
-  Sensor Networks. IEEE,  2014, pp. 33--38.
+\bibitem[Janidarmian \em{et~al.}(2014)Janidarmian, Radecka, and
+  Zilic]{janidarmian2014automated}
+Janidarmian, M.; Radecka, K.; Zilic, Z.
+\newblock Automated diagnosis of knee pathology using sensory data.
+\newblock  Wireless Mobile Communication and Healthcare (Mobihealth), 2014 EAI
+  4th International Conference on. IEEE,  2014, pp. 95--98.
+
+\bibitem[Janidarmian \em{et~al.}(2017)Janidarmian, Roshan~Fekr, Radecka, and
+  Zilic]{janidarmian2017comprehensive}
+Janidarmian, M.; Roshan~Fekr, A.; Radecka, K.; Zilic, Z.
+\newblock A Comprehensive Analysis on Wearable Acceleration Sensors in Human
+  Activity Recognition.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~529.
+
+\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
+  Gebert, and Sawicki]{kolodziej2019registration}
+Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
+  D.
+\newblock Registration and Analysis of Acceleration Data to Recognize Physical
+  Activity.
+\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
 
 \bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
   Wattenhofer]{soro2019recognition}
@@ -150,6 +176,13 @@ de~Faria, I.L.; Vieira, V.
 \newblock  Proceedings of the 24th Brazilian Symposium on Multimedia and the
   Web. ACM,  2018, pp. 327--330.
 
+\bibitem[Baldominos \em{et~al.}(2019)Baldominos, Cervantes, Saez, and
+  Isasi]{baldominos2019comparison}
+Baldominos, A.; Cervantes, A.; Saez, Y.; Isasi, P.
+\newblock A Comparison of Machine Learning and Deep Learning Techniques for
+  Activity Recognition using Mobile Devices.
+\newblock {\em Sensors} {\bf 2019}, {\em 19},~521.
+
 \bibitem[Anwary \em{et~al.}(2018)Anwary, Yu, and Vassallo]{anwary2018automatic}
 Anwary, A.; Yu, H.; Vassallo, M.
 \newblock An automatic gait feature extraction method for identifying gait
@@ -161,19 +194,6 @@ Mazo, J.E.
 \newblock Faster-than-Nyquist signaling.
 \newblock {\em The Bell System Technical Journal} {\bf 1975}, {\em
   54},~1451--1462.
-
-\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
-Yurtman, A.; Barshan, B.
-\newblock Activity recognition invariant to sensor orientation with wearable
-  motion sensors.
-\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
-
-\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
-Sarbishei, O.
-\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
-  Recognition on Low-Power Smart Devices.
-\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
-  257--260.
 
 \bibitem[Zardoshti-Kermani \em{et~al.}(1995)Zardoshti-Kermani, Wheeler, Badie,
   and Hashemi]{zardoshti1995emg}
@@ -190,6 +210,13 @@ Shirahama, K.; K{\"o}ping, L.; Grzegorzek, M.
 \newblock  Proceedings of the 2016 ACM International Joint Conference on
   Pervasive and Ubiquitous Computing: Adjunct. ACM,  2016, pp. 197--200.
 
+\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
+Sarbishei, O.
+\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
+  Recognition on Low-Power Smart Devices.
+\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
+  257--260.
+
 \bibitem[Xi \em{et~al.}(2017)Xi, Tang, Miran, and Luo]{xi2017evaluation}
 Xi, X.; Tang, M.; Miran, S.M.; Luo, Z.
 \newblock Evaluation of feature extraction and recognition for activity
@@ -201,17 +228,16 @@ Accelerometer.
 \newblock \url{https://www.w3.org/TR/accelerometer/}.
 \newblock (Accessed on 07/03/2019).
 
+\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
+Yurtman, A.; Barshan, B.
+\newblock Activity recognition invariant to sensor orientation with wearable
+  motion sensors.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
+
 \bibitem[Moon and Stirling(2000)]{moon2000mathematical}
 Moon, T.K.; Stirling, W.C.
 \newblock {\em Mathematical methods and algorithms for signal processing};
   Vol.~1, Prentice hall Upper Saddle River, NJ,  2000.
-
-\bibitem[Janidarmian \em{et~al.}(2017)Janidarmian, Roshan~Fekr, Radecka, and
-  Zilic]{janidarmian2017comprehensive}
-Janidarmian, M.; Roshan~Fekr, A.; Radecka, K.; Zilic, Z.
-\newblock A Comprehensive Analysis on Wearable Acceleration Sensors in Human
-  Activity Recognition.
-\newblock {\em Sensors} {\bf 2017}, {\em 17},~529.
 
 \bibitem[Nair and Hinton(2010)]{nair2010rectified}
 Nair, V.; Hinton, G.E.
@@ -225,6 +251,15 @@ Zhang, S.; Rowlands, A.V.; Murray, P.; Hurst, T.L.; others.
 \newblock Physical activity classification using the GENEA wrist-worn
   accelerometer.
 \newblock PhD thesis, Lippincott Williams and Wilkins,  2012.
+
+\bibitem[Mortazavi \em{et~al.}(2014)Mortazavi, Pourhomayoun, Alsheikh,
+  Alshurafa, Lee, and Sarrafzadeh]{mortazavi2014determining}
+Mortazavi, B.J.; Pourhomayoun, M.; Alsheikh, G.; Alshurafa, N.; Lee, S.I.;
+  Sarrafzadeh, M.
+\newblock Determining the single best axis for exercise repetition recognition
+  and counting on smartwatches.
+\newblock  2014 11th International Conference on Wearable and Implantable Body
+  Sensor Networks. IEEE,  2014, pp. 33--38.
 
 \bibitem[Shoaib \em{et~al.}(2016)Shoaib, Bosch, Incel, Scholten, and
   Havinga]{shoaib2016complex}
@@ -259,13 +294,6 @@ Kose, M.; Incel, O.D.; Ersoy, C.
 \newblock Online human activity recognition on smart phones.
 \newblock  Workshop on Mobile Sensing: From Smartphones and Wearables to Big
   Data,  2012, Vol.~16, pp. 11--15.
-
-\bibitem[Chen \em{et~al.}(2018)Chen, Zhang, Cao, and Guo]{chen2018distilling}
-Chen, Z.; Zhang, L.; Cao, Z.; Guo, J.
-\newblock Distilling the knowledge from handcrafted features for human activity
-  recognition.
-\newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2018}, {\em
-  14},~4334--4342.
 
 \bibitem[Zhu and Sheng(2009)]{zhu2009human}
 Zhu, C.; Sheng, W.
