@@ -39,9 +39,9 @@ Schilit, B.N.; Adams, N.; Want, R.; others.
 \newblock {\em Context-aware computing applications}; Xerox Corporation, Palo
   Alto Research Center,  1994.
 
-\bibitem[Shoaib \em{et~al.}(2014)Shoaib, Bosch, Incel, Scholten, and
+\bibitem[and Bosch \em{et~al.}(2014)and Bosch, Incel, Scholten, and
   Havinga]{s140610146}
-Shoaib, M.; Bosch, S.; Incel, O.D.; Scholten, H.; Havinga, P.J.M.
+and Bosch, S.; Incel, O.D.; Scholten, H.; Havinga, P.J.M.
 \newblock Fusion of Smartphone Motion Sensors for Physical Activity
   Recognition.
 \newblock {\em Sensors} {\bf 2014}, {\em 14},~10146--10176.
@@ -99,6 +99,14 @@ Nourani, H.
 \newblock \url{https://github.com/h0111in/Gym-Exercises-dataset/},  2019.
 \newblock [Online; accessed 05-May-2019].
 
+\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
+  Gebert, and Sawicki]{kolodziej2019registration}
+Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
+  D.
+\newblock Registration and Analysis of Acceleration Data to Recognize Physical
+  Activity.
+\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
+
 \bibitem[Khokhlov \em{et~al.}(2018)Khokhlov, Reznik, Cappos, and
   Bhaskar]{khokhlov2018design}
 Khokhlov, I.; Reznik, L.; Cappos, J.; Bhaskar, R.
@@ -147,14 +155,6 @@ Janidarmian, M.; Roshan~Fekr, A.; Radecka, K.; Zilic, Z.
 \newblock A Comprehensive Analysis on Wearable Acceleration Sensors in Human
   Activity Recognition.
 \newblock {\em Sensors} {\bf 2017}, {\em 17},~529.
-
-\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
-  Gebert, and Sawicki]{kolodziej2019registration}
-Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
-  D.
-\newblock Registration and Analysis of Acceleration Data to Recognize Physical
-  Activity.
-\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
 
 \bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
   Wattenhofer]{soro2019recognition}
