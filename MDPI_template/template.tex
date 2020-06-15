@@ -155,7 +155,7 @@ Human Activity Recognition (HAR) using on-body sensing is one of the most preval
 
 \subsection{Human Activity Recognition Approach}
 % explain the approach + highlighting the feature extraction as the most important phase
-Wearable sensor-based HAR systems basically share a similar approach ~\cite{s140610146}. This approach is shown in Figure \ref{fig:main_approach}. The procedure starts with capturing an activity into time series signal using inertial on-body sensors (i.e., accelerometer, gyroscope) and storing it into a dataset. Next, the stream splits into segments while each segment is labelled with the activity performed within that segment. To be used in classification model, each segment of data is summarized into a feature vector, during the feature extraction phase. Extracting a feature vector from a segment of data plays a crucial step in HAR process. engineering a limited set of features, efficiently provide the most relevant characteristics of data for the classifier is still subject to research. 
+Wearable sensor-based HAR systems basically share a similar approach ~\cite{s140610146}. This approach is shown in Figure \ref{fig:main_approach}. The procedure starts with capturing an activity into time series signal using inertial on-body sensors (i.e., accelerometer, gyroscope) and storing it into a dataset. Next, the stream splits into segments while each segment is labelled with the activity performed within that segment. To be used in classification model, each segment of data is summarized into a feature vector, during the feature extraction phase. Extracting a feature vector from a segment of data plays a crucial step in HAR process. Engineering a set of hand-crafted features, efficiently provide the most relevant characteristics of data for the classifier is still subject to research. 
 
 \begin{figure}[H]
 	\centering
@@ -165,16 +165,59 @@ Wearable sensor-based HAR systems basically share a similar approach ~\cite{s140
 \end{figure} 
 
 \subsection{Feature Engineering in HAR}
-Providing an efficient set of feature for a recognition model has two main steps: 1) feature extraction 2) feature selection. Particularly in HAR, extracting features is based on a comprehensive understanding of the activity's movements in a coordinate system~\cite{}; While, selecting features is a heuristic filtering approach on features to minimize their redundancy and maximize their relevancy to the activity~\cite{}. Theoretically, any distinctive characteristic of an activity is an intuition to be developed as a feature.
+
+Providing an efficient set of feature for a recognition model has two main steps: 1) feature extraction 2) feature selection. Particularly in HAR, extracting features is based on a comprehensive understanding of the activity's movements in a coordinate system~\cite{}; While, selecting features is a heuristic filtering approach on features to minimize their redundancy and maximize their relevancy to the activity~\cite{}. Theoretically, any distinctive characteristic of  activities is an intuition to be developed as a feature. For example: Two states of \textit{Triceps Kickback} exercise are shown in Figure \ref{fig:feature_intuition} (a). Each rep of doing this exercise requires the body posture to change between these two states.\footnote{A complete version of Triceps Kickback instruction includes more considerations about holding the dumbbell, inhale and exhale, etc.} A triaxial accelerometer is fixed to the wrist to capture the movement signal over three axes (shown in Figure \ref{fig:feature_intuition} (b)). The blue and green points in Figure \ref{fig:feature_intuition} indicating States A and B, respectively, through several reps. The following intuition might be considered in feature extraction:
+\begin{itemize}
+	\item the maximum of x in each rep indicates the middle of rep
+	\item each rep contains two minimums and two maximums in y signal
+	\item the wrist does not move significantly toward z axis
+\end{itemize}
+In the section \ref{sec:feature_extraction}, there is a comprehensive explanation about different features and their intuitions.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14 cm]{Definitions/images/hand_craft_intuition.jpg}
+	\caption{(a) Two states of "dumbbell triceps dips" while a sensor attached to the wrist. (b) The signals recorded by a triaxial accelerometer during five iteration of dumbbell triceps dips. Red and green bullets stand for State A and B respectively. The red circles indicate the maximum peaks in x signal. In feature extraction process, an input like the y axis signal might be considered as an intuitive feature such as mean or median to recognize each state of this activity.}
+	\label{fig:feature_intuition}
+\end{figure} 
+
+
 Although feature selection is not a mandatory step in HAR pipeline, employing feature selection is very popular as it proved that it can significantly improves the performance. There are several studies have shown that the featureset returned from the feature selection improves the model's performance both in accuracy and computational costs~\cite{rosati2018comparison, Nourani_CoMoRea2019, wang2019survey}. For example, in our previous study, we setup an study/experiment on time domain features and used an ensemble feature selection and showed that using only 10\% of features the performance is still identical.or ~\cite{yazdansepas2016multi}. Mohamd shoeib extract x number of features and manually split them into four sets of features and trained one model per each. the performance difference between models was up to 30\% (65\% for time domain features to 95\% for combination of time and frequency domain features).\\
 Therefore, the performance achieved by a featureset depends on both steps which are tightly bound up with each other. 
 
 
+A large amount of researches have been conducted regarding the acquiring hand-crafted feature in preprocessing phase for recognizing human activities. In actual use, there are plenty of resources for a HAR model to receive the input. The hand-crafted features, manual functions to transform raw inputs into a more useful form for prediction, have proven to be effective and are gaining popularity\cite{wang2019survey}. This achieved due to the fact that, knowing a prior knowledge about the temporal pattern of a physical activity, researchers are able to extract those attributes of the signal that have correlation with that activity. 
+
+
+
+From this point of view, introduced features in previous works mostly focused on a certain group of activities rather multiple categories altogether. For instance, Shoaib and Bosch setup an experiment with ten subjects to recognize seven \textit{basic activities} including running, sitting, standing, jogging, biking, walking upstairs and walking downstairs \cite{s140610146}. They extracted six time-domain features (Mean, standard deviation, median, zero crossings, root means square and variance) and two frequency domain features including sum of first five Fast-Fourier Transformation (FFT) coefficients and the spectral energy on the data of a triaxial accelerometer and a gyroscope. They achieved 96\% of accuracy using time-domain features while maximum 89\% when used frequency-domain features. Khokhlov et al. in \cite{khokhlov2018design} also targeted the basic activities in an experiment with seven subjects equipped by accelerometer and gyroscope on their showed that the combination of frequency-domain features and time-domain features improves the performance 
+some studies focused on transition activities like x y z. there are also studies about complex activities like x and y, however they used other sensor modality like RFID in [] or oxygen intake sensor [] in their recognition. in this work, similar to \cite{morris2014recofit, }, , we focus on gym exercises a combination of basic and transition activities 
+
+
+
+
+
+Some researchers have evaluated the effect of amending HAR performance with combining different set of features  ~\cite{yazdansepas2016multi, chen2018distilling}.
+
+
+Krishnan and Juillard setup a study \cite{krishnan2009recognition}
+
+In [], authors developed a position-aware HAR system by placing seven accelerometers in different body positions.
+
+
+
+
+Studies where a type of features was either used alone or in combination with another exist for many applications related to HAR.
+
+For example, for gait analysis ~\cite{zhang2011feature, sprager2015inertial}, gym exercises ~\cite{rosati2018comparison} and disease diagnosis ~\cite{janidarmian2014automated}, the time domain features have been used, either alone or in combination with frequency domain features. Moreover, time domain features, frequency domain features, and a set of auto-correlation features combined to detect certain exercises in the gym \cite{morris2014recofit, rosati2018comparison}. \\
+
+
+Rather than using a combination of features in a HAR model, There are studies in exploring and introducing new sets of hand-crafted features in the literature....
+
+
+
 %grouping the featuresets based on the undestanding of the activities
 
-
-
-The data collected by sensors as \textit{time series raw signal} will be segmented into smaller pieces (Figure \ref{fig:main_approach} step 2) to become easier on classification phase. In step 3, useful representative features (e.g., statistical features) for distinguishing activities are extracted from each segment - \textit{feature extraction}\cite{rosati2018comparison, wang2019survey}. The data extracted from step 3 will be considered as input for \textit{classification} in step 4. The classification output is the activity name in step 5. At this step, different \textit{evaluation} method can asses the performance of the model.\\
 
 
 Basically, extracting features is based on a comprehensive understanding of physically how an activity has been done. Among different type of features, statistical features has been received the most attention in HAR studies. However, in recent years, other type of features, like frequency domain features and hybrid features have been combined with statistical features with the aim of improving activity recognition performance\cite{wang2019survey, morris2014recofit}. Although there are several studies in literature that show these featuresets outcome remarkable model performance, to the best of our knowledge, there is no empirical study investigating the performance of each set of features. Specifically, there is not a comparison study, considering different classifiers and evaluation methods under same dataset and experimental setup. One simple solution is to extract more features, however, more number of features causes more energy consumption, which can be problematic for an energy-limited device, like a smartphone\cite{Nourani_CoMoRea2019}. Hence, such a detailed analysis can help in deciding when to best use each set of features. Therefore, there is a need to study the impact of these featureset in detail. In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art, best used for better recognition performance (RQ1)".
@@ -207,50 +250,6 @@ The data coming from sensor depends on the type of sensor and the position of th
 accelerometer[] and gyroscope[] are the most popular sensor mostly used in HAR systems. the signal from magnetometer is sensitive against iron and local magnetic fields exist in the environment. therefore, it is less used rather the other sensors. to place the sensor on subject's body, previous works used different positions. authors have used chest, wrist, pocket, and foot to attach the sensor~\cite{hassan2018robust, morris2014recofit, s140610146, wang2019survey}. In this work, we used accelerometer and gyroscope located on two spots on wrist and on ankle.
 
 \section{Related Work}
-
-\subsection{Hand-crafted Features}
-
-A large amount of researches have been conducted regarding the acquiring hand-crafted feature in preprocessing phase for recognizing human activities. In actual use, there are plenty of resources for a HAR model to receive the input. The hand-crafted features, manual functions to transform raw inputs into a more useful form for prediction, have proven to be effective and are gaining popularity\cite{wang2019survey}. This achieved due to the fact that, knowing a prior knowledge about the temporal pattern of a physical activity, researchers are able to extract those attributes of the signal that have correlation with that activity. For example, as can be seen in Figure \ref{fig:feature_intuition}, since the activity composed of two phases which in the second phase the wrist hits the highest point in x axis (the red circles in Figure \ref{fig:feature_intuition} (b)), the maximum value of x in each segment of signal can be used as a feature for a model to recognize "Dumbbell Triceps Dips". It is noteworthy that in this activity the wrist does not move significantly toward z axis, therefore, as it is shown in Figure \ref{fig:feature_intuition} (b), there is no significant information in the z signal to be extracted. In the section \ref{sec:feature_extraction}, there is a comprehensive explanation about different features and their intuitions.
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=14 cm]{Definitions/images/hand_craft_intuition.jpg}
-	\caption{(a) Two states of "dumbbell triceps dips" while a sensor attached to the wrist. (b) The signals recorded by a triaxial accelerometer during five iteration of dumbbell triceps dips. Red and green bullets stand for State A and B respectively. The red circles indicate the maximum peaks in x signal. In feature extraction process, an input like the y axis signal might be considered as an intuitive feature such as mean or median to recognize each state of this activity.}
-	\label{fig:feature_intuition}
-\end{figure} 
-
-
-
-Particularly, researchers have constructed various activity recognition models utilized the hand-crafted features. To this end the analysis of the activity per se is necessary. Wang et al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases of doing the activity) into three main categories:
-\begin{itemize}
-	\item \textit{Basic activities}, repetitive activities during comparatively longer period e.g., walking and running. 
-	\item \textit{Complex activities}, a sequence of several phases that each phase might be a complex or basic activity e.g., coffee time, smoking. 
-	\item \textit{Transition activities} which having a certain behavior occurring between two different postures or two basic activities (e.g., stand-to-sit, push-ups).
-\end{itemize}
-
-From this point of view, introduced features in previous works mostly focused on a certain group of activities rather multiple categories altogether. For instance, Shoaib and Bosch setup an experiment with ten subjects to recognize seven \textit{basic activities} including running, sitting, standing, jogging, biking, walking upstairs and walking downstairs \cite{s140610146}. They extracted six time-domain features (Mean, standard deviation, median, zero crossings, root means square and variance) and two frequency domain features including sum of first five Fast-Fourier Transformation (FFT) coefficients and the spectral energy on the data of a triaxial accelerometer and a gyroscope. They achieved 96\% of accuracy using time-domain features while maximum 89\% when used frequency-domain features. Khokhlov et al. in \cite{khokhlov2018design} also targeted the basic activities in an experiment with seven subjects equipped by accelerometer and gyroscope on their showed that the combination of frequency-domain features and time-domain features improves the performance 
-some studies focused on transition activities like x y z. there are also studies about complex activities like x and y, however they used other sensor modality like RFID in [] or oxygen intake sensor [] in their recognition. in this work, similar to \cite{morris2014recofit, }, , we focus on gym exercises a combination of basic and transition activities 
-
-
-
-
-
-Some researchers have evaluated the effect of amending HAR performance with combining different set of features  ~\cite{yazdansepas2016multi, chen2018distilling}.
-
-
-    Krishnan and Juillard setup a study \cite{krishnan2009recognition}
-
-In [], authors developed a position-aware HAR system by placing seven accelerometers in different body positions.
-
-
-
-
-Studies where a type of features was either used alone or in combination with another exist for many applications related to HAR.
-
-For example, for gait analysis ~\cite{zhang2011feature, sprager2015inertial}, gym exercises ~\cite{rosati2018comparison} and disease diagnosis ~\cite{janidarmian2014automated}, the time domain features have been used, either alone or in combination with frequency domain features. Moreover, time domain features, frequency domain features, and a set of auto-correlation features combined to detect certain exercises in the gym \cite{morris2014recofit, rosati2018comparison}. \\
- 
-
-Rather than using a combination of features in a HAR model, There are studies in exploring and introducing new sets of hand-crafted features in the literature....
 
 \subsection{Feature Selection}
 In terms of accuracy and energy consumption, the number of used features matters. There are plenty of studies that aim to optimize the selection of features in a data driven way. In the process of selecting features, a subsection of the best individual features may not be a best set of features because of the possibility of redundancy among features which not only does not improve performance, but also increase the processing cost. Therefore, in practice, it may deteriorate the efficiency of the model[].% examples of feature selection methods
