@@ -34,25 +34,30 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Feature Engineering in HAR}{2}{subsection.1.2}\protected@file@percent }
 \citation{rosati2018comparison,Nourani_CoMoRea2019,wang2019survey}
 \citation{yazdansepas2016multi}
-\citation{wang2019survey}
+\citation{zhang2011feature}
+\citation{rosati2018comparison}
+\citation{Nourani_CoMoRea2019}
 \citation{s140610146}
 \citation{khokhlov2018design}
 \citation{morris2014recofit,}
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces (a) Two states of "dumbbell triceps dips" while a sensor attached to the wrist. (b) The signals recorded by a triaxial accelerometer during five iteration of dumbbell triceps dips. Red and green bullets stand for State A and B respectively. The red circles indicate the maximum peaks in x signal. In feature extraction process, an input like the y axis signal might be considered as an intuitive feature such as mean or median to recognize each state of this activity.\relax }}{3}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:feature_intuition}{{2}{3}{(a) Two states of "dumbbell triceps dips" while a sensor attached to the wrist. (b) The signals recorded by a triaxial accelerometer during five iteration of dumbbell triceps dips. Red and green bullets stand for State A and B respectively. The red circles indicate the maximum peaks in x signal. In feature extraction process, an input like the y axis signal might be considered as an intuitive feature such as mean or median to recognize each state of this activity.\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.1}Statistical Features}{3}{subsubsection.1.2.1}\protected@file@percent }
 \citation{yazdansepas2016multi,chen2018distilling}
 \citation{krishnan2009recognition}
 \citation{zhang2011feature,sprager2015inertial}
 \citation{rosati2018comparison}
 \citation{janidarmian2014automated}
 \citation{morris2014recofit,rosati2018comparison}
-\citation{wang2019survey,morris2014recofit}
-\citation{Nourani_CoMoRea2019}
 \citation{morris2014recofit,zhang2013human,rosati2018comparison}
 \citation{morris2014recofit}
 \citation{zhang2011feature}
 \citation{jordao2018human}
 \citation{}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.2}Histogram Features}{4}{subsubsection.1.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.3}Self-Similar Features}{4}{subsubsection.1.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.4}Physical Features}{4}{subsubsection.1.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {1.2.5}Orientation Independent Features}{4}{subsubsection.1.2.5}\protected@file@percent }
 \citation{morris2014recofit}
 \citation{gymDataset}
 \citation{rosati2018comparison}
@@ -62,22 +67,21 @@
 \citation{rosati2018comparison}
 \citation{s140610146}
 \citation{wang2019survey}
+\citation{}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background}{6}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{6}{section.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Feature Selection}{6}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}HAR Evaluation}{6}{subsection.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Featureset comparison}{6}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}HAR Evaluation}{6}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Featureset comparison}{6}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Materials and Methods}{6}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Activities}{6}{subsection.4.1}\protected@file@percent }
-\citation{}
 \citation{morris2014recofit,soro2019recognition,s140610146,anguita2013public}
 \citation{morris2014recofit}
 \citation{wang2019survey}
 \citation{de2018comparative}
 \citation{soro2019recognition}
 \citation{baldominos2019comparison,anwary2018automatic,soro2019recognition}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sensors}{7}{subsection.4.2}\protected@file@percent }
 \citation{de2018comparative}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Sensors}{7}{subsection.4.2}\protected@file@percent }
 \citation{mazo1975faster}
 \citation{janidarmian2017comprehensive}
 \@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Neblina setup. (a) Compares dimensions of Neblina with a 1 dollar coin and a cellphone (Sumsung Galaxy s9). (b) How Neblina located on foot using a strap. (c) How Neblina located on wrist using a strap.\relax }}{8}{figure.caption.3}\protected@file@percent }
@@ -91,6 +95,7 @@
 \newlabel{sec:feature_extraction}{{5.1}{9}{Feature Extraction}{subsection.5.1}{}}
 \citation{rosati2018comparison}
 \@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Statical Functions along with the definitions and abbreviations \relax }}{10}{table.caption.5}\protected@file@percent }
+\newlabel{tab:feature_list}{{2}{10}{Statical Functions along with the definitions and abbreviations \relax }{table.caption.5}{}}
 \newlabel{features_table}{{2}{10}{Statical Functions along with the definitions and abbreviations \relax }{table.caption.5}{}}
 \citation{zardoshti1995emg}
 \citation{shirahama2016codebook}
@@ -135,9 +140,9 @@
 \newlabel{fnn_formula}{{1}{13}{Forward Neural Network}{equation.5.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Evaluation}{13}{subsection.5.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.1}K-fold Cross validation}{13}{subsubsection.5.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Leave-One-Subject-Out Cross validation}{13}{subsubsection.5.3.2}\protected@file@percent }
 \citation{brownlee2018gentle,zhang2011feature,mehrang2017human}
 \citation{rosati2018comparison,Nourani_CoMoRea2019}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.2}Leave-One-Subject-Out Cross validation}{14}{subsubsection.5.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.3.3}Leave-One-Trial-Out Cross validation}{14}{subsubsection.5.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {6}Results}{14}{section.6}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {6.1}RQ1: Which featureset provides the best performance in HAR?}{14}{subsection.6.1}\protected@file@percent }
@@ -164,48 +169,48 @@
 \@writefile{toc}{\contentsline {section}{\numberline {8}Conclusions}{18}{section.8}\protected@file@percent }
 \bibdata{mybib}
 \bibcite{hong2008activity}{{1}{2008}{{Hong \em  {et~al.}}}{{Hong, Kim, Ahn, and Kim}}}
-\bibcite{sow2013mining}{{2}{2013}{{Sow \em  {et~al.}}}{{Sow, Turaga, and Schmidt}}}
-\bibcite{morris2014recofit}{{3}{2014}{{Morris \em  {et~al.}}}{{Morris, Saponas, Guillory, and Kelner}}}
-\bibcite{gonzalez2015features}{{4}{2015}{{Gonz{\'a}lez \em  {et~al.}}}{{Gonz{\'a}lez, Sedano, Villar, Corchado, Herrero, and Baruque}}}
-\bibcite{wang2019survey}{{5}{2019}{{Wang \em  {et~al.}}}{{Wang, Cang, and Yu}}}
+\bibcite{wang2019survey}{{2}{2019}{{Wang \em  {et~al.}}}{{Wang, Cang, and Yu}}}
+\bibcite{sow2013mining}{{3}{2013}{{Sow \em  {et~al.}}}{{Sow, Turaga, and Schmidt}}}
+\bibcite{morris2014recofit}{{4}{2014}{{Morris \em  {et~al.}}}{{Morris, Saponas, Guillory, and Kelner}}}
+\bibcite{gonzalez2015features}{{5}{2015}{{Gonz{\'a}lez \em  {et~al.}}}{{Gonz{\'a}lez, Sedano, Villar, Corchado, Herrero, and Baruque}}}
 \bibcite{schilit1994context}{{6}{1994}{{Schilit \em  {et~al.}}}{{Schilit, Adams, Want, et~al.}}}
-\bibcite{s140610146}{{7}{2014}{{and Bosch \em  {et~al.}}}{{and Bosch, Incel, Scholten, and Havinga}}}
-\bibcite{hassan2018robust}{{8}{2018}{{Hassan \em  {et~al.}}}{{Hassan, Uddin, Mohamed, and Almogren}}}
-\bibcite{rosati2018comparison}{{9}{2018}{{Rosati \em  {et~al.}}}{{Rosati, Balestra, and Knaflitz}}}
+\bibcite{soro2019recognition}{{7}{2019}{{Soro \em  {et~al.}}}{{Soro, Brunner, Tanner, and Wattenhofer}}}
+\bibcite{shoaib2016complex}{{8}{2016}{{Shoaib \em  {et~al.}}}{{Shoaib, Bosch, Incel, Scholten, and Havinga}}}
+\bibcite{s140610146}{{9}{2014}{{and Bosch \em  {et~al.}}}{{and Bosch, Incel, Scholten, and Havinga}}}
 \@writefile{toc}{\contentsline {section}{\numberline {A}}{19}{section.A.}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {A.1}}{19}{subsection.A.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {B}}{19}{section.B.}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{References}{19}{section.B.}\protected@file@percent }
-\bibcite{Nourani_CoMoRea2019}{{10}{2019}{{Nourani \em  {et~al.}}}{{Nourani, Shihab, and Sarbishe}}}
-\bibcite{zhang2013human}{{11}{2013}{{Zhang and Sawchuk}}{{}}}
-\bibcite{zhang2011feature}{{12}{2011}{{Zhang and Sawchuk}}{{}}}
-\bibcite{jordao2018human}{{13}{2018}{{Jordao \em  {et~al.}}}{{Jordao, Nazare~Jr, Sena, and Schwartz}}}
-\bibcite{gymDataset}{{14}{2019}{{Nourani}}{{}}}
-\bibcite{kolodziej2019registration}{{15}{2019}{{Ko{\l }odziej \em  {et~al.}}}{{Ko{\l }odziej, Majkowski, Tarnowski, Rak, Gebert, and Sawicki}}}
-\bibcite{khokhlov2018design}{{16}{2018}{{Khokhlov \em  {et~al.}}}{{Khokhlov, Reznik, Cappos, and Bhaskar}}}
-\bibcite{yazdansepas2016multi}{{17}{2016}{{Yazdansepas \em  {et~al.}}}{{Yazdansepas, Niazi, Gay, Maier, Ramaswamy, Rasheed, and Buman}}}
-\bibcite{chen2018distilling}{{18}{2018}{{Chen \em  {et~al.}}}{{Chen, Zhang, Cao, and Guo}}}
-\bibcite{krishnan2009recognition}{{19}{2009}{{Krishnan \em  {et~al.}}}{{Krishnan, Juillard, Colbry, and Panchanathan}}}
-\bibcite{sprager2015inertial}{{20}{2015}{{Sprager and Juric}}{{}}}
-\bibcite{janidarmian2014automated}{{21}{2014}{{Janidarmian \em  {et~al.}}}{{Janidarmian, Radecka, and Zilic}}}
-\bibcite{janidarmian2017comprehensive}{{22}{2017}{{Janidarmian \em  {et~al.}}}{{Janidarmian, Roshan~Fekr, Radecka, and Zilic}}}
-\bibcite{soro2019recognition}{{23}{2019}{{Soro \em  {et~al.}}}{{Soro, Brunner, Tanner, and Wattenhofer}}}
-\bibcite{anguita2013public}{{24}{2013}{{Anguita \em  {et~al.}}}{{Anguita, Ghio, Oneto, Parra, and Reyes-Ortiz}}}
-\bibcite{de2018comparative}{{25}{2018}{{de~Faria and Vieira}}{{}}}
-\bibcite{baldominos2019comparison}{{26}{2019}{{Baldominos \em  {et~al.}}}{{Baldominos, Cervantes, Saez, and Isasi}}}
-\bibcite{anwary2018automatic}{{27}{2018}{{Anwary \em  {et~al.}}}{{Anwary, Yu, and Vassallo}}}
-\bibcite{mazo1975faster}{{28}{1975}{{Mazo}}{{}}}
-\bibcite{zardoshti1995emg}{{29}{1995}{{Zardoshti-Kermani \em  {et~al.}}}{{Zardoshti-Kermani, Wheeler, Badie, and Hashemi}}}
-\bibcite{shirahama2016codebook}{{30}{2016}{{Shirahama \em  {et~al.}}}{{Shirahama, K{\"o}ping, and Grzegorzek}}}
-\bibcite{Sarbishei2019platform}{{31}{2019}{{Sarbishei}}{{}}}
-\bibcite{xi2017evaluation}{{32}{2017}{{Xi \em  {et~al.}}}{{Xi, Tang, Miran, and Luo}}}
-\bibcite{Accelero5:online}{{33}{}{{Acc}}{{}}}
-\bibcite{yurtman2017activity}{{34}{2017}{{Yurtman and Barshan}}{{}}}
-\bibcite{moon2000mathematical}{{35}{2000}{{Moon and Stirling}}{{}}}
-\bibcite{nair2010rectified}{{36}{2010}{{Nair and Hinton}}{{}}}
-\bibcite{zhang2012physical}{{37}{2012}{{Zhang \em  {et~al.}}}{{Zhang, Rowlands, Murray, Hurst, et~al.}}}
-\bibcite{mortazavi2014determining}{{38}{2014}{{Mortazavi \em  {et~al.}}}{{Mortazavi, Pourhomayoun, Alsheikh, Alshurafa, Lee, and Sarrafzadeh}}}
-\bibcite{shoaib2016complex}{{39}{2016}{{Shoaib \em  {et~al.}}}{{Shoaib, Bosch, Incel, Scholten, and Havinga}}}
+\bibcite{rosati2018comparison}{{10}{2018}{{Rosati \em  {et~al.}}}{{Rosati, Balestra, and Knaflitz}}}
+\bibcite{Nourani_CoMoRea2019}{{11}{2019}{{Nourani \em  {et~al.}}}{{Nourani, Shihab, and Sarbishe}}}
+\bibcite{yazdansepas2016multi}{{12}{2016}{{Yazdansepas \em  {et~al.}}}{{Yazdansepas, Niazi, Gay, Maier, Ramaswamy, Rasheed, and Buman}}}
+\bibcite{zhang2011feature}{{13}{2011}{{Zhang and Sawchuk}}{{}}}
+\bibcite{khokhlov2018design}{{14}{2018}{{Khokhlov \em  {et~al.}}}{{Khokhlov, Reznik, Cappos, and Bhaskar}}}
+\bibcite{chen2018distilling}{{15}{2018}{{Chen \em  {et~al.}}}{{Chen, Zhang, Cao, and Guo}}}
+\bibcite{krishnan2009recognition}{{16}{2009}{{Krishnan \em  {et~al.}}}{{Krishnan, Juillard, Colbry, and Panchanathan}}}
+\bibcite{sprager2015inertial}{{17}{2015}{{Sprager and Juric}}{{}}}
+\bibcite{janidarmian2014automated}{{18}{2014}{{Janidarmian \em  {et~al.}}}{{Janidarmian, Radecka, and Zilic}}}
+\bibcite{zhang2013human}{{19}{2013}{{Zhang and Sawchuk}}{{}}}
+\bibcite{jordao2018human}{{20}{2018}{{Jordao \em  {et~al.}}}{{Jordao, Nazare~Jr, Sena, and Schwartz}}}
+\bibcite{gymDataset}{{21}{2019}{{Nourani}}{{}}}
+\bibcite{kolodziej2019registration}{{22}{2019}{{Ko{\l }odziej \em  {et~al.}}}{{Ko{\l }odziej, Majkowski, Tarnowski, Rak, Gebert, and Sawicki}}}
+\bibcite{hassan2018robust}{{23}{2018}{{Hassan \em  {et~al.}}}{{Hassan, Uddin, Mohamed, and Almogren}}}
+\bibcite{janidarmian2017comprehensive}{{24}{2017}{{Janidarmian \em  {et~al.}}}{{Janidarmian, Roshan~Fekr, Radecka, and Zilic}}}
+\bibcite{anguita2013public}{{25}{2013}{{Anguita \em  {et~al.}}}{{Anguita, Ghio, Oneto, Parra, and Reyes-Ortiz}}}
+\bibcite{de2018comparative}{{26}{2018}{{de~Faria and Vieira}}{{}}}
+\bibcite{baldominos2019comparison}{{27}{2019}{{Baldominos \em  {et~al.}}}{{Baldominos, Cervantes, Saez, and Isasi}}}
+\bibcite{anwary2018automatic}{{28}{2018}{{Anwary \em  {et~al.}}}{{Anwary, Yu, and Vassallo}}}
+\bibcite{mazo1975faster}{{29}{1975}{{Mazo}}{{}}}
+\bibcite{zardoshti1995emg}{{30}{1995}{{Zardoshti-Kermani \em  {et~al.}}}{{Zardoshti-Kermani, Wheeler, Badie, and Hashemi}}}
+\bibcite{shirahama2016codebook}{{31}{2016}{{Shirahama \em  {et~al.}}}{{Shirahama, K{\"o}ping, and Grzegorzek}}}
+\bibcite{Sarbishei2019platform}{{32}{2019}{{Sarbishei}}{{}}}
+\bibcite{xi2017evaluation}{{33}{2017}{{Xi \em  {et~al.}}}{{Xi, Tang, Miran, and Luo}}}
+\bibcite{Accelero5:online}{{34}{}{{Acc}}{{}}}
+\bibcite{yurtman2017activity}{{35}{2017}{{Yurtman and Barshan}}{{}}}
+\bibcite{moon2000mathematical}{{36}{2000}{{Moon and Stirling}}{{}}}
+\bibcite{nair2010rectified}{{37}{2010}{{Nair and Hinton}}{{}}}
+\bibcite{zhang2012physical}{{38}{2012}{{Zhang \em  {et~al.}}}{{Zhang, Rowlands, Murray, Hurst, et~al.}}}
+\bibcite{mortazavi2014determining}{{39}{2014}{{Mortazavi \em  {et~al.}}}{{Mortazavi, Pourhomayoun, Alsheikh, Alshurafa, Lee, and Sarrafzadeh}}}
 \bibcite{bishop2006pattern}{{40}{2006}{{Bishop}}{{}}}
 \bibcite{masum2018human}{{41}{2018}{{Masum \em  {et~al.}}}{{Masum, Barua, Bahadur, Alam, Chowdhury, and Alam}}}
 \bibcite{shakya2018comparative}{{42}{2018}{{Shakya \em  {et~al.}}}{{Shakya, Zhang, and Zhou}}}

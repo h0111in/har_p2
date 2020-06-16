@@ -7,6 +7,12 @@ Hong, Y.J.; Kim, I.J.; Ahn, S.C.; Kim, H.G.
 \newblock  2008 Second International Conference on Future Generation
   Communication and Networking. IEEE,  2008, Vol.~2, pp. 302--305.
 
+\bibitem[Wang \em{et~al.}(2019)Wang, Cang, and Yu]{wang2019survey}
+Wang, Y.; Cang, S.; Yu, H.
+\newblock A survey on wearable sensor modality centred human activity
+  recognition in health care.
+\newblock {\em Expert Systems with Applications} {\bf 2019}.
+
 \bibitem[Sow \em{et~al.}(2013)Sow, Turaga, and Schmidt]{sow2013mining}
 Sow, D.; Turaga, D.S.; Schmidt, M.
 \newblock Mining of sensor data in healthcare: A survey. In {\em Managing and
@@ -27,17 +33,25 @@ Gonz{\'a}lez, S.; Sedano, J.; Villar, J.R.; Corchado, E.; Herrero, {\'A}.;
 \newblock Features and models for human activity recognition.
 \newblock {\em Neurocomputing} {\bf 2015}, {\em 167},~52--60.
 
-\bibitem[Wang \em{et~al.}(2019)Wang, Cang, and Yu]{wang2019survey}
-Wang, Y.; Cang, S.; Yu, H.
-\newblock A survey on wearable sensor modality centred human activity
-  recognition in health care.
-\newblock {\em Expert Systems with Applications} {\bf 2019}.
-
 \bibitem[Schilit \em{et~al.}(1994)Schilit, Adams, Want,
   et~al.]{schilit1994context}
 Schilit, B.N.; Adams, N.; Want, R.; others.
 \newblock {\em Context-aware computing applications}; Xerox Corporation, Palo
   Alto Research Center,  1994.
+
+\bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
+  Wattenhofer]{soro2019recognition}
+Soro, A.; Brunner, G.; Tanner, S.; Wattenhofer, R.
+\newblock Recognition and Repetition Counting for Complex Physical Exercises
+  with Deep Learning.
+\newblock {\em Sensors} {\bf 2019}, {\em 19},~714.
+
+\bibitem[Shoaib \em{et~al.}(2016)Shoaib, Bosch, Incel, Scholten, and
+  Havinga]{shoaib2016complex}
+Shoaib, M.; Bosch, S.; Incel, O.; Scholten, H.; Havinga, P.
+\newblock Complex human activity recognition using smartphone and wrist-worn
+  motion sensors.
+\newblock {\em Sensors} {\bf 2016}, {\em 16},~426.
 
 \bibitem[and Bosch \em{et~al.}(2014)and Bosch, Incel, Scholten, and
   Havinga]{s140610146}
@@ -47,14 +61,6 @@ and Bosch, S.; Incel, O.D.; Scholten, H.; Havinga, P.J.M.
 \newblock {\em Sensors} {\bf 2014}, {\em 14},~10146--10176.
 \newblock
   doi:{\changeurlcolor{black}\href{https://doi.org/10.3390/s140610146}{\detokenize{10.3390/s140610146}}}.
-
-\bibitem[Hassan \em{et~al.}(2018)Hassan, Uddin, Mohamed, and
-  Almogren]{hassan2018robust}
-Hassan, M.M.; Uddin, M.Z.; Mohamed, A.; Almogren, A.
-\newblock A robust human activity recognition system using smartphone sensors
-  and deep learning.
-\newblock {\em Future Generation Computer Systems} {\bf 2018}, {\em
-  81},~307--313.
 
 \bibitem[Rosati \em{et~al.}(2018)Rosati, Balestra, and
   Knaflitz]{rosati2018comparison}
@@ -71,12 +77,14 @@ Nourani, H.; Shihab, E.; Sarbishe, O.
 \newblock  Proceedings of the 15th Workshop on Context Modeling and
   Recognition. IEEE,  2019, CoMoRea '19, pp. 89--94.
 
-\bibitem[Zhang and Sawchuk(2013)]{zhang2013human}
-Zhang, M.; Sawchuk, A.A.
-\newblock Human daily activity recognition with sparse representation using
-  wearable sensors.
-\newblock {\em IEEE journal of Biomedical and Health Informatics} {\bf 2013},
-  {\em 17},~553--560.
+\bibitem[Yazdansepas \em{et~al.}(2016)Yazdansepas, Niazi, Gay, Maier,
+  Ramaswamy, Rasheed, and Buman]{yazdansepas2016multi}
+Yazdansepas, D.; Niazi, A.H.; Gay, J.L.; Maier, F.W.; Ramaswamy, L.; Rasheed,
+  K.; Buman, M.P.
+\newblock A multi-featured approach for wearable sensor-based human activity
+  recognition.
+\newblock  2016 IEEE International Conference on Healthcare Informatics (ICHI).
+  IEEE,  2016, pp. 423--431.
 
 \bibitem[Zhang and Sawchuk(2011)]{zhang2011feature}
 Zhang, M.; Sawchuk, A.A.
@@ -86,42 +94,12 @@ Zhang, M.; Sawchuk, A.A.
   Networks. ICST (Institute for Computer Sciences, Social-Informatics and
   Telecommunications Engineering),  2011, pp. 92--98.
 
-\bibitem[Jordao \em{et~al.}(2018)Jordao, Nazare~Jr, Sena, and
-  Schwartz]{jordao2018human}
-Jordao, A.; Nazare~Jr, A.C.; Sena, J.; Schwartz, W.R.
-\newblock Human activity recognition based on wearable sensor data: A
-  standardization of the state-of-the-art.
-\newblock {\em arXiv preprint arXiv:1806.05226} {\bf 2018}.
-
-\bibitem[Nourani(2019)]{gymDataset}
-Nourani, H.
-\newblock {Gym Exercises Dataset}.
-\newblock \url{https://github.com/h0111in/Gym-Exercises-dataset/},  2019.
-\newblock [Online; accessed 05-May-2019].
-
-\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
-  Gebert, and Sawicki]{kolodziej2019registration}
-Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
-  D.
-\newblock Registration and Analysis of Acceleration Data to Recognize Physical
-  Activity.
-\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
-
 \bibitem[Khokhlov \em{et~al.}(2018)Khokhlov, Reznik, Cappos, and
   Bhaskar]{khokhlov2018design}
 Khokhlov, I.; Reznik, L.; Cappos, J.; Bhaskar, R.
 \newblock Design of activity recognition systems with wearable sensors.
 \newblock  2018 IEEE Sensors Applications Symposium (SAS). IEEE,  2018, pp.
   1--6.
-
-\bibitem[Yazdansepas \em{et~al.}(2016)Yazdansepas, Niazi, Gay, Maier,
-  Ramaswamy, Rasheed, and Buman]{yazdansepas2016multi}
-Yazdansepas, D.; Niazi, A.H.; Gay, J.L.; Maier, F.W.; Ramaswamy, L.; Rasheed,
-  K.; Buman, M.P.
-\newblock A multi-featured approach for wearable sensor-based human activity
-  recognition.
-\newblock  2016 IEEE International Conference on Healthcare Informatics (ICHI).
-  IEEE,  2016, pp. 423--431.
 
 \bibitem[Chen \em{et~al.}(2018)Chen, Zhang, Cao, and Guo]{chen2018distilling}
 Chen, Z.; Zhang, L.; Cao, Z.; Guo, J.
@@ -149,19 +127,48 @@ Janidarmian, M.; Radecka, K.; Zilic, Z.
 \newblock  Wireless Mobile Communication and Healthcare (Mobihealth), 2014 EAI
   4th International Conference on. IEEE,  2014, pp. 95--98.
 
+\bibitem[Zhang and Sawchuk(2013)]{zhang2013human}
+Zhang, M.; Sawchuk, A.A.
+\newblock Human daily activity recognition with sparse representation using
+  wearable sensors.
+\newblock {\em IEEE journal of Biomedical and Health Informatics} {\bf 2013},
+  {\em 17},~553--560.
+
+\bibitem[Jordao \em{et~al.}(2018)Jordao, Nazare~Jr, Sena, and
+  Schwartz]{jordao2018human}
+Jordao, A.; Nazare~Jr, A.C.; Sena, J.; Schwartz, W.R.
+\newblock Human activity recognition based on wearable sensor data: A
+  standardization of the state-of-the-art.
+\newblock {\em arXiv preprint arXiv:1806.05226} {\bf 2018}.
+
+\bibitem[Nourani(2019)]{gymDataset}
+Nourani, H.
+\newblock {Gym Exercises Dataset}.
+\newblock \url{https://github.com/h0111in/Gym-Exercises-dataset/},  2019.
+\newblock [Online; accessed 05-May-2019].
+
+\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
+  Gebert, and Sawicki]{kolodziej2019registration}
+Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
+  D.
+\newblock Registration and Analysis of Acceleration Data to Recognize Physical
+  Activity.
+\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
+
+\bibitem[Hassan \em{et~al.}(2018)Hassan, Uddin, Mohamed, and
+  Almogren]{hassan2018robust}
+Hassan, M.M.; Uddin, M.Z.; Mohamed, A.; Almogren, A.
+\newblock A robust human activity recognition system using smartphone sensors
+  and deep learning.
+\newblock {\em Future Generation Computer Systems} {\bf 2018}, {\em
+  81},~307--313.
+
 \bibitem[Janidarmian \em{et~al.}(2017)Janidarmian, Roshan~Fekr, Radecka, and
   Zilic]{janidarmian2017comprehensive}
 Janidarmian, M.; Roshan~Fekr, A.; Radecka, K.; Zilic, Z.
 \newblock A Comprehensive Analysis on Wearable Acceleration Sensors in Human
   Activity Recognition.
 \newblock {\em Sensors} {\bf 2017}, {\em 17},~529.
-
-\bibitem[Soro \em{et~al.}(2019)Soro, Brunner, Tanner, and
-  Wattenhofer]{soro2019recognition}
-Soro, A.; Brunner, G.; Tanner, S.; Wattenhofer, R.
-\newblock Recognition and Repetition Counting for Complex Physical Exercises
-  with Deep Learning.
-\newblock {\em Sensors} {\bf 2019}, {\em 19},~714.
 
 \bibitem[Anguita \em{et~al.}(2013)Anguita, Ghio, Oneto, Parra, and
   Reyes-Ortiz]{anguita2013public}
@@ -260,13 +267,6 @@ Mortazavi, B.J.; Pourhomayoun, M.; Alsheikh, G.; Alshurafa, N.; Lee, S.I.;
   and counting on smartwatches.
 \newblock  2014 11th International Conference on Wearable and Implantable Body
   Sensor Networks. IEEE,  2014, pp. 33--38.
-
-\bibitem[Shoaib \em{et~al.}(2016)Shoaib, Bosch, Incel, Scholten, and
-  Havinga]{shoaib2016complex}
-Shoaib, M.; Bosch, S.; Incel, O.; Scholten, H.; Havinga, P.
-\newblock Complex human activity recognition using smartphone and wrist-worn
-  motion sensors.
-\newblock {\em Sensors} {\bf 2016}, {\em 16},~426.
 
 \bibitem[Bishop(2006)]{bishop2006pattern}
 Bishop, C.M.
