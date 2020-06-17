@@ -287,15 +287,9 @@ related works:
 
 \section{Materials and Methods}
 
-%The most crucial requirement to start an gym exercise recognition process is having the real-world data of human activities ~\cite{morris2014recofit}. 
-%In this study, to choose the dataset, we took the "complexity of data" into account, e.g., whether a sophisticated featureset is essentially required to reach a high-performing recognition or not. Otherwise, it does not give us a meaningful difference in the performance of the different featuresets. To this end, we have targeted \textit{transition activities}~\cite{wang2019survey, mortazavi2014determining} (e.g., gym exercises) . Transition activities have a temporal pattern; they most of the time occur repetitively and have more complexity in terms of pattern recognition rather \textit{basic activities} (e.g., walking, sitting). We have not chosen \textit{complex activities}~\cite{wang2019survey} (e.g., smoking, or talking) since recognition of these activities is involved in processing on other types of sensors such RFID or microphone which is out of the scope of this study.
-%>>>>>>> 4f3f60c8619bd1e5ea50f7d8d3dcb475d19f46f9
-
-\subsection{Activities}
+\subsection{Activities and Participants}
 
 Wang et al. in \cite{wang2019survey} categorized human activities based on velocity and complexity (number of phases) of an activity into three main groups: (1) The \textbf{basic activities} which happen in comparatively longer duration e.g., walking and running. (2)  The complex activities that are in the form of a sequence of several phases. Each phase might be a complex or basic activity e.g., coffee time, smoking. (3) Transition activities which having a certain but temporal pattern happening between two different postures or two basic activities. e.g., stand-to-sit, push-ups and so on. 
-
-%From this point of view, previous works introduced  different feature sets that each one target a given type of activity. Consequently, targeting more than one type of activity brings more challenges for researcher to create a suitable set of features. Since exercises in gym composed of an orchestration of different type activities (basic, transition, complex), presenting a model to effectively recognize these activities will be more challenging.
 
 ? how to describe the activities
 
@@ -316,32 +310,12 @@ Comparing with literature ~\cite{morris2014recofit, soro2019recognition, s140610
 	\item \textbf{Impact of subject experience}: Gym exercises are performed in a iterative manner over weeks or months. By repeating an activity, subjects become more comfortable on that, consequently, they will do that exercise more consistently. Since we asked the length of practicing each exercises from participant, we can observe if there is any correlation exist between them.
 \end{enumerate}
 
-\subsection{Sensors} 
-
-In this section, We describe how we choose sensors and how we deploy our system to collect the data. Depending on how many parts of the body that are involved in a task (exercise), a HAR system may need to have one or more sensors on different positions of the human body with the aim of capturing diverse-source information ~\cite{wang2019survey}. On the other hand, using more sensors limits the user's movement ~\cite{de2018comparative}. 
-
-In a recently related work, Soro et al. ~\cite{soro2019recognition} have targeted 10 CrossFit activities and showed that using one sensor on wrist is sufficient to reach an accuracy of 99.96\%. One reason that may underlies using one sensor is that, in that case, almost all activities have moving hand involved in. However, in this study, we cover a wider range of activities which is not necessarily get performed by hand. For example, \textit{reverse crunch} needs subject to fix hands on the ground and then draw legs in towards the torso. In this case, it is almost impossible to identify the exercise by only one sensor on wrist. Therefore, in this study, to cover activities both on lower-body and upper-body, two sensors were attached to right wrist and right foot (Figure \ref{neblina_setup} (b) and (c)). These positions (wrist and foot) are also used in previous works ~\cite{baldominos2019comparison, anwary2018automatic, soro2019recognition}.
-
-To record the data, we choose well-known accelerometer and gyroscope sensors. These two sensors are  available on almost all Wearables such smartphones or smartwatches. In this study, as it showed in Figure \ref{neblina_setup} (a), we employed a Neblina chip, instead. The main advantage of using Neblina is its small size and ability to tightly stick to the body preventing unexpected moves during performing an activity.
-
-\noindent \textbf{Neblina} is a miniature-sized box containing three tri-axial motion sensors (accelerometer, gyroscope, magnetometer) along with a processor, a flash memory, battery, and a bluetooth port. Using blue-tooth port, it can transmit the result to a host (e.g., cellphone or desktop computer).  In fact, Neblina is equipped with all requirements for a real-time HAR system. Comparing with a smartphone, Neblina is much smaller (Figure \ref{neblina_setup}) that lets us to attach it to different part of the subject's body without making any interrupt in his/her actions\cite{de2018comparative}. Having access directly to different resources like sensors or memory without OS interferences is another advantage of using Neblina that let us improve the efficiency of the model.
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=10 cm]{Definitions/images/neblina_setup.jpg}
-	\caption{Neblina setup. (a) Compares dimensions of Neblina with a 1 dollar coin and a cellphone (Sumsung Galaxy s9). (b) How Neblina located on foot using a strap. (c) How Neblina located on wrist using a strap.}
-	\label{neblina_setup}
-\end{figure} 
-
-Although the device provides the magnetometer signals, we limited our process on using the accelerometer and gyroscope signals only. It is because the magnetometer signal can be affected by getting close to iron equipments in the gym. The frequency rate is fixed on 50Hz. It is worth to mention that the frequency rate more than 50Hz is not necessary because according to the Nyquist theorem~\cite{mazo1975faster}, this rate is enough to record a repetitive activity with 25 cycle per second which is so much faster than the iterations of normal workouts in the gym (one iteration per 1-5 seconds).
-
-\subsection{Dataset}
-In this section, we explain the process of preparing our dataset for experiments.
-
-\noindent \textbf{Labeling.} In order to train a HAR model in a supervised machine learning process, we need labeled data points. Quality of labeled data points at this level has a direct impact on model performance ~\cite{janidarmian2017comprehensive}. In this study, 
-to label the data we employed a process including three phases: (1) \textbf{By participant}: before beginning of each session, each subject was asked to fill a form about list of activities, number of sets, and the weights if applicable. (2) \textbf{By supervisor}: during the session, a supervisor manually records type of exercise, the moment of start and stop, and number of repetitions. (3) \textbf{By visual signal}: after finishing the session, in order to have our desired accuracy in labeling, we visually trace the signals of accelerometer and gyroscope to refine the regains assigned to each exercise. Using this way, any error missing in one step, will be caught in the next step.
+All the participants read and signed an informed consent form that was approved by the Institutional Review Board of Dong-A University (IRB number: 2–104709–AB–N–01–201709–HR–045–02)
 
 \noindent\textbf{Adapting.} In order to make the dataset suitable for the experiments of this study, we trimmed the dataset. As we will explain later in \textit{Method} section, addition to k-fold cross-validation, we have two other evaluation methods including \textit{cross-session validation} and \textit{cross-subject validation}. These two additional evaluation methods bring some restrictions on the dataset. While \textit{cross-session validation} requires some activities to be repeated in several sessions, \textit{cross-subject validation} requires them to be repeated by several subjects. In addition, in RQ3, we want to compare results of different evaluation methods; Therefore, we have to use equal dataset for all evaluation methods. This is to say that for each activity to be suitable for this study, it should be repeated at least in certain number of sessions and also performed at least by certain number of subjects.
 Table \ref{dataset_statistics} shows the statistics of the dataset after applying the restrictions. Column \textit{Sessions} shows the total number of sessions that an exercise appeared in. Column \textit{Subjects} shows how many subjects performed an exercise.
+
+
 \begin{table}[H]
 	\caption{Statistics of the dataset divided by type of exercise along with the experiments that involve them in.}
 	\centering
@@ -363,26 +337,34 @@ Table \ref{dataset_statistics} shows the statistics of the dataset after applyin
 	\label{dataset_statistics}
 \end{table}
 
-%\begin{table}[H]
-%	\caption{List of exercises along with target body part involved in each exercise. \diego{You mention our dataset contained 55 exercises. Is this just a sample?}}
-%	\centering
-%	%% \tablesize{} %% You can specify the fontsize here, e.g., \tablesize{\footnotesize}. If commented out \small will be used.
-%	\begin{tabular}{ccc}
-%		\toprule
-%		\textbf{Exercise}	& \textbf{Body Involved}	& \textbf{Code}\\
-%		\midrule
-%		Lat Pull Down		& upper 		& A1\\
-%		Bench Press		& upper 			& A2\\
-%		Biceps curl		& upper			& A3\\
-%		Push-ups & upper			& A4\\
-%		Treadmill		& Entire 			& A5\\
-%		Ab crunch machine		& Entire & A6\\
-%		Reverse Crunch & lower			& A7 \\
-%		Russian Twist & lower			& A8 \\
-%		\bottomrule
-%	\end{tabular}
-%	\label{activity_list}
-%\end{table}
+
+\subsubsection{Sensors}
+
+In this section, We describe how we choose sensors and how we deploy our system to collect the data. Depending on how many parts of the body that are involved in a task (exercise), a HAR system may need to have one or more sensors on different positions of the human body with the aim of capturing diverse-source information ~\cite{wang2019survey}. On the other hand, using more sensors limits the user's movement ~\cite{de2018comparative}. 
+
+In a recently related work, Soro et al. ~\cite{soro2019recognition} have targeted 10 CrossFit activities and showed that using one sensor on wrist is sufficient to reach an accuracy of 99.96\%. One reason that may underlies using one sensor is that, in that case, almost all activities have moving hand involved in. However, in this study, we cover a wider range of activities which is not necessarily get performed by hand. For example, \textit{reverse crunch} needs subject to fix hands on the ground and then draw legs in towards the torso. In this case, it is almost impossible to identify the exercise by only one sensor on wrist. Therefore, in this study, to cover activities both on lower-body and upper-body, two sensors were attached to right wrist and right foot (Figure \ref{neblina_setup} (b) and (c)). These positions (wrist and foot) are also used in previous works ~\cite{baldominos2019comparison, anwary2018automatic, soro2019recognition}.
+
+To record the data, we choose well-known accelerometer and gyroscope sensors. These two sensors are  available on almost all Wearables such smartphones or smartwatches. In this study, as it showed in Figure \ref{neblina_setup} (a), we employed a Neblina chip, instead. The main advantage of using Neblina is its small size and ability to tightly stick to the body preventing unexpected moves during performing an activity.
+
+\noindent \textbf{Neblina} is a miniature-sized box containing three tri-axial motion sensors (accelerometer, gyroscope, magnetometer) along with a processor, a flash memory, battery, and a bluetooth port. Using blue-tooth port, it can transmit the result to a host (e.g., cellphone or desktop computer).  In fact, Neblina is equipped with all requirements for a real-time HAR system. Comparing with a smartphone, Neblina is much smaller (Figure \ref{neblina_setup}) that lets us to attach it to different part of the subject's body without making any interrupt in his/her actions\cite{de2018comparative}. Having access directly to different resources like sensors or memory without OS interferences is another advantage of using Neblina that let us improve the efficiency of the model.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=10 cm]{Definitions/images/neblina_setup.jpg}
+	\caption{Neblina setup. (a) Compares dimensions of Neblina with a 1 dollar coin and a cellphone (Sumsung Galaxy s9). (b) How Neblina located on foot using a strap. (c) How Neblina located on wrist using a strap.}
+	\label{neblina_setup}
+\end{figure} 
+
+Although the device provides the magnetometer signals, we limited our process on using the accelerometer and gyroscope signals only. It is because the magnetometer signal can be affected by getting close to iron equipments in the gym. The frequency rate is fixed on 50Hz. It is worth to mention that the frequency rate more than 50Hz is not necessary because according to the Nyquist theorem~\cite{mazo1975faster}, this rate is enough to record a repetitive activity with 25 cycle per second which is so much faster than the iterations of normal workouts in the gym (one iteration per 1-5 seconds).
+
+\subsection{Data Collection}
+%The most crucial requirement to start an gym exercise recognition process is having the real-world data of human activities ~\cite{morris2014recofit}. 
+
+%explain the process of data collection: setup the sensor, background information form, supervising(start/end of sessions),
+%transferring into computer, visualizing the stream, labeling, double checking(the string)
+
+\noindent \textbf{Labeling.} In order to train a HAR model in a supervised machine learning process, we need labeled data points. Quality of labeled data points at this level has a direct impact on model performance ~\cite{janidarmian2017comprehensive}. In this study, 
+to label the data we employed a process including three phases: (1) \textbf{By participant}: before beginning of each session, each subject was asked to fill a form about list of activities, number of sets, and the weights if applicable. (2) \textbf{By supervisor}: during the session, a supervisor manually records type of exercise, the moment of start and stop, and number of repetitions. (3) \textbf{By visual signal}: after finishing the session, in order to have our desired accuracy in labeling, we visually trace the signals of accelerometer and gyroscope to refine the regains assigned to each exercise. Using this way, any error missing in one step, will be caught in the next step.
+
 
 
 \section{Method}
@@ -400,6 +382,24 @@ In literature, in order to gain more information from the sensory data (signal),
 In this study, we targeted five state-of-the-art sets of hand-crafted features. Table \ref{features_table} shows 31 functions along with a description/intuition about each one. Functions are grouped into sets (first column). Each set of functions is uniquely representative of a certain aspect of the signal.
  
 \noindent\textbf{Preprocessing.} We used two tri-axial sensors (accelerometer and gyroscope) on two body positions (wrist and foot); So, To reproduce features, we normally apply these 31 functions on 12 raw signals coming from sensors. However, in some cases, an extra preprocessing operation is also required which will be explained in related section. Addition to this, to ensure that the data from different resources (sensors) are at the same scales, we performed a scale normalization in advance of any other computations.
+
+
+\subsubsection{Set\_A: Statistical Features (ST\_Set)}
+Statistical features have been intensively investigated in different applications and proved to be effective and useful for HAR~\cite{rosati2018comparison}. These features are based on a comprehensive and intuitive understanding of how a given activity produces a set of discriminative features from measured sensor signals. We created a set of 264 features obtained by applying 11 statistical functions on 24 input signals, including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of each axis). Functions are used in the statistical feature set are indicated by the code S1-S11 in Table~\ref{features_table}. 
+
+\subsubsection{Set\_B: Histogram bins Features (HB\_Set)}
+The second set of features are based on histogram representation of time series signal. Mathematically speaking, histogram representation of a signal is the probability distribution of signal over a period of time (often referred to as window size)~\cite{zardoshti1995emg}. In HAR, considering the fact that each activity contains a set of small movements (as small as one sample) with certain acceleration and rotation, histogram bins indicate the difference between activities by showing the different distributions of those small movements. Shirahama et. al.~\cite{shirahama2016codebook} used a histogram-based feature set for HAR. Comparing with statistical features, histogram bins have a significantly lower cost in terms of required processing time and memory usage~\cite{Sarbishei2019platform}. However, they are sensitive against the resolution/granularity of bins (count and width of bins). Following prior work~\cite{xi2017evaluation}, in this work, we consider 21 bins for values between 0 through 1 of a signal. Histogram bins are indicated with the code HB in Table~\ref{features_table}.
+
+\subsubsection{Set\_C: Self-Similar Features (SS\_Set)}
+
+Considering that an exercise activity is inherently more repetitive rather than a non-exercise activity, having a featureset that can capture the repetitive behaviour of signal is helpful. Morris et al. presented a featureset designed based on the idea of extracting repetitions forms of signal \cite{morris2014recofit}. These features can be extracted by: 1) Calculating the convolution of a signal with a shifted version of itself (auto-correlation) or 2)Extracting the components of the signal in the frequency domain. We extracted a number of self-similar features from our data, as shown in~Table~\ref{features_table}, features with code SS1-SS11. SS6 composed of 10 features per se; Thus, in total there are 20 functions.
+There is a preprocessing operation required for this featureset. We transformed 3 input signals from each sensor (x/y/z inputs) to 4 processed signal describing as follows: 1) The magnitude of a/y/z axes, 2) The first principal component of all axes. 3) The first principal component of x and z axes. 4) The scaled normalized of y axis. It is important to mention that in our experiments, the y axis of sensor is along the user's arm. To build the featureset, we applied 20 functions on 16 processed signals. Therefore, this featureset contains 320 features.
+
+\subsubsection{Set\_D: Physical Features (PH\_Set)}
+One intuitive idea to design a set of features from sensory data is to take the principles of human movements into consideration. In 2011, Zhang et. al. ~\cite{zhang2011feature} introduced a set of features based on physical parameters of human motion. To have a strong physical meaning of motion data (e.g., moving forward, backward), they assumed that the sensor position and direction are known during the experiment. In other words, this types of features is derived based on the physical interpretations of human motion, called physical features. Comparing with other featuresets, these features are made up of a fusion of multiple sensor inputs rather than just one inputs sensor. In our paper, this featureset contains 11 features, labeled with the code Ph1-Ph11 in Table~\ref{features_table}. As a part of our pre-processing operation, we remove gravity from acceleration using gyroscope data by applying the method described in~\cite{Accelero5:online}.
+
+\subsubsection{Set\_E: Orientation Independent Features (OI\_Set)}
+In contrast to physical features, which depend on the position and orientation of sensors, Yurtman et. al~\cite{yurtman2017activity} proposed features that do not rely on variation of sensor orientation. In fact, in their model, they introduced Orientation-invariant transformations (OITs). They compared their model with the ordinary model - pre-defined sensor orientation, on five different datasets. Although their featureset did not have a significant impact on performance, it brought an extra added value to the model that lets it to be more robust against orientation. The OIT that they have introduced in their work is inspired by the idea of \textit{single value decomposition}\cite{moon2000mathematical}. Therefore, to create this featureset, first, we project every data point from original x/y/z space to a new space with same number of dimensions but at the farthest distance between data points. The intuition here is that the direction of the axes are defined by value of the data points not by x, y or z direction. Next, we apply PCA on the transformed data and take the first 30 most informative features \cite{janidarmian2017comprehensive}. In Table~\ref{features_table}, these type of features  are indicated by "OI" prefix.
 \begin{table}[H]
 	\caption{Statical Functions along with the definitions and abbreviations }
 	\label{tab:feature_list}
@@ -447,24 +447,6 @@ In this study, we targeted five state-of-the-art sets of hand-crafted features. 
 	\end{tabular}
 	\label{features_table}
 \end{table}
-
-
-\subsubsection{Set\_A: Statistical Features (ST\_Set)}
-Statistical features have been intensively investigated in different applications and proved to be effective and useful for HAR~\cite{rosati2018comparison}. These features are based on a comprehensive and intuitive understanding of how a given activity produces a set of discriminative features from measured sensor signals. We created a set of 264 features obtained by applying 11 statistical functions on 24 input signals, including (x/y/z axes of accelerometer and gyroscope, along with the cumulative sums of each axis). Functions are used in the statistical feature set are indicated by the code S1-S11 in Table~\ref{features_table}. 
-
-\subsubsection{Set\_B: Histogram bins Features (HB\_Set)}
-The second set of features are based on histogram representation of time series signal. Mathematically speaking, histogram representation of a signal is the probability distribution of signal over a period of time (often referred to as window size)~\cite{zardoshti1995emg}. In HAR, considering the fact that each activity contains a set of small movements (as small as one sample) with certain acceleration and rotation, histogram bins indicate the difference between activities by showing the different distributions of those small movements. Shirahama et. al.~\cite{shirahama2016codebook} used a histogram-based feature set for HAR. Comparing with statistical features, histogram bins have a significantly lower cost in terms of required processing time and memory usage~\cite{Sarbishei2019platform}. However, they are sensitive against the resolution/granularity of bins (count and width of bins). Following prior work~\cite{xi2017evaluation}, in this work, we consider 21 bins for values between 0 through 1 of a signal. Histogram bins are indicated with the code HB in Table~\ref{features_table}.
-
-\subsubsection{Set\_C: Self-Similar Features (SS\_Set)}
-
-Considering that an exercise activity is inherently more repetitive rather than a non-exercise activity, having a featureset that can capture the repetitive behaviour of signal is helpful. Morris et al. presented a featureset designed based on the idea of extracting repetitions forms of signal \cite{morris2014recofit}. These features can be extracted by: 1) Calculating the convolution of a signal with a shifted version of itself (auto-correlation) or 2)Extracting the components of the signal in the frequency domain. We extracted a number of self-similar features from our data, as shown in~Table~\ref{features_table}, features with code SS1-SS11. SS6 composed of 10 features per se; Thus, in total there are 20 functions.
-There is a preprocessing operation required for this featureset. We transformed 3 input signals from each sensor (x/y/z inputs) to 4 processed signal describing as follows: 1) The magnitude of a/y/z axes, 2) The first principal component of all axes. 3) The first principal component of x and z axes. 4) The scaled normalized of y axis. It is important to mention that in our experiments, the y axis of sensor is along the user's arm. To build the featureset, we applied 20 functions on 16 processed signals. Therefore, this featureset contains 320 features.
-
-\subsubsection{Set\_D: Physical Features (PH\_Set)}
-One intuitive idea to design a set of features from sensory data is to take the principles of human movements into consideration. In 2011, Zhang et. al. ~\cite{zhang2011feature} introduced a set of features based on physical parameters of human motion. To have a strong physical meaning of motion data (e.g., moving forward, backward), they assumed that the sensor position and direction are known during the experiment. In other words, this types of features is derived based on the physical interpretations of human motion, called physical features. Comparing with other featuresets, these features are made up of a fusion of multiple sensor inputs rather than just one inputs sensor. In our paper, this featureset contains 11 features, labeled with the code Ph1-Ph11 in Table~\ref{features_table}. As a part of our pre-processing operation, we remove gravity from acceleration using gyroscope data by applying the method described in~\cite{Accelero5:online}.
-
-\subsubsection{Set\_E: Orientation Independent Features (OI\_Set)}
-In contrast to physical features, which depend on the position and orientation of sensors, Yurtman et. al~\cite{yurtman2017activity} proposed features that do not rely on variation of sensor orientation. In fact, in their model, they introduced Orientation-invariant transformations (OITs). They compared their model with the ordinary model - pre-defined sensor orientation, on five different datasets. Although their featureset did not have a significant impact on performance, it brought an extra added value to the model that lets it to be more robust against orientation. The OIT that they have introduced in their work is inspired by the idea of \textit{single value decomposition}\cite{moon2000mathematical}. Therefore, to create this featureset, first, we project every data point from original x/y/z space to a new space with same number of dimensions but at the farthest distance between data points. The intuition here is that the direction of the axes are defined by value of the data points not by x, y or z direction. Next, we apply PCA on the transformed data and take the first 30 most informative features \cite{janidarmian2017comprehensive}. In Table~\ref{features_table}, these type of features  are indicated by "OI" prefix.
 
 \subsection{Activity Recognition}
 \label{method}
