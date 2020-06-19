@@ -151,11 +151,11 @@ $^{2}$ \quad Dept. of Computer Science and Software Engineering; e$.$shihab@conc
 %The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \cite{ref-journal}. And now citing a book reference \cite{ref-book}. Please use the command \citep{ref-journal} for the following MDPI journals, which use author-date citation: Administrative Sciences, Arts, Econometrics, Economies, Genealogy, Humanities, IJFS, JRFM, Languages, Laws, Religions, Risks, Social Sciences.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 With the rise of life expectancy and ageing of the population, the development of new technologies that focus on elderly healthcare has become a challenge \cite{hong2008activity}.
-Human Activity Recognition (HAR) using on-body sensing is one of the most prevalent assistive technologies to support older people's daily life ~\cite{wang2019survey}. As such, in about a decade, extensive researches have been undertaken in this regard and, in result, several outstanding high-performance HAR models have been proposed with an accuracy almost 100\% in several scopes - fall risk assessment \cite{sow2013mining}, physical fitness monitoring\cite{morris2014recofit}, or medical diagnosis \cite{gonzalez2015features}, to name but a few, which made HAR a very promising realm, consequently. In addition, using Wearables (i.e., smartphones, smartwatches) is increasingly pervasive. Wearables are small in size, relatively cheap and ubiquitously used, reveal numerous new potentials for HAR systems in research and industry. However, by no means should we lose sight of the fact that these advances in wearable devices require a constant upgrading on models' environments which is essential to utilize the maximum capabilities of the device, resulting an overall performance improvement. In practice, employing a high-performance HAR model in an upgraded setup does not grant a better accuracy or even as equal as it used to be in the initial setup. This is mainly because the HAR models are mostly designed under particular environment setup which is hindering the adaptability to the new environment which called \textit{lack of generalizability} - one well-known reason mentioned in several previous studies \cite{schilit1994context, soro2019recognition, shoaib2016complex}. Since a HAR approach composed of independent phases where each phase plays a crucial role in acquiring the ultimate performance, a distinction on generalizability of each phase is very essential to address the issue. Nevertheless, to the best of our knowledge, only a few studies conducted a phase-by-phase investigation on HAR models. Therefore, the purpose of this study is a phase comparison of the state-of-the-art HAR systems, aiming to highlight the generalizable parts of each approach.\\
+Human Activity Recognition (HAR) using on-body sensing is one of the most prevalent assistive technologies to support older people's daily life ~\cite{wang2019survey}. As such, in about a decade, extensive researches have been undertaken in this regard and, in result, several outstanding high-performance HAR models have been proposed with an accuracy almost 100\% in several scopes - fall risk assessment \cite{sow2013mining}, physical fitness monitoring\cite{morris2014recofit}, or medical diagnosis \cite{gonzalez2015features}, to name but a few, which made HAR a very promising realm, consequently. In addition, using Wearables (i.e., smartphones, smartwatches) is increasingly pervasive. Wearables are small in size, relatively cheap and ubiquitously used, reveal numerous new potentials for HAR systems in research and industry. However, by no means should we lose sight of the fact that these advances in wearable devices require a constant upgrading on models' environments which is essential to utilize the maximum capabilities of the device, resulting an overall performance improvement. In practice, employing a high-performance HAR model in an upgraded setup does not grant a better accuracy or even as equal as it used to be in the initial setup. This is mainly because the HAR models are mostly designed under particular environment setup which is hindering the adaptability to the new environment which called \textit{lack of generalizability} - one well-known reason mentioned in several previous studies \cite{schilit1994context, soro2019recognition, shoaib2016complex}. Since a HAR approach composed of independent phases where each phase plays a crucial role in acquiring the ultimate performance, a distinction on generalizability of each phase is very essential to address the issue. Nevertheless, to the best of our knowledge, there is no study conducted a phase-by-phase comparison on HAR approaches. Therefore, the purpose of this study is a phase investigation of the state-of-the-art HAR systems, aiming to highlight the generalizable parts of each approach.\\
 
 \subsection{Human Activity Recognition Approach}
 % explain the approach + highlighting the feature extraction as the most important phase
-Wearable sensor-based HAR systems basically share a similar approach ~\cite{s140610146}. This approach is shown in Figure \ref{fig:main_approach}. The procedure starts with capturing an activity into time series signal using inertial on-body sensors (i.e., accelerometer, gyroscope) and storing it into a dataset. Next, the stream splits into segments while each segment is labelled with the activity performed within that segment. To be used in classification model, each segment of data is summarized into a feature vector, during the feature extraction phase. Extracting a feature vector from a segment of data plays a crucial step in HAR process. Engineering a set of hand-crafted features, efficiently provide the most relevant characteristics of data for the classifier is still subject to research. 
+Wearable sensor-based HAR systems basically share one similar approach ~\cite{s140610146}. This approach is shown in Figure \ref{fig:main_approach}. The procedure starts with capturing an activity into time series signal using inertial on-body sensors (i.e., accelerometer, gyroscope). This data stores into a dataset. Next, the stream splits into successive segments while each segment is labelled with the activity performed within that segment. To be used in classification, each segment is summarized into a feature vector called feature extraction phase; An engineering process to design a set of dimensions representing data-points in a more distinguishable way - \textit{feature engineering} plays a crucial step in HAR process. In HAR, designing a set of hand-crafted features, efficiently provide the most relevant characteristics of data has been extensively investigate while it is still subject to research.
 
 \begin{figure}[H]
 	\centering
@@ -166,7 +166,7 @@ Wearable sensor-based HAR systems basically share a similar approach ~\cite{s140
 
 \subsection{Feature Engineering in HAR}
 
-Providing an efficient set of features for a recognition model has two main steps: 1) feature extraction 2) feature selection. Particularly in HAR, extracting features is based on a comprehensive understanding of the activity's movements in a coordinate system~\cite{}; While, \textit{feature selection} is a heuristic filtering approach on features to minimize their redundancy and maximize their relevancy to the activity~\cite{}. Theoretically, any distinctive characteristic of  activities is an intuition to be developed as a feature. For example: in Figure \ref{fig:feature_intuition} (a), two states of \textit{Triceps Kickback} exercise are shown. Each rep of doing this exercise requires the body posture to change between these two states.\footnote{A complete version of Triceps Kickback instruction includes more considerations about holding the dumbbell, inhale and exhale, etc.} A triaxial accelerometer is fixed to the wrist to capture the movements towards three axes (shown in Figure \ref{fig:feature_intuition} (b)). The blue and green points are indicating States A and B, respectively, through several reps. The following naive intuitions might be considered in feature extraction:
+Providing an efficient set of features for a recognition model has two main steps: i) feature extraction ii) feature selection. Particularly in HAR, extracting features is based on a comprehensive understanding of the activity's movements in a coordinate system - hand-crafted features ~\cite{}; While, \textit{feature selection} is a heuristic filtering approach on features to minimize their redundancy and maximize their relevancy to the activity ~\cite{}. Theoretically, any distinctive characteristic of activities is an intuition to be developed as a feature. For example: in Figure \ref{fig:feature_intuition} (a), two states of \textit{Triceps Kickback} exercise are shown. Each rep of doing this exercise requires the body posture to change between these two states.\footnote{A complete version of Triceps Kickback instruction includes more considerations about holding the dumbbell, inhale and exhale, etc.} A triaxial accelerometer is fixed to the wrist to capture the movements towards three axes (shown in Figure \ref{fig:feature_intuition} (b)). The blue and green points are indicating States A and B, respectively, through several reps. The following naive intuitions might be considered in feature extraction:
 \begin{itemize}
 	\item when the wrist position is in the highest point, the rep is done, only one peak in x axis in each rep may lead to \textbf{using the \textit{maximum} as a feature}
 	\item each rep contains two minimums and two maximums in y axis, which leads to \textbf{counting number of peaks as a feature}
@@ -182,6 +182,7 @@ In Table \ref{tab:feature_list}, there is a short description for each feature t
 	\caption{(a) Two states of "dumbbell triceps dips" while a sensor attached to the wrist. (b) The signals recorded by a triaxial accelerometer during five iteration of dumbbell triceps dips. Red and green bullets stand for State A and B respectively. The red circles indicate the maximum peaks in x signal. In feature extraction process, an input like the y axis signal might be considered as an intuitive feature such as mean or median to recognize each state of this activity.}
 	\label{fig:feature_intuition}
 \end{figure} 
+
 
 Although feature selection is not a mandatory step in HAR pipeline, employing feature selection is very popular as it proved that it can significantly improves the performance. There are several studies have shown that the featureset returned from the feature selection improves the model's performance both in accuracy and computational costs~\cite{rosati2018comparison, Nourani_CoMoRea2019, wang2019survey}. For example, in our previous study, we setup an study/experiment on time domain features and used an ensemble feature selection (a combination of filtering method and wrapper method) and showed that using only 10\% of features the performance is still identical.or ~\cite{yazdansepas2016multi}.\hosein{need 1 or 2 related works}\\
 Main approaches in feature selection are: 1) Filter Method ~\cite{zhang2011feature}, 2)Wrapper method ~\cite{rosati2018comparison}, and 3)Embedded method \cite{Nourani_CoMoRea2019}.  Often, Researchers try different selection approaches on a given set of extracted features and choose the set providing the highest performance. Therefore, the performance achieved by using a featureset tightly bounds up with both extraction and selection phase. For the same reason, in this study, we investigate on the performance of  featuresets as the ultimate products of feature engineering in HAR.\\
@@ -200,34 +201,15 @@ some studies focused on transition activities like x y z. there are also studies
 Some researchers have evaluated the effect of amending HAR performance with combining different set of features  ~\cite{yazdansepas2016multi, chen2018distilling}.
 
 
-Krishnan and Juillard setup a study \cite{krishnan2009recognition}
-
-In [], authors developed a position-aware HAR system by placing seven accelerometers in different body positions.
-
-
-
-
-Studies where a type of features was either used alone or in combination with another exist for many applications related to HAR.
-
-For example, for gait analysis ~\cite{zhang2011feature, sprager2015inertial}, gym exercises ~\cite{rosati2018comparison} and disease diagnosis ~\cite{janidarmian2014automated}, the time domain features have been used, either alone or in combination with frequency domain features. Moreover, time domain features, frequency domain features, and a set of auto-correlation features combined to detect certain exercises in the gym \cite{morris2014recofit, rosati2018comparison}. \\
-
-
-Rather than using a combination of features in a HAR model, There are studies in exploring and introducing new sets of hand-crafted features in the literature....
-
-
-
 %grouping the featuresets based on the undestanding of the activities
-
-
 
 In particular, we focus on this research question: "How and when are various featuresets, which are all state-of-the-art, best used for better recognition performance (RQ1)".
 
 Some researchers have already investigated the impact of various features in activity recognition\cite{morris2014recofit,zhang2013human, rosati2018comparison}. For example, in \cite{morris2014recofit}, the authors use statistical features in combination with auto-correlation features using SVM classifier and report a robust HAR system on gym exercises with around 99\% of accuracy on their own dataset. On the other hand, in \cite{zhang2011feature}, the authors claim that the addition of physical features, feature based on physical interpretation, to statistical features while employing a multi-level classification, improves the performance to 90\% of accuracy. Although the first study has reached a better performance than second study, it does not necessarily mean that the auto-correlation features are 9\% more informative than physical features. These two papers are showing different results probably due to their different experimental setups. In order to compare the impact of each featureset, it is important to examine them under same experimental setup. However, these previous studies have investigated featuresets on different dataset and classification method. In order to have general answer to RQ1, we need to know the role of other factors like classification method on HAR model. In other words, we are aiming to answer: "How different do classifiers perform on different featuresets (RQ2)". We chose four classifiers in order to cover the most commonly used classification methods in the previous studies. These classifiers are: Support-Vector Machine (SVM), Feed-Forward Network (FNN), Decision Tree (DT), and K-Nearest Neighbor (KNN).
 
-In 2018, Jordao et al. \cite{jordao2018human} revealed a basic issue regarding the process of extracting features. They showed that the traditional process of generating data points is vulnerable to bias leading skewed results. It occurs because the part of the sample's content can appear in training and testing, simultaneously. They have demonstrated that by applying non-biased ways of generating features from raw data, recognition performance has been significantly affected. Therefore, in this study we also investigate impact of three protocol of generating features: A: Extracting features over whole dataset (traditional method), B: Extracting features over sessions of recording data, and C: Extracting features over data of each subject separated. Method A is selected because it was mostly-used in previous studies \cite{}. There is an evaluation method corresponding with each way of generating features including K-fold, Leave-One-Trial-Out (LOTO), and Leave-One-Subject-Out (LOSO), respectively. In particular, we want to answer this research question: "How do different protocols impact on recognition performance? (RQ3)".\\
+In 2018, Jordao et al. ~\cite{jordao2018human} revealed a basic issue regarding the process of extracting features. They showed that the traditional process of generating data points is vulnerable to bias leading skewed results. It occurs because the part of the sample's content can appear in training and testing, simultaneously. They have demonstrated that by applying non-biased ways of generating features from raw data, recognition performance has been significantly affected. Therefore, in this study we also investigate impact of three protocol of generating features: A: Extracting features over whole dataset (traditional method), B: Extracting features over sessions of recording data, and C: Extracting features over data of each subject separated. Method A is selected because it was mostly-used in previous studies \cite{}. There is an evaluation method corresponding with each way of generating features including K-fold, Leave-One-Trial-Out (LOTO), and Leave-One-Subject-Out (LOSO), respectively. In particular, we want to answer this research question: "How do different protocols impact on recognition performance? (RQ3)".\\
 
 We believe that our effort will assist the readership and this will save time for future studies by not repeating the same experiments. This study can be used as a basis for making design decisions about when and what to choose these set of features for better activity recognition. The main contributions and highlights of this paper are as follows:
-
 
 \begin{itemize}
 	\item To the best of our knowledge, we are the first to do such an extensive analysis of the role of state-of-the-art featuresets in activity recognition, over different classifiers and evaluation methods. We extract features from two sensors equipped with accelerometer and gyroscope on two body positions (wrist and foot). We have used four classification models in our experiments, which are all used in the state-of-the-art. 
@@ -236,23 +218,6 @@ We believe that our effort will assist the readership and this will save time fo
 	\item We recognize eight gym exercises, commonly used in the state-of-the-art. Moreover, we make our data set and our labeling and extracting features application publicly available for future research in this domain \cite{gymDataset}.
 \end{itemize}
 
-
-The rest of the paper is organized as follows. We describe related work in Section 2. The data and the study setup including the approach and the dataset are explained in Section 3. The featuresets are described in Section 4 and our evaluation approach in Section 5. We discuss the performance evaluation in Section 6. Finally, we describe our conclusions and future work in Section 7.
-
---------------
-
-
-Basically, a HAR system using Inertial Measurement Units (IMUs) is composed of two basic components: (1) a data acquisition unit responsible for capturing human movements, (2) a processing unit responsible for recognizing the certain activities among movements of the subject~\cite{rosati2018comparison}. In the first component, the human movements is captured by different motion sensors such as accelerometer, gyroscope, and so on. These sensors can be located in an off-the-shelf device like a smart-phone for general HAR applications or specifically are accompanied by a storage and a processor, formed a System on Chip (SoC) for a certain purpose. The captured movements as raw data transmits to the second component for processing operation.\\
-Within the processing unit, there is a pattern recognition (HAR) model that classifies the input signals into certain classes of activities. This HAR model typically consists of three phases. First, there is a pre-processing operation that extracts informative features from raw signal. Second, a classifier is trained over extracted features. Third, an evaluation method to ensure that the classifier provides the required performance~\cite{kolodziej2019registration}. In other words, a HAR model should address these three aspects to be able to recognize an activity.
-
-\section{Background}
-The data coming from sensor depends on the type of sensor and the position of the sensor on the body.
-accelerometer[] and gyroscope[] are the most popular sensor mostly used in HAR systems. the signal from magnetometer is sensitive against iron and local magnetic fields exist in the environment. therefore, it is less used rather the other sensors. to place the sensor on subject's body, previous works used different positions. authors have used chest, wrist, pocket, and foot to attach the sensor~\cite{hassan2018robust, morris2014recofit, s140610146, wang2019survey}. In this work, we used accelerometer and gyroscope located on two spots on wrist and on ankle.
-
-\section{Related Work}
-
-\subsection{HAR Evaluation}
-To compare the performance of HAR models, in the literature, K-folds validation and cross-subject validation are more popular than others. [] uses 
 
 \subsection{Featureset comparison}
 
@@ -264,26 +229,11 @@ previous works:
 (2) The complexity of calculation of features makes a model difficult to understand.
 
 
-
 \cite{s140610146}Experimental results showed that models with time-domain features perform better compared to models using frequency-domain features, considering the fact that the distance between results vary with activity, classifier, and sensor position. They also showed that the combination of both accelerometer and gyroscope results ~3.5\% improvements on average of accuracy as compared with using either.
 
 
+The rest of the paper is organized as follows. We describe related work in Section 2. The data and the study setup including the approach and the dataset are explained in Section 3. The featuresets are described in Section 4 and our evaluation approach in Section 5. We discuss the performance evaluation in Section 6. Finally, we describe our conclusions and future work in Section 7.
 
-
-Although there is earlier work in which motion sensors (accelerometer, gyroscope, magnetometer and linear acceleration) are used either alone or in different combinations. However, the merit of the individual sensors is often not evaluated in detail.
-
-
-related works: 
-1-goal
-	applying a certain set of feature (alone, combination) 
-	recognizing a certain activity (name/category) / application
-	
- 2-result
- 3-how(experiment)
-	which type of sensor (smartphone/ specific sensor)
-	how they extract the features (domain/name)
-	if they collect the data by themselves or using a benchmark dataset
-	
 
 \section{Materials and Methods}
 
@@ -366,11 +316,7 @@ Although the device provides the magnetometer signals, we limited our process on
 to label the data we employed a process including three phases: (1) \textbf{By participant}: before beginning of each session, each subject was asked to fill a form about list of activities, number of sets, and the weights if applicable. (2) \textbf{By supervisor}: during the session, a supervisor manually records type of exercise, the moment of start and stop, and number of repetitions. (3) \textbf{By visual signal}: after finishing the session, in order to have our desired accuracy in labeling, we visually trace the signals of accelerometer and gyroscope to refine the regains assigned to each exercise. Using this way, any error missing in one step, will be caught in the next step.
 
 
-
-\section{Method}
-In this section, we explain the procedure of HAR as it is provided in Figure \ref{fig:main_approach}.
-
-\subsection{Feature Extraction}
+\subsection{Reproducing Featuresets}
 \label{sec:feature_extraction}
 
 
@@ -380,7 +326,7 @@ In literature, in order to gain more information from the sensory data (signal),
 
 
 In this study, we targeted five state-of-the-art sets of hand-crafted features. Table \ref{features_table} shows 31 functions along with a description/intuition about each one. Functions are grouped into sets (first column). Each set of functions is uniquely representative of a certain aspect of the signal.
- 
+
 \noindent\textbf{Preprocessing.} We used two tri-axial sensors (accelerometer and gyroscope) on two body positions (wrist and foot); So, To reproduce features, we normally apply these 31 functions on 12 raw signals coming from sensors. However, in some cases, an extra preprocessing operation is also required which will be explained in related section. Addition to this, to ensure that the data from different resources (sensors) are at the same scales, we performed a scale normalization in advance of any other computations.
 
 
@@ -496,7 +442,7 @@ Recently, a number of studies have shown that Feed-forward Neural Networks achie
 \end{equation}
 where y is the output of the neuron, $ w_{i} $ are weights of the incoming connections, $ x_i $ are inputs to the neuron, and $f$ is called transfer function and is selected according to the classification problem \cite{zhang1999geometrical}. Neurons in a FNN are organized in layers. Number of neurons at first layer and last layer are corresponding with number of features and number of activities, respectively~\cite{baldominos2019comparison}. Between input and output layers a certain number of hidden layers can be inserted, whose dimensions are usually decided testing different configurations ~\cite{baldominos2019comparison}. The configuration details of the network described in Table \ref{classifier_hyper_parameter}.
 
-\subsection{Evaluation}
+\subsection{Evaluation Methods}
 To evaluate the performance of the model, we need to split data into training and testing sets. For this purpose, in the context of HAR, there are traditional techniques such as k-fold cross-validation, leave-one-subject-out~\cite{jordao2018human}, as well as, the relatively less common techniques like leave-one-trial-out~\cite{sena2018multiscale}. In this study, we used all three validation methods while we modified leave-one-trial-out to leave-one-set-out in order to make it more flexible for repetitive activities. 
 
 \subsubsection{K-fold Cross validation}
