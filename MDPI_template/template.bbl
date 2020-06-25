@@ -108,25 +108,6 @@ Chen, Z.; Zhang, L.; Cao, Z.; Guo, J.
 \newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2018}, {\em
   14},~4334--4342.
 
-\bibitem[Krishnan \em{et~al.}(2009)Krishnan, Juillard, Colbry, and
-  Panchanathan]{krishnan2009recognition}
-Krishnan, N.C.; Juillard, C.; Colbry, D.; Panchanathan, S.
-\newblock Recognition of hand movements using wearable accelerometers.
-\newblock {\em Journal of Ambient Intelligence and Smart Environments} {\bf
-  2009}, {\em 1},~143--155.
-
-\bibitem[Sprager and Juric(2015)]{sprager2015inertial}
-Sprager, S.; Juric, M.B.
-\newblock Inertial sensor-based gait recognition: A review.
-\newblock {\em Sensors} {\bf 2015}, {\em 15},~22089--22127.
-
-\bibitem[Janidarmian \em{et~al.}(2014)Janidarmian, Radecka, and
-  Zilic]{janidarmian2014automated}
-Janidarmian, M.; Radecka, K.; Zilic, Z.
-\newblock Automated diagnosis of knee pathology using sensory data.
-\newblock  Wireless Mobile Communication and Healthcare (Mobihealth), 2014 EAI
-  4th International Conference on. IEEE,  2014, pp. 95--98.
-
 \bibitem[Zhang and Sawchuk(2013)]{zhang2013human}
 Zhang, M.; Sawchuk, A.A.
 \newblock Human daily activity recognition with sparse representation using
@@ -146,22 +127,6 @@ Nourani, H.
 \newblock {Gym Exercises Dataset}.
 \newblock \url{https://github.com/h0111in/Gym-Exercises-dataset/},  2019.
 \newblock [Online; accessed 05-May-2019].
-
-\bibitem[Ko{\l}odziej \em{et~al.}(2019)Ko{\l}odziej, Majkowski, Tarnowski, Rak,
-  Gebert, and Sawicki]{kolodziej2019registration}
-Ko{\l}odziej, M.; Majkowski, A.; Tarnowski, P.; Rak, R.J.; Gebert, D.; Sawicki,
-  D.
-\newblock Registration and Analysis of Acceleration Data to Recognize Physical
-  Activity.
-\newblock {\em Journal of Healthcare Engineering} {\bf 2019}, {\em 2019}.
-
-\bibitem[Hassan \em{et~al.}(2018)Hassan, Uddin, Mohamed, and
-  Almogren]{hassan2018robust}
-Hassan, M.M.; Uddin, M.Z.; Mohamed, A.; Almogren, A.
-\newblock A robust human activity recognition system using smartphone sensors
-  and deep learning.
-\newblock {\em Future Generation Computer Systems} {\bf 2018}, {\em
-  81},~307--313.
 
 \bibitem[Janidarmian \em{et~al.}(2017)Janidarmian, Roshan~Fekr, Radecka, and
   Zilic]{janidarmian2017comprehensive}
