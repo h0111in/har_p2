@@ -53,9 +53,9 @@ Shoaib, M.; Bosch, S.; Incel, O.; Scholten, H.; Havinga, P.
   motion sensors.
 \newblock {\em Sensors} {\bf 2016}, {\em 16},~426.
 
-\bibitem[and Bosch \em{et~al.}(2014)and Bosch, Incel, Scholten, and
+\bibitem[Shoaib \em{et~al.}(2014)Shoaib, Bosch, Incel, Scholten, and
   Havinga]{s140610146}
-and Bosch, S.; Incel, O.D.; Scholten, H.; Havinga, P.J.M.
+Shoaib.; Bosch, S.; Incel, O.D.; Scholten, H.; Havinga, P.J.M.
 \newblock Fusion of Smartphone Motion Sensors for Physical Activity
   Recognition.
 \newblock {\em Sensors} {\bf 2014}, {\em 14},~10146--10176.
@@ -69,13 +69,59 @@ Rosati, S.; Balestra, G.; Knaflitz, M.
   Recognition by Wearable Sensors.
 \newblock {\em Sensors} {\bf 2018}, {\em 18},~4189.
 
-\bibitem[Nourani \em{et~al.}(2019)Nourani, Shihab, and
-  Sarbishe]{Nourani_CoMoRea2019}
-Nourani, H.; Shihab, E.; Sarbishe, O.
-\newblock The Impact of Data Reduction on Wearable-Based Human Activity
-  Recognition.
-\newblock  Proceedings of the 15th Workshop on Context Modeling and
-  Recognition. IEEE,  2019, CoMoRea '19, pp. 89--94.
+\bibitem[Khokhlov \em{et~al.}(2018)Khokhlov, Reznik, Cappos, and
+  Bhaskar]{khokhlov2018design}
+Khokhlov, I.; Reznik, L.; Cappos, J.; Bhaskar, R.
+\newblock Design of activity recognition systems with wearable sensors.
+\newblock  2018 IEEE Sensors Applications Symposium (SAS). IEEE,  2018, pp.
+  1--6.
+
+\bibitem[Zardoshti-Kermani \em{et~al.}(1995)Zardoshti-Kermani, Wheeler, Badie,
+  and Hashemi]{zardoshti1995emg}
+Zardoshti-Kermani, M.; Wheeler, B.C.; Badie, K.; Hashemi, R.M.
+\newblock EMG feature evaluation for movement control of upper extremity
+  prostheses.
+\newblock {\em IEEE Transactions on Rehabilitation Engineering} {\bf 1995},
+  {\em 3},~324--333.
+
+\bibitem[Shirahama \em{et~al.}(2016)Shirahama, K{\"o}ping, and
+  Grzegorzek]{shirahama2016codebook}
+Shirahama, K.; K{\"o}ping, L.; Grzegorzek, M.
+\newblock Codebook approach for sensor-based human activity recognition.
+\newblock  Proceedings of the 2016 ACM International Joint Conference on
+  Pervasive and Ubiquitous Computing: Adjunct. ACM,  2016, pp. 197--200.
+
+\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
+Sarbishei, O.
+\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
+  Recognition on Low-Power Smart Devices.
+\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
+  257--260.
+
+\bibitem[Xi \em{et~al.}(2017)Xi, Tang, Miran, and Luo]{xi2017evaluation}
+Xi, X.; Tang, M.; Miran, S.M.; Luo, Z.
+\newblock Evaluation of feature extraction and recognition for activity
+  monitoring and fall detection based on wearable sEMG sensors.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~1229.
+
+\bibitem[Zhang and Sawchuk(2011)]{zhang2011feature}
+Zhang, M.; Sawchuk, A.A.
+\newblock A feature selection-based framework for human activity recognition
+  using wearable multimodal sensors.
+\newblock  Proceedings of the 6th International Conference on Body Area
+  Networks. ICST (Institute for Computer Sciences, Social-Informatics and
+  Telecommunications Engineering),  2011, pp. 92--98.
+
+\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
+Yurtman, A.; Barshan, B.
+\newblock Activity recognition invariant to sensor orientation with wearable
+  motion sensors.
+\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
+
+\bibitem[Moon and Stirling(2000)]{moon2000mathematical}
+Moon, T.K.; Stirling, W.C.
+\newblock {\em Mathematical methods and algorithms for signal processing};
+  Vol.~1, Prentice hall Upper Saddle River, NJ,  2000.
 
 \bibitem[Yazdansepas \em{et~al.}(2016)Yazdansepas, Niazi, Gay, Maier,
   Ramaswamy, Rasheed, and Buman]{yazdansepas2016multi}
@@ -86,27 +132,20 @@ Yazdansepas, D.; Niazi, A.H.; Gay, J.L.; Maier, F.W.; Ramaswamy, L.; Rasheed,
 \newblock  2016 IEEE International Conference on Healthcare Informatics (ICHI).
   IEEE,  2016, pp. 423--431.
 
-\bibitem[Zhang and Sawchuk(2011)]{zhang2011feature}
-Zhang, M.; Sawchuk, A.A.
-\newblock A feature selection-based framework for human activity recognition
-  using wearable multimodal sensors.
-\newblock  Proceedings of the 6th International Conference on Body Area
-  Networks. ICST (Institute for Computer Sciences, Social-Informatics and
-  Telecommunications Engineering),  2011, pp. 92--98.
-
-\bibitem[Khokhlov \em{et~al.}(2018)Khokhlov, Reznik, Cappos, and
-  Bhaskar]{khokhlov2018design}
-Khokhlov, I.; Reznik, L.; Cappos, J.; Bhaskar, R.
-\newblock Design of activity recognition systems with wearable sensors.
-\newblock  2018 IEEE Sensors Applications Symposium (SAS). IEEE,  2018, pp.
-  1--6.
-
 \bibitem[Chen \em{et~al.}(2018)Chen, Zhang, Cao, and Guo]{chen2018distilling}
 Chen, Z.; Zhang, L.; Cao, Z.; Guo, J.
 \newblock Distilling the knowledge from handcrafted features for human activity
   recognition.
 \newblock {\em IEEE Transactions on Industrial Informatics} {\bf 2018}, {\em
   14},~4334--4342.
+
+\bibitem[Nourani \em{et~al.}(2019)Nourani, Shihab, and
+  Sarbishe]{Nourani_CoMoRea2019}
+Nourani, H.; Shihab, E.; Sarbishe, O.
+\newblock The Impact of Data Reduction on Wearable-Based Human Activity
+  Recognition.
+\newblock  Proceedings of the 15th Workshop on Context Modeling and
+  Recognition. IEEE,  2019, CoMoRea '19, pp. 89--94.
 
 \bibitem[Zhang and Sawchuk(2013)]{zhang2013human}
 Zhang, M.; Sawchuk, A.A.
@@ -167,49 +206,10 @@ Mazo, J.E.
 \newblock {\em The Bell System Technical Journal} {\bf 1975}, {\em
   54},~1451--1462.
 
-\bibitem[Zardoshti-Kermani \em{et~al.}(1995)Zardoshti-Kermani, Wheeler, Badie,
-  and Hashemi]{zardoshti1995emg}
-Zardoshti-Kermani, M.; Wheeler, B.C.; Badie, K.; Hashemi, R.M.
-\newblock EMG feature evaluation for movement control of upper extremity
-  prostheses.
-\newblock {\em IEEE Transactions on Rehabilitation Engineering} {\bf 1995},
-  {\em 3},~324--333.
-
-\bibitem[Shirahama \em{et~al.}(2016)Shirahama, K{\"o}ping, and
-  Grzegorzek]{shirahama2016codebook}
-Shirahama, K.; K{\"o}ping, L.; Grzegorzek, M.
-\newblock Codebook approach for sensor-based human activity recognition.
-\newblock  Proceedings of the 2016 ACM International Joint Conference on
-  Pervasive and Ubiquitous Computing: Adjunct. ACM,  2016, pp. 197--200.
-
-\bibitem[Sarbishei(2019)]{Sarbishei2019platform}
-Sarbishei, O.
-\newblock A Platform and Methodology Enabling Real-Time Motion Pattern
-  Recognition on Low-Power Smart Devices.
-\newblock {\em 2019 IEEE World Forum on Internet of Things} {\bf 2019}, pp.
-  257--260.
-
-\bibitem[Xi \em{et~al.}(2017)Xi, Tang, Miran, and Luo]{xi2017evaluation}
-Xi, X.; Tang, M.; Miran, S.M.; Luo, Z.
-\newblock Evaluation of feature extraction and recognition for activity
-  monitoring and fall detection based on wearable sEMG sensors.
-\newblock {\em Sensors} {\bf 2017}, {\em 17},~1229.
-
 \bibitem[Acc()]{Accelero5:online}
 Accelerometer.
 \newblock \url{https://www.w3.org/TR/accelerometer/}.
 \newblock (Accessed on 07/03/2019).
-
-\bibitem[Yurtman and Barshan(2017)]{yurtman2017activity}
-Yurtman, A.; Barshan, B.
-\newblock Activity recognition invariant to sensor orientation with wearable
-  motion sensors.
-\newblock {\em Sensors} {\bf 2017}, {\em 17},~1838.
-
-\bibitem[Moon and Stirling(2000)]{moon2000mathematical}
-Moon, T.K.; Stirling, W.C.
-\newblock {\em Mathematical methods and algorithms for signal processing};
-  Vol.~1, Prentice hall Upper Saddle River, NJ,  2000.
 
 \bibitem[Nair and Hinton(2010)]{nair2010rectified}
 Nair, V.; Hinton, G.E.
